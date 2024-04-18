@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <table>
+          <tr>
+            <th>
+                <label for="Number">Номер д/з</label>
+                <input id="Number" type="number" size="1" min="1"/>
+            </th>
+            <th>
+                <select id="SecondTry" onchange="onTryChange(event)">
+                    <option disabled selected>Дорешка</option>
+                    <option>Да</option>
+                    <option>Нет</option>
+                    <option>Не важно</option>
+                </select>
+            </th>
+            <th>
+                <select id="Group" onchange="onGroupChange(event)">
+                    <option disabled selected>Группа</option>
+                    <option>ФТ-201</option>
+                    <option>ФТ-202</option>
+                    <option>ФТ-203</option>
+                    <option>ФТ-204</option>
+                    <option>Любая</option>
+                </select>
+            </th>
+          </tr>
+        </table>
+        
+        <div id="tableContainer"><table></table></div>
+      </div>
+      <script src="checking.js"></script>
+</body>
+</html>
