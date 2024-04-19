@@ -1,0 +1,119 @@
+body {
+  background: linear-gradient(#8F27C0, #1A185A) fixed;
+}
+
+.content_block {
+  width: 500px;
+  height: 500px;
+  background-color: #08060970;
+  border: 1px solid white;
+  color: #FFFFFF;
+  font-family: Golos, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-top: 32px;
+  margin-left: 25px;
+  float: left;
+}
+  
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+  
+th, td {
+  border: 1px solid white;
+  padding: 8px;
+}
+
+select {
+  background-color: #08060900;
+  border: none;
+  color: white;
+}
+
+option {
+  color: #000;
+  font-family: Golos, Arial, sans-serif;
+}
+
+input[type="number"] {
+  margin-left: 4px;
+  background-color: #08060950;
+  border: 1px solid white;
+  color: white;
+  width: 35px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none; 
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+.solution_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  float: right;
+  width: 700px;
+  height: 500px;
+  margin-top: 32px;
+  margin-right: 25px;
+  font-family: Golos, Geneva, Arial, Helvetica, sans-serif;
+}
+
+.embed_container {
+  height: 250px;
+  background-color: #08060970;
+  border: 1px solid white;
+}
+
+.checking_block {
+  height: 185px;
+  background-color: #08060970;
+  border: 1px solid white;
+  color: white;
+}
+
+.points_block {
+  display: flex;
+  padding-left: 8px;
+  height: 35px;
+  align-items: center;
+}
+
+.comment_block {
+  height: 100px;
+  background-color: #08060900;
+  border-top: 1px solid white;
+}
+
+.button_block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 47px;
+}
+
+input[type="button"] {
+  height: 35px;
+  font-size: 20px;
+  border-radius: 15px;
+  background-color: #08060950;
+  border: 1px solid white;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+textarea {
+  background-color: #08060900;
+  color: white;
+  border: none;
+}

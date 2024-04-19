@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>StatVizorium</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header_wrap">
+        <header class="header">
+            <a href="#">
+                <img src="эмблема 1.png" alt="" width="1066px" height="146px">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Отправка</a></li>
+                    <li><a href="#">Проверка</a></li>
+                    <li><a href="#">Войти</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div class="content_block">
+        <table>
+          <tr>
+            <th>
+                <label for="number">Номер д/з</label>
+                <input class="number" id="number" type="number" size="1" min="1"/>
+            </th>
+            <th>
+                <select class="secondTry" onchange="onTryChange(event)">
+                    <option disabled selected>Дорешка</option>
+                    <option>Да</option>
+                    <option>Нет</option>
+                    <option>Не важно</option>
+                </select>
+            </th>
+            <th>
+                <select class="group" onchange="onGroupChange(event)">
+                    <option disabled selected>Группа</option>
+                    <option>ФТ-201</option>
+                    <option>ФТ-202</option>
+                    <option>ФТ-203</option>
+                    <option>ФТ-204</option>
+                    <option>Любая</option>
+                </select>
+            </th>
+          </tr>
+        </table>
+        
+        <div class="tableContainer"><table></table></div>
+      </div>
+    
+    <div class="solution_block">
+        <div class="embed_container">
+            <embed class='solution' src='' type="application/pdf" width="100%" height="100%">
+        </div>
+        <div class="checking_block">
+            <form id="checking">
+                <div class="points_block">
+                    <label for="points">Баллы</label>
+                    <input class="points" id="points" type="number" size="1" min="1"/>
+                </div>
+                <div class="comment_block">
+                    <textarea class='comment', rows="6" cols="92"></textarea>
+                </div>
+            </form>
+            <div class="button_block">
+                <input type="button" class="send" value="Отправка сообщения" form="checking">
+            </div>
+            
+        </div>
+    </div>
+    <div class="footer_wrap">
+        <footer class="footer">
+            <a href="#">
+                <img src="Vector.png" alt="" width="250px" height="250px">
+            </a>
+        </futer>
+    </div>
+
+      <script src="checking.js"></script>
+</body>
+</html>
