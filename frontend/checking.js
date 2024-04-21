@@ -4,7 +4,7 @@ let homeworks = [
         isChecked: false,
         isSecondTry: true,
         group: 'ФТ-204',
-        file: 'hws/HomeworkSemen.pdf',
+        file: '../hws/HomeworkSemen.pdf',
         number: 1,
         comment: null,
         points: 0
@@ -14,7 +14,7 @@ let homeworks = [
         isChecked: true,
         isSecondTry: false,
         group: 'ФТ-204',
-        file: 'hws/HomeworkDmitry.pdf',
+        file: '../hws/HomeworkDmitry.pdf',
         number: 2,
         comment: null,
         points: 0
