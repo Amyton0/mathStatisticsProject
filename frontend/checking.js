@@ -2,9 +2,11 @@ let homeworks = [
     {
         name: 'Терещенко Семён',
         isChecked: false,
-        isSecondTry: true,
+        type: 'Дорешка',
         group: 'ФТ-204',
-        file: '../hws/HomeworkSemen.pdf',
+        filePath: '../hws/HomeworkSemen.pdf',
+        filename: 'HomeworkSemen.pdf',
+        studentMessage: 'пУпуцпупупупуцфпуфпцппфцупупыфпвыщпораврдпваорпдлоа',
         number: 1,
         comment: null,
         points: 0
@@ -12,9 +14,11 @@ let homeworks = [
     {
         name: 'Бабинцев Дмитрий',
         isChecked: true,
-        isSecondTry: false,
+        type: 'Обычное',
         group: 'ФТ-204',
-        file: '../hws/HomeworkDmitry.pdf',
+        filePath: '../hws/HomeworkDmitry.pdf',
+        filename: 'HomeworkDmitry.pdf',
+        studentMessage: 'аааа ыыыыы аалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяв',
         number: 2,
         comment: null,
         points: 0
@@ -31,23 +35,26 @@ let send = document.getElementsByClassName('send')[0];
 
 chooseNumber.oninput = onNumberChange;
 
-let isSecondTry = null;
-let currentGroup = 'Любая';
-let currentNumber = '';
+let currentTypes = null;
+let currentGroups = null;
+let currentNumber = null;
 let currentHomework = -1;
+let isChecked = null;
 
 send.addEventListener('click', sendMessage)
 
-function onTryChange(event) {
-    const selectedValue = event.target.value;
-    if (selectedValue === 'Да') isSecondTry = true;
-    else if (selectedValue === 'Нет') isSecondTry = false;
-    else isSecondTry = null;
+function onTypeChange(event) {
+    if (currentTypes == null) currentTypes = [];
+    if (event.target.checked) currentTypes.push(event.target.value);
+    else currentTypes = currentTypes.filter((type) => type !== event.target.value);
+    console.log(currentTypes)
     filterHWs();
 }
 
 function onGroupChange(event) {
-    currentGroup = event.target.value;
+    if (currentGroups == null) currentGroups = [];
+    if (event.target.checked) currentGroups.push(event.target.value);
+    else currentGroups = currentGroups.filter((group) => group !== event.target.value);
     filterHWs();
 }
 
@@ -56,66 +63,133 @@ function onNumberChange(event) {
     filterHWs();
 }
 
+function onStatusChange(event) {
+    const selectedValue = event.target.value;
+    if (selectedValue === 'Проверено') isChecked = true;
+    else if (selectedValue === 'Не проверено') isChecked = false;
+    else isChecked = null;
+    filterHWs();
+}
+
 function filterHWs() {
     filteredHomeworks = [];
     for (let index = 0; index < homeworks.length; index++) {
         const element = homeworks[index];
-        if (currentNumber != '') {
+        if (currentNumber != null) {
             if (element.number != Number(currentNumber)) continue;
         }
-        if (currentGroup != 'Любая') {
-            if (element.group != currentGroup) continue;
+        if (currentGroups != null) {
+            if (!currentGroups.includes(element.group)) continue;
         }
-        if (isSecondTry != null) {
-            if (element.isSecondTry != isSecondTry) continue;
+        if (currentTypes != null) {
+            if (!currentTypes.includes(element.type)) continue;
+        }
+        if (isChecked != null) {
+            if (element.isChecked != isChecked) continue;
         }
         filteredHomeworks.push(element)
     }
-
-    let table = document.createElement("table");
     
-    let container = document.getElementsByClassName("tableContainer")[0];
+    let homeworksEl = document.getElementsByClassName("homeworks")[0];
 
-    container.removeChild(container.querySelector('table'))
+    while (homeworksEl.firstChild) {
+        homeworksEl.removeChild(homeworksEl.firstChild);
+    }
 
     for (var i = 0; i < filteredHomeworks.length; i++) {
         const element = filteredHomeworks[i];
-        let row = table.insertRow(-1);
 
-        let cell1 = row.insertCell(0);
-        cell1.innerText = element.name;
+        var homework = document.createElement('div');
+  
+        homework.classList.add('homework');
 
-        cell1.addEventListener('click', () => {
-            document.getElementsByClassName("solution")[0].src = element.file;
+        let text = `${element.name} - ${element.group}|ДЗ - ${element.number}`
+
+        if (element.isChecked) text += ' ☑';
+        if (element.type == 'Дорешка') text += ' ↪'
+  
+        homework.innerText = text;
+
+        homeworksEl.appendChild(homework);
+
+        homework.addEventListener('click', () => {
+            document.getElementsByClassName("message")[0].innerText = element.studentMessage;
             currentHomework = filteredHomeworks.indexOf(element);
+
+            let downloadButton = document.createElement('input');
+
+            downloadButton.setAttribute('type', 'button');
+
+            downloadButton.value = 'Скачать файл';
+
+            downloadButton.addEventListener('click', () => {
+                var link = document.createElement('a');
+                
+                link.setAttribute('href', element.filePath); 
+                link.setAttribute('download', element.filename); 
+                link.setAttribute('target', '_blank');
+                link.style.display = 'none';
+                    
+                document.body.appendChild(link);
+                link.click();
+                    
+                document.body.removeChild(link);
+            });
+
+            let buttonBlock = document.getElementsByClassName('button_block')[0]
+
+            if (buttonBlock.firstChild) {
+                buttonBlock.removeChild(buttonBlock.firstChild);
+            } 
+
+            buttonBlock.appendChild(downloadButton);
         })
-
-        let checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.id = i;
-        checkbox.disabled = true;
-        if (element.isChecked) checkbox.checked = true;
-        
-        let label = document.createElement("label");
-        label.htmlFor = i;
-        label.appendChild(document.createTextNode("Проверено"));
-
-        var cell2 = row.insertCell(1);
-        
-        cell2.appendChild(label);
-        cell2.appendChild(checkbox);
     }
-
-    container.appendChild(table);
 }
 
 function sendMessage() {
-    let points = document.getElementsByClassName("points")[0].value;
-    let message = document.getElementsByClassName("comment")[0].value;
+    let pointsEl = document.getElementsByClassName("points")[0];
+    let messageEl = document.getElementsByClassName("comment")[0];
 
-    homeworks[currentHomework].comment = message;
-    homeworks[currentHomework].points = Number(points);
-    homeworks[currentHomework].isChecked = true;
+    if (pointsEl.value) {
+        homeworks[currentHomework].comment = messageEl.value;
+        homeworks[currentHomework].points = Number(pointsEl.value);
+        homeworks[currentHomework].isChecked = true;
 
-    console.log(homeworks[currentHomework])
+        pointsEl.value = null;
+        messageEl.value = null;
+
+        console.log(homeworks[currentHomework])
+    }
+}
+
+const modal = document.getElementById('modal');
+
+modal.addEventListener('mousedown', startDrag);
+const close = document.getElementById('close');
+
+let offsetX;
+let offsetY;
+let isDragging = false;
+
+close.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+function startDrag(e) {
+    const rect = modal.getBoundingClientRect();
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('mouseup', stopDrag);
+}
+  
+function drag(e) {
+    modal.style.left = e.clientX - offsetX + 'px';
+    modal.style.top = e.clientY - offsetY + 'px';
+}
+  
+function stopDrag() {
+    document.removeEventListener('mousemove', drag);
+    document.removeEventListener('mouseup', stopDrag);
 }
