@@ -283,3 +283,25 @@ ul li label {
   font-size: 20px;
   cursor: pointer;
 }
+
+.solution_points_block {
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  background-color: #770DC0;
+  color: white;
+  display: flex;
+  justify-content: center;
+  float: right;
+  height: 35px;
+  font-size: medium;
+  border-bottom-right-radius: 15px;
+  width: 60%;
+  align-items: center;
+  bottom: 0px;
+  margin-top: 5px;
+}
+
+.checked_header {
+  height: 25px;
+  font-size: large;
+}

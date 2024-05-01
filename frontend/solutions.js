@@ -1,16 +1,16 @@
 let homeworks = [
     {
         name: 'Терещенко Семён',
-        isChecked: false,
+        isChecked: true,
         type: 'Дорешка',
         group: 'ФТ-204',
         filePath: '../hws/HomeworkSemen.pdf',
         filename: 'HomeworkSemen.pdf',
         studentMessage: 'пУпуцпупупупуцфпуфпцппфцупупыфпвыщпораврдпваорпдлоа',
         number: 1,
-        comment: null,
-        points: 0,
-        whoChecked: null
+        comment: 'ыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыыы',
+        points: 2,
+        whoChecked: 'Петров Иван'
     }, 
     {
         name: 'Бабинцев Дмитрий',
@@ -27,22 +27,17 @@ let homeworks = [
     }
 ]
 
+let student = 'Терещенко Семён'
+
 let filteredHomeworks = homeworks.slice(0);
 
 let chooseNumber = document.getElementsByClassName('number')[0];
-let chooseGroup = document.getElementsByClassName('group')[0];
-
-let send = document.getElementsByClassName('send')[0];
 
 chooseNumber.oninput = onNumberChange;
 
 let currentTypes = null;
-let currentGroups = null;
-let currentNumber = null;
 let currentHomework = -1;
-let isChecked = null;
-
-send.addEventListener('click', sendMessage)
+let currentNumber = null;
 
 function onTypeChange(event) {
     if (currentTypes == null) currentTypes = [];
@@ -52,23 +47,9 @@ function onTypeChange(event) {
     filterHWs();
 }
 
-function onGroupChange(event) {
-    if (currentGroups == null) currentGroups = [];
-    if (event.target.checked) currentGroups.push(event.target.value);
-    else currentGroups = currentGroups.filter((group) => group !== event.target.value);
-    filterHWs();
-}
 
 function onNumberChange(event) {
     currentNumber = event.target.value;
-    filterHWs();
-}
-
-function onStatusChange(event) {
-    const selectedValue = event.target.value;
-    if (selectedValue === 'Проверено') isChecked = true;
-    else if (selectedValue === 'Не проверено') isChecked = false;
-    else isChecked = null;
     filterHWs();
 }
 
@@ -76,17 +57,12 @@ function filterHWs() {
     filteredHomeworks = [];
     for (let index = 0; index < homeworks.length; index++) {
         const element = homeworks[index];
+        if (element.name != student) continue;
         if (currentNumber != null) {
             if (element.number != Number(currentNumber)) continue;
         }
-        if (currentGroups != null) {
-            if (!currentGroups.includes(element.group)) continue;
-        }
         if (currentTypes != null) {
             if (!currentTypes.includes(element.type)) continue;
-        }
-        if (isChecked != null) {
-            if (element.isChecked != isChecked) continue;
         }
         filteredHomeworks.push(element)
     }
@@ -104,9 +80,8 @@ function filterHWs() {
   
         homework.classList.add('homework');
 
-        let text = `${element.name} - ${element.group}|ДЗ - ${element.number}`
+        let text = `${element.name} - ${element.number}`
 
-        if (element.isChecked) text += ' ☑';
         if (element.type == 'Дорешка') text += ' ↪'
   
         homework.innerText = text;
@@ -114,53 +89,13 @@ function filterHWs() {
         homeworksEl.appendChild(homework);
 
         homework.addEventListener('click', () => {
-            document.getElementsByClassName("message")[0].innerText = element.studentMessage;
-            currentHomework = filteredHomeworks.indexOf(element);
-
-            let downloadButton = document.createElement('input');
-
-            downloadButton.setAttribute('type', 'button');
-
-            downloadButton.value = 'Скачать файл';
-
-            downloadButton.addEventListener('click', () => {
-                var link = document.createElement('a');
-                
-                link.setAttribute('href', element.filePath); 
-                link.setAttribute('download', element.filename); 
-                link.setAttribute('target', '_blank');
-                link.style.display = 'none';
-                    
-                document.body.appendChild(link);
-                link.click();
-                    
-                document.body.removeChild(link);
-            });
-
-            let buttonBlock = document.getElementsByClassName('button_block')[0]
-
-            if (buttonBlock.firstChild) {
-                buttonBlock.removeChild(buttonBlock.firstChild);
-            } 
-
-            buttonBlock.appendChild(downloadButton);
+            if (element.isChecked) {
+                document.getElementsByClassName("checked_header")[0].innerText = 'Проверяющий - ' + element.whoChecked;
+                document.getElementsByClassName("message")[0].innerText = element.comment;
+                document.getElementsByClassName("solution_points_block")[0].innerText = 'Сумма баллов = ' + element.points;
+                currentHomework = filteredHomeworks.indexOf(element);
+            }
         })
-    }
-}
-
-function sendMessage() {
-    let pointsEl = document.getElementsByClassName("points")[0];
-    let messageEl = document.getElementsByClassName("comment")[0];
-
-    if (pointsEl.value) {
-        homeworks[currentHomework].comment = messageEl.value;
-        homeworks[currentHomework].points = Number(pointsEl.value);
-        homeworks[currentHomework].isChecked = true;
-
-        pointsEl.value = null;
-        messageEl.value = null;
-
-        console.log(homeworks[currentHomework])
     }
 }
 
