@@ -4,6 +4,7 @@
     {
         public int LessonNumber { get; set; }
         public string? Date { get; set; }
-        public int[]? StudentIds { get; set; }
+        public int? StudentId { get; set; }
+        public Student Student { get; set; }
     }
 }

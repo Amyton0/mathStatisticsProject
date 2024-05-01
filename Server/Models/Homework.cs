@@ -8,6 +8,7 @@
         public string? Send { get; set; }
         public string? Status { get; set; }
         public int StudentId { get; set; }
+        public Student Student { get; set; }
         public Message Message { get; set; }
     }
 }
