@@ -1,4 +1,6 @@
-﻿using MathStatisticsProject.Models;
+﻿using System;
+using System.Threading.Tasks;
+using MathStatisticsProject.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathStatisticsProject.Controllers;
