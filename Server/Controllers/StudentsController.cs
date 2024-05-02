@@ -15,6 +15,7 @@ public class StudentsController : ControllerBase
         throw new NotImplementedException();
     }
 
+    //CR: нам это не надо пока. Можно оставить, только не забудь, что не надо реализовывать
     [HttpPost]
     public async Task<ActionResult<Student>> PostStudent([FromBody] Student student)
     {

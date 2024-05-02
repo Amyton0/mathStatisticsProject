@@ -39,6 +39,7 @@ namespace MathStatisticsProject.Repositories
             return await db.SaveChangesAsync() >= 0;
         }
 
+        //CR: хочу обоснование dispose. При гуглении обращай внимание на версию EF
         public void Dispose()
         {
             Dispose(true);

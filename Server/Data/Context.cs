@@ -10,11 +10,15 @@ namespace MathStatisticsProject.Data
         {
 
         }
+
         public DbSet<Student> Students { get; set; }
         public DbSet<Homework> Homeworks { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // CR: это давно необязательно(если когда-то было). EF сам сгенерит нужно отношение, основываясь на полях  
+            // В таком виде имеет смысл только для many-to-many 
             modelBuilder.Entity<Student>()
                 .HasMany(s => s.Homeworks)
                 .WithOne(h => h.Student)
@@ -25,6 +29,7 @@ namespace MathStatisticsProject.Data
                 .WithOne(a => a.Student)
                 .HasForeignKey(a => a.StudentId);
         }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder()
@@ -35,16 +40,6 @@ namespace MathStatisticsProject.Data
             var connectionString = configuration.GetConnectionString("PostgreSQL");
 
             optionsBuilder.UseNpgsql(connectionString);
-        }
-    }
-    public class DbContextImplFactory : IDesignTimeDbContextFactory<Context>
-    {
-        public Context CreateDbContext(string[] args)
-        {
-            var optionsBuilder = new DbContextOptionsBuilder<Context>();
-            optionsBuilder.UseNpgsql("your_connection_string_here");
-
-            return new Context(optionsBuilder.Options);
         }
     }
 }

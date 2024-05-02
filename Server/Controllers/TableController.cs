@@ -8,6 +8,7 @@ namespace MathStatisticsProject.Controllers
     [Route("api/[controller]")]
     public class TableController : ControllerBase
     {
+        // CR: гугли FromQuery
         [HttpGet("?studentGroup={studentGroup}")]
         public IActionResult GetTable(int studentGroup)
         {

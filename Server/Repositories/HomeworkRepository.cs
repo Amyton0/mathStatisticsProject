@@ -40,6 +40,8 @@ namespace MathStatisticsProject.Repositories
             return await db.SaveChangesAsync() >= 0;
         }
 
+        // CR: куча параметров у метода. А если модель расширится(добавится еще поле?). Тогда нужно в объявлении метода
+        // и во всех местах использования переписывать. Нужно передавать класс. И почитай про automapper(в проекте-референсе он есть)
         public async Task<bool> UpdateHomeworkAsync(int id, string type, int number, string send, string status, int studentId, Message message)
         {
             var homework = await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
