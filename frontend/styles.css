@@ -3,14 +3,22 @@ body {
 }
 
 .content_block {
-  width: 50%;
+  width: 1100px;
+  height: 400px;
+  color: #FFFFFF;
+  margin-top: 32px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homeworks_block {
+  width: 600px;
   height: 400px;
   background-color: #2670B4;
   color: #FFFFFF;
   font-family: Golos, Geneva, Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  margin-top: 32px;
-  margin-left: 25px;
+  font-size: 12px;
   float: left;
   border-radius: 15px;
 }
@@ -100,10 +108,8 @@ input[type="number"]:focus {
   flex-direction: column;
   justify-content: space-between;
   float: right;
-  width: 30%;
+  width: 400px;
   height: 400px;
-  margin-top: 32px;
-  margin-right: 25px;
   font-family: Golos, Geneva, Arial, Helvetica, sans-serif;
 }
 
@@ -263,9 +269,8 @@ ul li label {
   display: block;
   position: absolute;
   z-index: 999;
-  cursor: move;
-  top: 80%;
-  left: 5%;
+  top: 700px;
+  left: 150px;
   background-color: #110F2C;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -304,4 +309,51 @@ ul li label {
 .checked_header {
   height: 25px;
   font-size: large;
+}
+
+.authorisation_block {
+  width: 400px;
+  height: 300px;
+  background-color: #2670B4;
+  color: #FFFFFF;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.form_block {
+  width: 400px;
+  height: 260px;
+  padding: 40px 50px;
+}
+
+input[type="text"] {
+  width: 72%;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  padding-left: 5px;
+  color: #460A6F;
+  background-color: #c4e0fa;
+  border: none;
+}
+
+input[type="password"] {
+  width: 72%;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  padding-left: 5px;
+  color: #460A6F;
+  background-color: #c4e0fa;
+  border: none;
+}
+
+button {
+  height: 35px;
+  width: 75%;
+  font-size: 20px;
+  background-color: #460A6F;
+  border: 1px solid white;
+  color: white;
+  padding-left: auto;
+  padding-right: auto;
+  border-radius: 15px;
 }

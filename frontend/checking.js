@@ -38,7 +38,7 @@ chooseNumber.oninput = onNumberChange;
 
 let currentTypes = null;
 let currentGroups = null;
-let currentNumber = null;
+let currentNumber = '';
 let currentHomework = -1;
 let isChecked = null;
 
@@ -76,7 +76,7 @@ function filterHWs() {
     filteredHomeworks = [];
     for (let index = 0; index < homeworks.length; index++) {
         const element = homeworks[index];
-        if (currentNumber != null) {
+        if (currentNumber != '') {
             if (element.number != Number(currentNumber)) continue;
         }
         if (currentGroups != null) {
@@ -166,31 +166,8 @@ function sendMessage() {
 
 const modal = document.getElementById('modal');
 
-modal.addEventListener('mousedown', startDrag);
 const close = document.getElementById('close');
-
-let offsetX;
-let offsetY;
-let isDragging = false;
 
 close.addEventListener('click', () => {
   modal.style.display = 'none';
 });
-
-function startDrag(e) {
-    const rect = modal.getBoundingClientRect();
-    offsetX = e.clientX - rect.left;
-    offsetY = e.clientY - rect.top;
-    document.addEventListener('mousemove', drag);
-    document.addEventListener('mouseup', stopDrag);
-}
-  
-function drag(e) {
-    modal.style.left = e.clientX - offsetX + 'px';
-    modal.style.top = e.clientY - offsetY + 'px';
-}
-  
-function stopDrag() {
-    document.removeEventListener('mousemove', drag);
-    document.removeEventListener('mouseup', stopDrag);
-}
