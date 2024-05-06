@@ -18,7 +18,7 @@ namespace MathStatisticsProject.Repositories
             return await db.Attendances.FirstOrDefaultAsync(a => a.LessonNumber == lessonNumber && a.StudentId == studentId);
         }
 
-        public async Task<bool> AddAttendanceAsync(int lessonNumber, string date, int studentId)
+        public async Task<bool> AddAttendanceAsync(int lessonNumber, DateTime date, int studentId)
         {
             var attendance = new Attendance
             {
