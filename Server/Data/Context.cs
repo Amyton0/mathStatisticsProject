@@ -32,13 +32,7 @@ namespace MathStatisticsProject.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var builder = new ConfigurationBuilder()
-                                .SetBasePath(Directory.GetCurrentDirectory())
-                                .AddJsonFile("appsettings.Secret.json");
-
-            var configuration = builder.Build();
-            var connectionString = configuration.GetConnectionString("PostgreSQL");
-
+            var connectionString = "Host=localhost;Username=postgres;Password=project2024;Database=mathState";
             optionsBuilder.UseNpgsql(connectionString);
         }
     }
