@@ -9,7 +9,7 @@ namespace MathStatisticsProject.Controllers
     public class TableController : ControllerBase
     {
         // CR: гугли FromQuery
-        [HttpGet("?studentGroup={studentGroup}")]
+        [HttpGet("{studentGroup}")]
         public IActionResult GetTable(int studentGroup)
         {
             throw new NotImplementedException();

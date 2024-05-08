@@ -11,9 +11,9 @@ namespace MathStatisticsProject.Controllers
     [Route("api/[controller]")]
     public class AttendancesController : ControllerBase
     {
-        [HttpGet("{lessonNumber}")]
+        [HttpGet("{studentId}")]
         //CR: чью посещаемость тут пытаемся получить? пысы получим посещаемость рандомного студента на паре
-        public async Task<ActionResult<GetAttendance>> GetAttendance(int lessonNumber)
+        public async Task<ActionResult<GetAttendance>> GetAttendance(int studentId)
         {
             throw new NotImplementedException();
         }
@@ -22,7 +22,7 @@ namespace MathStatisticsProject.Controllers
         //CR: препод потыкает галочки у посетивших пару студентов. Проще и эффективнее отправить список студентов 
         //Это снизит загрузку на сервер(1 запрос против 20-30-100). А размер списка не настолько велик(<100),
         //поэтому один запрос не будет достаточно тяжелым. Про злоумышленников не надо думать
-        public async Task<ActionResult<PostAttendance>> PostAttendance([FromBody] PostAttendance attendance)
+        public async Task<ActionResult<PostStudent>> PostAttendance([FromBody] PostStudent[] students)
         {
             throw new NotImplementedException();
         }
