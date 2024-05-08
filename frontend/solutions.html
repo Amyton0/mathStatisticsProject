@@ -24,48 +24,50 @@
         </header>
     </div>
     <div class="content_block">
-        <div class="purple_header">
-            <div class="cell cell_with_border">
-                <label for="number">Номер д/з </label>
-                <input class="number" id="number" type="number" size="1" min="1"/>
+        <div class="homeworks_block">
+            <div class="purple_header">
+                <div class="cell cell_with_border">
+                    <label for="number">Номер д/з </label>
+                    <input class="number" id="number" type="number" size="1" min="1"/>
+                </div>
+                <div class="cell">
+                    <details>
+                        <summary>Тип д/з</summary>
+                        <form>
+                            <fieldset>
+                                <legend>
+                                    Тип д/з
+                                </legend>
+                                <ul>
+                                    <li>
+                                        <label for="usual">Обычное</label>
+                                        <input type="checkbox" id="usual" name="usual" value="Обычное" onchange="onTypeChange(event)"/>
+                                    </li>
+                                    <li>
+                                        <label for="extra">Дорешка</label>
+                                        <input type="checkbox" id="extra" name="extra" value="Дорешка" onchange="onTypeChange(event)"/>
+                                    </li>
+                                    <li>
+                                        <label for="coffin">Гроб</label>
+                                        <input type="checkbox" id="coffin" name="coffin" value="Гроб" onchange="onTypeChange(event)"/>
+                                    </li>
+                                </ul>
+                            </fieldset>
+                        </form>
+                    </details>
+                </div>
             </div>
-            <div class="cell">
-                <details>
-                    <summary>Тип д/з</summary>
-                    <form>
-                        <fieldset>
-                            <legend>
-                                Тип д/з
-                            </legend>
-                            <ul>
-                                <li>
-                                    <label for="usual">Обычное</label>
-                                    <input type="checkbox" id="usual" name="usual" value="Обычное" onchange="onTypeChange(event)"/>
-                                </li>
-                                <li>
-                                    <label for="extra">Дорешка</label>
-                                    <input type="checkbox" id="extra" name="extra" value="Дорешка" onchange="onTypeChange(event)"/>
-                                </li>
-                                <li>
-                                    <label for="coffin">Гроб</label>
-                                    <input type="checkbox" id="coffin" name="coffin" value="Гроб" onchange="onTypeChange(event)"/>
-                                </li>
-                            </ul>
-                        </fieldset>
-                    </form>
-                </details>
-            </div>
+            <div class="homeworks"><table></table></div>
         </div>
-        <div class="homeworks"><table></table></div>
-      </div>
-    
-    <div class="solution_block">
-        <div class="message_block">
-            <div class="purple_header checked_header">
-            </div>
-            <div class="message">
-            </div>
-            <div class="solution_points_block">
+        
+        <div class="solution_block">
+            <div class="message_block">
+                <div class="purple_header checked_header">
+                </div>
+                <div class="message">
+                </div>
+                <div class="solution_points_block">
+                </div>
             </div>
         </div>
     </div>
