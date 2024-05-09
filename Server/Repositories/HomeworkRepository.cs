@@ -1,4 +1,5 @@
-﻿using MathStatisticsProject.Data;
+﻿/*
+using MathStatisticsProject.Data;
 using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -87,3 +88,4 @@ namespace MathStatisticsProject.Repositories
         }
     }
 }
+*/

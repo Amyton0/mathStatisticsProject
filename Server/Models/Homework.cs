@@ -1,15 +1,22 @@
-﻿namespace MathStatisticsProject.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace MathStatisticsProject.Models
 {
+    [Table("homeWorks")]
     public class Homework
     {
-        public int Id { get; set; }
+        [Column]
         public Type Type { get; set; }
         public int Number { get; set; }
-        public DateTime Send { get; set; }
+        public DateTime SendTime { get; set; }
         public Status Status { get; set; }
         public int StudentId { get; set; }
         public Student Student { get; set; }
         public Message Message { get; set; }
+        
+        [Key]
+        public int Id { get; set; }
     }
 
     public enum Type
