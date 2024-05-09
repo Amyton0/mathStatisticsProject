@@ -7,12 +7,13 @@ namespace MathStatisticsProject.Data
     public class Context : DbContext
     {
         public DbSet<Student> Students { get; set; }
-        /*public DbSet<Homework> Homeworks { get; set; }
-        public DbSet<Attendance> Attendances { get; set; }*/
+        public DbSet<Homework> Homeworks { get; set; }
+        /*public DbSet<Attendance> Attendances { get; set; }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>().HasKey(a => a.Id);
+            modelBuilder.Entity<Homework>().HasKey(a => a.Id);
             // CR: это давно необязательно(если когда-то было). EF сам сгенерит нужно отношение, основываясь на полях  
             // В таком виде имеет смысл только для many-to-many 
             /*modelBuilder.Entity<Student>()

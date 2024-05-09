@@ -40,32 +40,7 @@ namespace Application.Services.Students
             context.Students.Add(student);
             return await db.SaveChangesAsync() >= 0;
         }
-
-        public async Task<bool> UpdateStudentAsync(Guid studentId, string firstName, string secondName, string thirdName, string group)
-        {
-            var student = await GetStudentByIdAsync(studentId);
-            if (student == null)
-                return false;
-            student.FirstName = firstName;
-            student.SecondName = secondName;
-            student.ThirdName = thirdName;
-            student.Group = group;
-            
-            db.Students.Update(student);
-            await db.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> DeleteStudentAsync(Guid studentId)
-        {
-            var student = await GetStudentByIdAsync(studentId);
-            if (student == null)
-                return false;
-            db.Students.Attach(student);
-            db.Students.Remove(student);
-            return await db.SaveChangesAsync() >= 0;
-        }
-
+        
         public void Dispose()
         {
             Dispose(true);

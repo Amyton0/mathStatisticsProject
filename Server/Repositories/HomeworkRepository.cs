@@ -1,7 +1,7 @@
-﻿/*
-using MathStatisticsProject.Data;
+﻿using MathStatisticsProject.Data;
 using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace MathStatisticsProject.Repositories
 {
@@ -19,57 +19,80 @@ namespace MathStatisticsProject.Repositories
             return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
         }
 
-        public async Task<Homework> GetHomeworkByIdAsync(int id)
+        public async Task<Homework> GetHomeworkByIdAsync(Guid id)
         {
             return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
         }
 
-        public async Task<bool> AddHomeworkAsync(int id, Models.Type type, int number, DateTime send, Status status, int studentId, Message message)
+        /*public async Task<bool> AddHomeworkAsync(Homework work)
         {
             var homework = new Homework
             {
-                Id = id,
-                Type = type,
-                Number = number,
-                Send = send,
-                Status = status,
-                StudentId = studentId,
-                Message = message
+                Id = work.Id,
+                Type = work.Type,
+                Number = work.Number,
+                SendTime = work.SendTime,
+                Status = work.Status,
+                StudentId = work.StudentId,
+                Message = work.Message
             };
 
             await db.Homeworks.AddAsync(homework);
             return await db.SaveChangesAsync() >= 0;
+        }*/
+
+        public async Task<bool> SendHomeWork(Homework homework)
+        {
+            await using var context = new Context();
+            context.Homeworks.Add(homework);
+            return await db.SaveChangesAsync() >= 0;
+        }
+        
+        public IEnumerable<Homework> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
+        {
+            return homeworks.Where(hm => FiltrationHomeworks(filter, hm));
         }
 
-        // CR: куча параметров у метода. А если модель расширится(добавится еще поле?). Тогда нужно в объявлении метода
-        // и во всех местах использования переписывать. Нужно передавать класс. И почитай про automapper(в проекте-референсе он есть)
-        public async Task<bool> UpdateHomeworkAsync(int id, Models.Type type, int number, DateTime send, Status status, int studentId, Message message)
+        public bool FiltrationHomeworks(Filter filter, Homework homework)
         {
-            var homework = await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
-            if (homework == null)
+            
+            if (homework.Number != filter.HomeworkIndexes && filter.HomeworkIndexes != null)
+            {
                 return false;
+            }
+            
+            foreach (var studentHomeworks in JoinStudentHomeworksWithFilter())
+            {
+                foreach (var filterGroup in filter.Groups)
+                {
+                    if (filterGroup != null && filterGroup != studentHomeworks.student.Group)
+                    {
+                        return false;
+                    }
+                }
+            }
 
-            homework.Id = id;
-            homework.Type = type;
-            homework.Number = number;
-            homework.Send = send;
-            homework.Status = status;
-            homework.StudentId = studentId;
-            homework.Message = message;
+            foreach (var filterStatus in filter.statusHomeworks)
+            {
+                if (filterStatus != null && filterStatus != homework.Status)
+                {
+                    return false;
+                }
+            }
 
-            db.Homeworks.Update(homework);
-            await db.SaveChangesAsync();
             return true;
         }
 
-        public async Task<bool> DeleteHomeworkAsync(int homeworkId)
+        private List<dynamic> JoinStudentHomeworksWithFilter()
         {
-            var homework = new Homework { Id = homeworkId };
-            db.Homeworks.Attach(homework);
-            db.Homeworks.Remove(homework);
-            return await db.SaveChangesAsync() >= 0;
+            var filteredStudents = db.Students
+                .Join(db.Homeworks,
+                    student => student.Id,
+                    homework => homework.StudentId,
+                    (student, homework) => new { student, homework })
+                .ToList();
+            return new List<dynamic> { filteredStudents };
         }
-
         public void Dispose()
         {
             Dispose(true);
@@ -88,4 +111,3 @@ namespace MathStatisticsProject.Repositories
         }
     }
 }
-*/

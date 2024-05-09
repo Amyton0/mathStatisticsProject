@@ -9,29 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30b50c03-215b-425a-81be-26b6c3e47c3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Repositories/test.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/TableController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/TableController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Repositories/Filter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac/storage_v2/_src_/database/mathState.afIHLA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac/storage_v2/_src_/database/mathState.afIHLA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Data/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Student.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Student.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/AttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/AttendanceRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Attendance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Attendance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Homework.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Homework.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/HomeworkRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/HomeworkRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/StudentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/StudentRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1715085636600</updated>
-      <workItem from="1715085638054" duration="10931000" />
+      <workItem from="1715085638054" duration="24939000" />
     </task>
     <servers />
   </component>
