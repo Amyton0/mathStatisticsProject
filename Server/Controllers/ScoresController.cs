@@ -1,4 +1,6 @@
-﻿using MathStatisticsProject.Models;
+﻿using AutoMapper;
+using MathStatisticsProject.Data;
+using MathStatisticsProject.Models;
 using MathStatisticsProject.PostModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,10 +11,18 @@ namespace MathStatisticsProject.Controllers
     [Route("api/[controller]")]
     public class ScoresController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult PostScore([FromBody] PostScore score)
+        private readonly Context _context;
+        private readonly IMapper _mapper;
+
+        public ScoresController(Context context, IMapper mapper)
         {
-            // Логика обработки запроса POST на /api/score
+            _context = context;
+            _mapper = mapper;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostScore([FromBody] PostScore score)
+        {
             throw new NotImplementedException();
         }
     }
