@@ -1,8 +1,8 @@
 const API_URL = 'http://localhost:5105/api'
 
-async function getHomeworkJsonAsync(relativeUrl) {
+async function getHomeworkJsonAsync(id) {
     try {
-        const response = await fetch(`${API_URL}${relativeUrl}`);
+        const response = await fetch(`${API_URL}/Homeworks/${id}`);
         if (response.ok) {
             return response.json();
         }
@@ -13,16 +13,16 @@ async function getHomeworkJsonAsync(relativeUrl) {
 }
 
 async function postHomeworkJsonAsync(homework) {
-    var data = new FormData();
-    data.append( "json", JSON.stringify( homework ) );
-    
-    fetch("/echo/json/",
-    {
-        method: "POST",
-        body: data
-    })
-    .then(function(res){ return res.json(); })
-    .then(function(data){ alert( JSON.stringify( data ) ) })
+    (async () => {
+        const rawResponse = await fetch(API_URL, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(homework)
+        });
+      })();
 }
 
 async function postScoreJsonAsync(score) {
