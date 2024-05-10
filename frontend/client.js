@@ -13,16 +13,13 @@ async function getHomeworkJsonAsync(id) {
 }
 
 async function postHomeworkJsonAsync(homework) {
-    (async () => {
-        const rawResponse = await fetch(API_URL, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(homework)
-        });
-      })();
+    await fetch(`${API_URL}/Homeworks`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(homework)
+      });
 }
 
 async function postScoreJsonAsync(score) {
