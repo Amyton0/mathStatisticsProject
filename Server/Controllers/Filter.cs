@@ -5,9 +5,9 @@ namespace MathStatisticsProject.Repositories;
 
 public class Filter
 {
-    public string?[] Groups { get; set; }
+    public List<string> Groups { get; set; }
     public int? HomeworkIndexes { get; set; }
-    public Type?[] typeHomeworks { get; set; }
-    public Status?[] statusHomeworks { get; set; }
+    public List<Type> typeHomeworks { get; set; }
+    public List<Status> statusHomeworks { get; set; }
 }
 

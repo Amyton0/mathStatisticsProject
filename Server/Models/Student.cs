@@ -11,8 +11,7 @@ namespace MathStatisticsProject.Models
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string Group { get; set; }
-        /*public ICollection<Homework> Homeworks { get; set; }
-        public ICollection<Attendance> Attendances { get; set; }*/
+        
         [Key]
         public Guid Id { get; set; }
         

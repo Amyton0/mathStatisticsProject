@@ -24,28 +24,11 @@ namespace MathStatisticsProject.Repositories
             return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
         }
 
-        /*public async Task<bool> AddHomeworkAsync(Homework work)
+        public  bool SendHomeWork(Homework homework)
         {
-            var homework = new Homework
-            {
-                Id = work.Id,
-                Type = work.Type,
-                Number = work.Number,
-                SendTime = work.SendTime,
-                Status = work.Status,
-                StudentId = work.StudentId,
-                Message = work.Message
-            };
-
-            await db.Homeworks.AddAsync(homework);
-            return await db.SaveChangesAsync() >= 0;
-        }*/
-
-        public async Task<bool> SendHomeWork(Homework homework)
-        {
-            await using var context = new Context();
+            using var context = new Context();
             context.Homeworks.Add(homework);
-            return await db.SaveChangesAsync() >= 0;
+            return  db.SaveChanges() >= 0;
         }
         
         public IEnumerable<Homework> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
@@ -61,37 +44,29 @@ namespace MathStatisticsProject.Repositories
                 return false;
             }
             
-            foreach (var studentHomeworks in JoinStudentHomeworksWithFilter())
+            if (filter.Groups.Any() && !filter.Groups.Contains(TakeGroupHomework(homework)))
             {
-                foreach (var filterGroup in filter.Groups)
-                {
-                    if (filterGroup != null && filterGroup != studentHomeworks.student.Group)
-                    {
-                        return false;
-                    }
-                }
+                return false;
             }
 
-            foreach (var filterStatus in filter.statusHomeworks)
+            if (filter.statusHomeworks.Any() && !filter.statusHomeworks.Contains(homework.Status))
             {
-                if (filterStatus != null && filterStatus != homework.Status)
-                {
-                    return false;
-                }
+                return false;
             }
-
+            
             return true;
         }
 
-        private List<dynamic> JoinStudentHomeworksWithFilter()
+        private string? TakeGroupHomework(Homework homework)
         {
-            var filteredStudents = db.Students
-                .Join(db.Homeworks,
-                    student => student.Id,
+            var groupHomework = db.Homeworks
+                .Where(x => x.Id == homework.Id)
+                .Join(db.Students,
                     homework => homework.StudentId,
-                    (student, homework) => new { student, homework })
-                .ToList();
-            return new List<dynamic> { filteredStudents };
+                    student => student.Id,
+                    (homework, student) => student.Group)
+                .FirstOrDefault();
+            return groupHomework;
         }
         public void Dispose()
         {
@@ -111,3 +86,20 @@ namespace MathStatisticsProject.Repositories
         }
     }
 }
+
+/*public async Task<bool> AddHomeworkAsync(Homework work)
+        {
+            var homework = new Homework
+            {
+                Id = work.Id,
+                Type = work.Type,
+                Number = work.Number,
+                SendTime = work.SendTime,
+                Status = work.Status,
+                StudentId = work.StudentId,
+                Message = work.Message
+            };
+
+            await db.Homeworks.AddAsync(homework);
+            return await db.SaveChangesAsync() >= 0;
+        }*/
