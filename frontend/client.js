@@ -38,4 +38,14 @@ async function getTableJsonAsync(relativeUrl) {
     
 }
 
+async function postAttendanceJsonAsync(attendance) {
+    await fetch(`${API_URL}/Attendances`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(attendance)
+      });
+}
+
 
