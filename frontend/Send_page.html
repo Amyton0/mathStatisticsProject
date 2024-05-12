@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>StatVizorium</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
@@ -14,54 +14,51 @@
             <a href="#">
                 <img src="шапка 1.svg" alt="">
             </a>
-            <nav>
+            <nav class="nav">
                 <ul class="menu">
-                    <li><a href="#">Отправка</a></li>
-                    <li><a href="#">Проверка</a></li>
-                    <li><a href="#">Войти</a></li>
+                    <li><a href="checking.html">Баллы</a></li>
+                    <li><a href="solutions.html">Проверка</a></li>
                 </ul>
             </nav>
+            <div class="authorization">
+                <a href="#">Войти</a>
+            </div>
         </header>
     </div>
     <!-- контент -->
-    <div class="content"> 
+    <form class="content_wrap">
         <div class="sending_info">
             <div class="homework_info">
                 <div class="number">
                     <label for="Number">Номер д/з</label>
-                    <input id="Number" type="number" min="1">
+                    <input id="Number" required type="number" min="1">
                 </div>
                 <hr>
                 <div class="tomb">
-                    <label for="Tomb">Гроб</label>
                     <input id="Tomb" class="custom_checkbox" type="checkbox">
-                    
+                    <label for="Tomb">Гроб</label>
                 </div>
                 <hr>
-                <!-- <div class="file">
-                    <input type="file">
-                </div> -->
                 <label class="input-file">
-                    <input type="file" name="file">
+                    <input type="file" required accept=".pdf" name="file">
                     <span class="input-file-btn">Выберите файл</span>           
               </label>
             </div>
             <div class="comment">
-                <!-- <input type="text" placeholder="Сообщение преподавателю..."> -->
                 <textarea placeholder="Сообщение преподавателю..."></textarea>
             </div>
         </div>
         <div class="send_wrap">
-            <button type="button" class="send_button">Отправить</button>
+            <button type="submit" class="send_button">Отправить</button>
         </div>
-    </div>
+    </form>
     <!-- футер -->
     <div class="footer_wrap">
         <footer class="footer">
             <a href="#">
                 <img src="фиит 4.svg" alt="">
             </a>
-        </futer>
+        </footer>
     </div>
 </body>
 </html>
