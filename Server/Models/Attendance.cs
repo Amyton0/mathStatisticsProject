@@ -1,4 +1,5 @@
 ﻿namespace MathStatisticsProject.Models
+
 {
     public class Attendance
     {

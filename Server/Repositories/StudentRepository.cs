@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MathStatisticsProject.Models;
 using MathStatisticsProject.Data;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 
 namespace Application.Services.Students
 {
@@ -22,50 +23,24 @@ namespace Application.Services.Students
             return await db.Students.OrderBy(s => s.Id).ToListAsync();
         }
 
-        public async Task<Student> GetStudentByIdAsync(int id)
+        public async Task<Student> GetStudentByIdAsync(Guid id)
         {
-            return await db.Students.FirstOrDefaultAsync(s => s.Id == id);
+            return await db.Students.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<bool> AddStudentAsync(int id, string firstName, string secondName, string thirdName, string group)
+        public async Task<bool> AddStudentAsync(string firstName, string secondName, string thirdName, string group)
         {
-            var student = new Student
-            {
-                Id = id,
-                FirstName = firstName,
-                SecondName = secondName,
-                ThirdName = thirdName,
+            await using var context = new Context();
+            var student = new Student { 
+                FirstName = firstName, 
+                SecondName = secondName, 
+                ThirdName = thirdName, 
                 Group = group
             };
-
-            await db.Students.AddAsync(student);
+            context.Students.Add(student);
             return await db.SaveChangesAsync() >= 0;
         }
-
-        public async Task<bool> UpdateStudentAsync(int studentId, int id, string firstName, string secondName, string thirdName, string group)
-        {
-            var student = await db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
-            if (student == null)
-                return false;
-            student.Id = id;
-            student.FirstName = firstName;
-            student.SecondName = secondName;
-            student.ThirdName = thirdName;
-            student.Group = group;
-
-            db.Students.Update(student);
-            await db.SaveChangesAsync();
-            return true;
-        }
-
-        public async Task<bool> DeleteStudentAsync(int studentId)
-        {
-            var student = new Student { Id = studentId };
-            db.Students.Attach(student);
-            db.Students.Remove(student);
-            return await db.SaveChangesAsync() >= 0;
-        }
-
+        
         public void Dispose()
         {
             Dispose(true);
