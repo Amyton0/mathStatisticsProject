@@ -2283,19 +2283,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Софья\\.nuget\\packages\\": {}
+    "C:\\Users\\dimab\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Софья\\Веб\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
+      "projectUniqueName": "C:\\Users\\dimab\\OneDrive\\Desktop\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
       "projectName": "MathStatisticsProject",
-      "projectPath": "C:\\Users\\Софья\\Веб\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
-      "packagesPath": "C:\\Users\\Софья\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Софья\\Веб\\mathStatisticsProject\\Server\\obj\\",
+      "projectPath": "C:\\Users\\dimab\\OneDrive\\Desktop\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
+      "packagesPath": "C:\\Users\\dimab\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dimab\\OneDrive\\Desktop\\mathStatisticsProject\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Софья\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dimab\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2373,24 +2373,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.25, 6.0.25]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
