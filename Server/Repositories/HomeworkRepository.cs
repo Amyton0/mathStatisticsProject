@@ -1,6 +1,7 @@
 ﻿using MathStatisticsProject.Data;
 using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace MathStatisticsProject.Repositories
 {
@@ -18,57 +19,55 @@ namespace MathStatisticsProject.Repositories
             return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
         }
 
-        public async Task<Homework> GetHomeworkByIdAsync(int id)
+        public async Task<Homework> GetHomeworkByIdAsync(Guid id)
         {
             return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
         }
 
-        public async Task<bool> AddHomeworkAsync(int id, Models.Type type, int number, DateTime send, Status status, int studentId, Message message)
+        public  bool SendHomeWork(Homework homework)
         {
-            var homework = new Homework
-            {
-                Id = id,
-                Type = type,
-                Number = number,
-                Send = send,
-                Status = status,
-                StudentId = studentId,
-                Message = message
-            };
-
-            await db.Homeworks.AddAsync(homework);
-            return await db.SaveChangesAsync() >= 0;
+            using var context = new Context();
+            context.Homeworks.Add(homework);
+            return  db.SaveChanges() >= 0;
+        }
+        
+        public IEnumerable<Homework> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
+        {
+            return homeworks.Where(hm => FiltrationHomeworks(filter, hm));
         }
 
-        // CR: куча параметров у метода. А если модель расширится(добавится еще поле?). Тогда нужно в объявлении метода
-        // и во всех местах использования переписывать. Нужно передавать класс. И почитай про automapper(в проекте-референсе он есть)
-        public async Task<bool> UpdateHomeworkAsync(int id, Models.Type type, int number, DateTime send, Status status, int studentId, Message message)
+        public bool FiltrationHomeworks(Filter filter, Homework homework)
         {
-            var homework = await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
-            if (homework == null)
+            
+            if (homework.Number != filter.HomeworkIndexes && filter.HomeworkIndexes != null)
+            {
                 return false;
+            }
+            
+            if (filter.Groups.Any() && !filter.Groups.Contains(TakeGroupHomework(homework)))
+            {
+                return false;
+            }
 
-            homework.Id = id;
-            homework.Type = type;
-            homework.Number = number;
-            homework.Send = send;
-            homework.Status = status;
-            homework.StudentId = studentId;
-            homework.Message = message;
-
-            db.Homeworks.Update(homework);
-            await db.SaveChangesAsync();
+            if (filter.statusHomeworks.Any() && !filter.statusHomeworks.Contains(homework.Status))
+            {
+                return false;
+            }
+            
             return true;
         }
 
-        public async Task<bool> DeleteHomeworkAsync(int homeworkId)
+        private string? TakeGroupHomework(Homework homework)
         {
-            var homework = new Homework { Id = homeworkId };
-            db.Homeworks.Attach(homework);
-            db.Homeworks.Remove(homework);
-            return await db.SaveChangesAsync() >= 0;
+            var groupHomework = db.Homeworks
+                .Where(x => x.Id == homework.Id)
+                .Join(db.Students,
+                    homework => homework.StudentId,
+                    student => student.Id,
+                    (homework, student) => student.Group)
+                .FirstOrDefault();
+            return groupHomework;
         }
-
         public void Dispose()
         {
             Dispose(true);
@@ -87,3 +86,20 @@ namespace MathStatisticsProject.Repositories
         }
     }
 }
+
+/*public async Task<bool> AddHomeworkAsync(Homework work)
+        {
+            var homework = new Homework
+            {
+                Id = work.Id,
+                Type = work.Type,
+                Number = work.Number,
+                SendTime = work.SendTime,
+                Status = work.Status,
+                StudentId = work.StudentId,
+                Message = work.Message
+            };
+
+            await db.Homeworks.AddAsync(homework);
+            return await db.SaveChangesAsync() >= 0;
+        }*/
