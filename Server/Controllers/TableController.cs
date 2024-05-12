@@ -11,10 +11,7 @@ namespace MathStatisticsProject.Controllers
         [HttpGet]
         public IActionResult GetTable([FromQuery] int studentGroup)
         {
-            // Ваша логика обработки запроса здесь
-            // Можете возвращать какие-то данные или результат
-
-            return Ok($"Вы запросили данные для группы студентов: {studentGroup}");
+            throw new NotImplementedException();
         }
     }
 }

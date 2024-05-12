@@ -22,6 +22,21 @@ public class HomeworksController : ControllerBase
         _context = context;
         _mapper = mapper;
     }
+
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<GetHomework>>> GetHomeworks()
+    {
+        var homeworks = await _context.Homeworks.ToListAsync();
+        if (homeworks == null)
+        {
+            return NotFound();
+        }
+
+        var getHomeworks = _mapper.Map<List<GetHomework>>(homeworks);
+
+        return getHomeworks;
+    }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<GetHomework>> GetHomework(int id)
     {

@@ -12,6 +12,6 @@ namespace MathStatisticsProject.GetModels
         public Status Status { get; set; }
         public int StudentId { get; set; }
         public GetMessage Message { get; set; }
-        public byte[] Content { get; set; }
+        public string Content { get; set; }
     }
 }

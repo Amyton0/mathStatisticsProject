@@ -10,7 +10,7 @@
         public int StudentId { get; set; }
         public Student Student { get; set; }
         public Message Message { get; set; }
-        public byte[] Content { get; set; }
+        public string Content { get; set; }
     }
 
     public enum Type

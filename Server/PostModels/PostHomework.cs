@@ -11,6 +11,6 @@ namespace MathStatisticsProject.PostModels
         public Status Status { get; set; }
         public int StudentId { get; set; }
         public PostMessage Message { get; set; }
-        public byte[] Content { get; set; }
+        public string Content { get; set; }
     }
 }
