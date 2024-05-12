@@ -1,5 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.body {
+  font-family: "Golos Text", sans-serif;
+  font-size: 1rem;
+  color: white;
+}
+
+/*header*/
+
+.header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 103px;
+  padding: 2px 15px;
+  margin: 0 auto;
+  background: linear-gradient(to right, #201A4A, #4F1353)
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+.header a:hover {
+  color: #1AB3D5;
+}
+
+.authorization {
+  margin-right: 48px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  margin-left: 48px;
+  margin-right: 48px;
+
+}
+
+.menu li a:hover {
+  color: #1AB3D5;
+}
+
+/*content*/
+
 body {
-  background: #110F2C;
+  padding-top: 220px;
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  background-color: #110F2C;
+}
+
+.content_wrap {
+  flex-grow: 1;
 }
 
 .content_block {
@@ -311,6 +376,194 @@ ul li label {
   font-size: large;
 }
 
+/*страница отправки*/
+
+.sending_info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 375px;
+}
+
+.homework_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 515px;
+  height: 279px;
+  text-align: center;
+  background-color: #1AB3D5;
+  border-radius: 24px;
+  margin-right: 33px;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.homework_info .number {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.homework_info .number input {
+  width: 100px;
+  height: 48px;
+  align-self: center;
+  border-radius: 16px;
+  background-color: #460A6F;
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+.homework_info .tomb {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.custom_checkbox {
+  width: 40px;
+  height: 40px;
+  align-self: center;
+}
+
+.custom_checkbox {
+  display: none;
+}
+
+.tomb > label {
+  position: relative;
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tomb > label::after {
+  content: '';
+  margin-left: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: #460A6F;
+  border-radius: 10px;
+}
+
+.custom_checkbox:checked + label::after {
+  background-image: url("Галочка.svg");
+  background-size: contain;
+}
+
+.homework_info .input-file {
+  display: flex;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.input-file {
+  position: relative;
+  display: inline-block;
+}
+
+.input-file span {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  font-size: 2rem;
+  vertical-align: middle;
+  color: #fff;
+  text-align: center;
+  background-color: #460A6F;
+  height: 58px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  margin: 0;
+  transition: background-color 0.2s;
+}
+.input-file input[type=file] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  display: block;
+  width: 0;
+  height: 0;
+}
+
+.input-file:hover span {
+  background-color: #4F1353;
+}
+.input-file:active span {
+  background-color: #6f1a75;
+}
+
+.input-file input[type=file]:disabled + span {
+  background-color: #eee;
+}
+
+.comment {
+  width: 515px;
+  height: 279px;
+  margin-left: 33px;
+}
+
+.comment textarea {
+  width: 515px;
+  height: 279px;
+  background-color: #1AB3D5;
+  color: #fff;
+  border: transparent;
+  font-size: 2rem;
+  border-radius: 24px;
+  outline: none;
+}
+
+.comment textarea::placeholder {
+  color: #fff;
+}
+
+.send_wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.send_button {
+  width: 645px;
+  height: 103px;
+  background-color: #1AB3D5;
+  border-radius: 24px;
+  border-color: transparent;
+  margin-top: 58px;
+  margin-bottom: 59px;
+  font-size: 3rem;
+  outline: none;
+  color: #fff;
+}
+
+.send_button:hover {
+  background-color: #4F1353;
+  outline: none;
+  color:#fff;
+}
+
+
+/*авторизация*/
+
 .authorisation_block {
   width: 400px;
   height: 300px;
@@ -356,4 +609,13 @@ button {
   padding-left: auto;
   padding-right: auto;
   border-radius: 15px;
+  
+  /*footer*/
+
+.footer_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 62px auto;
+  flex-grow: 0;
 }
