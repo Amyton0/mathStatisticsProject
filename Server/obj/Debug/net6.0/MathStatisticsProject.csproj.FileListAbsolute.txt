@@ -50,3 +50,14 @@ C:\Users\VirteN\Desktop\Visual Code\сайттервер\mathStatisticsProject\S
 C:\Users\VirteN\Desktop\Visual Code\сайттервер\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.pdb
 C:\Users\VirteN\Desktop\Visual Code\сайттервер\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.genruntimeconfig.cache
 C:\Users\VirteN\Desktop\Visual Code\сайттервер\mathStatisticsProject\Server\obj\Debug\net6.0\ref\MathStatisticsProject.dll
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.csproj.AssemblyReference.cache
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.AssemblyInfoInputs.cache
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.AssemblyInfo.cs
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.csproj.CoreCompileInputs.cache
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.sourcelink.json
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.dll
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\refint\MathStatisticsProject.dll
+C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.pdb
