@@ -24,6 +24,8 @@ public class StudentsController : ControllerBase
 
     [HttpGet("{id}")]
     public async Task<ActionResult<GetStudent>> GetStudent(int id)
+    
+    
     {
         var student = await _context.Students.FindAsync(id);
 

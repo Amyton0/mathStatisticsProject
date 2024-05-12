@@ -1,5 +1,9 @@
+using Application.Services.Students;
+using AutoMapper;
+using MathStatisticsProject.Data;
 using MathStatisticsProject.Repositories;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
@@ -12,6 +16,10 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
 });
+builder.Services.AddAutoMapper();
+builder.Services.AddDbContext<Context>();
+// Add repositories
+builder.Services.AddScoped<StudentService>();
 
 var app = builder.Build();
 app.UseSwagger();
