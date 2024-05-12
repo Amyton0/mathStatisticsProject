@@ -8,11 +8,13 @@ namespace MathStatisticsProject.Controllers
     [Route("api/[controller]")]
     public class TableController : ControllerBase
     {
-        // CR: гугли FromQuery
-        [HttpGet("{studentGroup}")]
-        public IActionResult GetTable(int studentGroup)
+        [HttpGet]
+        public IActionResult GetTable([FromQuery] int studentGroup)
         {
-            throw new NotImplementedException();
+            // Ваша логика обработки запроса здесь
+            // Можете возвращать какие-то данные или результат
+
+            return Ok($"Вы запросили данные для группы студентов: {studentGroup}");
         }
     }
 }
