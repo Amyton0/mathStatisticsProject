@@ -38,7 +38,7 @@ public class HomeworksController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<GetHomework>> GetHomework(int id)
+    public async Task<ActionResult<GetHomework>> GetHomework(Guid id)
     {
         var homework = await _context.Homeworks.FindAsync(id);
 

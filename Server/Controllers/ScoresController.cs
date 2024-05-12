@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MathStatisticsProject.Data;
 using MathStatisticsProject.Models;
-using MathStatisticsProject.PostModels;
+using MathStatisticsProject.GetModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -20,10 +20,19 @@ namespace MathStatisticsProject.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> PostScore([FromBody] PostScore score)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetScore>> GetScore(Guid id)
         {
-            throw new NotImplementedException();
+            var scoreEntity = _context.Students.Where(s => s.Id == id);
+
+            if (scoreEntity == null)
+            {
+                return NotFound();
+            }
+
+            var getScoreModel = _mapper.Map<GetScore>(scoreEntity);
+
+            return getScoreModel;
         }
     }
 }

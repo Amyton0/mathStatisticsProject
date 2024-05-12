@@ -9,7 +9,7 @@ namespace MathStatisticsProject.PostModels
         public int Number { get; set; }
         public DateTime Send { get; set; }
         public Status Status { get; set; }
-        public int StudentId { get; set; }
+        public Guid StudentId { get; set; }
         public PostMessage Message { get; set; }
         public string Content { get; set; }
     }

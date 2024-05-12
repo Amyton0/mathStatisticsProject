@@ -23,7 +23,7 @@ public class StudentsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<GetStudent>> GetStudent(int id)
+    public async Task<ActionResult<GetStudent>> GetStudent(Guid id)
     
     
     {
