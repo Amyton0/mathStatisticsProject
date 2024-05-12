@@ -27,12 +27,14 @@ namespace Application.Services.Students
             return await db.Students.FirstOrDefaultAsync(s => s.Id == id);
         }
 
-        public async Task<bool> AddStudentAsync(int id, string name, string group)
+        public async Task<bool> AddStudentAsync(int id, string firstName, string secondName, string thirdName, string group)
         {
             var student = new Student
             {
                 Id = id,
-                Name = name,
+                FirstName = firstName,
+                SecondName = secondName,
+                ThirdName = thirdName,
                 Group = group
             };
 
@@ -40,13 +42,15 @@ namespace Application.Services.Students
             return await db.SaveChangesAsync() >= 0;
         }
 
-        public async Task<bool> UpdateStudentAsync(int studentId, int id, string name, string group)
+        public async Task<bool> UpdateStudentAsync(int studentId, int id, string firstName, string secondName, string thirdName, string group)
         {
             var student = await db.Students.FirstOrDefaultAsync(s => s.Id == studentId);
             if (student == null)
                 return false;
             student.Id = id;
-            student.Name = name;
+            student.FirstName = firstName;
+            student.SecondName = secondName;
+            student.ThirdName = thirdName;
             student.Group = group;
 
             db.Students.Update(student);

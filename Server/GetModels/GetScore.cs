@@ -1,6 +1,6 @@
-﻿namespace MathStatisticsProject.Models
+﻿namespace MathStatisticsProject.GetModels
 {
-    public class Score
+    public class GetScore
     {
         public int StudentId { get; set; }
         public int LessonId { get; set; }

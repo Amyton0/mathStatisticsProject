@@ -1,4 +1,5 @@
 ﻿using MathStatisticsProject.Models;
+using MathStatisticsProject.PostModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -9,7 +10,7 @@ namespace MathStatisticsProject.Controllers
     public class ScoresController : ControllerBase
     {
         [HttpPost]
-        public IActionResult PostScore([FromBody] Score score)
+        public IActionResult PostScore([FromBody] PostScore score)
         {
             // Логика обработки запроса POST на /api/score
             throw new NotImplementedException();

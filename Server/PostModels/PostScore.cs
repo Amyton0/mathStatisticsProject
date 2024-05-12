@@ -1,6 +1,6 @@
-﻿namespace MathStatisticsProject.Models
+﻿namespace MathStatisticsProject.PostModels
 {
-    public class Score
+    public class PostScore
     {
         public int StudentId { get; set; }
         public int LessonId { get; set; }

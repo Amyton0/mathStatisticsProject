@@ -1,6 +1,6 @@
-﻿namespace MathStatisticsProject.Models
+﻿namespace MathStatisticsProject.GetModels
 {
-    public class Message
+    public class GetMessage
     {
         public int Id { get; set; }
         public int Sender { get; set; }
