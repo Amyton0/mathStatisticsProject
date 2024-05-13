@@ -609,6 +609,7 @@ button {
   padding-left: auto;
   padding-right: auto;
   border-radius: 15px;
+}
   
   /*footer*/
 
@@ -620,6 +621,3 @@ button {
   flex-grow: 0;
 }
 
-.table_block {
-  
-}
