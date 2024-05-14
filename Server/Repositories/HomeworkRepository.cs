@@ -44,7 +44,7 @@ namespace MathStatisticsProject.Repositories
             {
                 return false;
             }
-            
+
             return true;
         }
 

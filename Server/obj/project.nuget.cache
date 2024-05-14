@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9OYQ7Z6C7+cyASwXFUEuxmD/9FLyA2jcNkd7qayBOeBUjGznUhzeFWEOaf0u0lU4272bhV6Dq+Xk+zkCQC/0nw==",
+  "dgSpecHash": "59p+xfBWe9LCfgtee2X2mMS9MyKBCgMsdbQ+ZwhvoLJuT1fevbKx0nFA92lrLpou5QAe9QwpiFu5Egl0AXNxSg==",
   "success": true,
   "projectFilePath": "C:\\Users\\dimab\\OneDrive\\Desktop\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
   "expectedPackageFiles": [
@@ -37,6 +37,7 @@
     "C:\\Users\\dimab\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\npgsql\\6.0.8\\npgsql.6.0.8.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.8\\npgsql.entityframeworkcore.postgresql.6.0.8.nupkg.sha512",
+    "C:\\Users\\dimab\\.nuget\\packages\\nunit\\4.1.0\\nunit.4.1.0.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",

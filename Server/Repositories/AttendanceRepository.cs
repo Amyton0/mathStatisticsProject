@@ -4,7 +4,7 @@ using MathStatisticsProject.Data;
 
 namespace MathStatisticsProject.Repositories
 {
-    public sealed class AttendanceRepository : IDisposable
+    public sealed class AttendanceRepository
     {
         private readonly Context db;
 
@@ -50,21 +50,21 @@ namespace MathStatisticsProject.Repositories
         
 
         //CR: хочу обоснование dispose. При гуглении обращай внимание на версию EF
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+        //public void Dispose()
+        //{
+        //    Dispose(true);
+        //    GC.SuppressFinalize(this);
+        //}
 
-        private void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                if (db != null)
-                {
-                    db.Dispose();
-                }
-            }
-        }
+        //private void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        if (db != null)
+        //        {
+        //            db.Dispose();
+        //        }
+        //    }
+        //}
     }
 }

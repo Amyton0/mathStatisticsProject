@@ -1,17 +1,13 @@
-﻿namespace MathStatisticsProject.GetModels
+﻿using MathStatisticsProject.Models;
+
+namespace MathStatisticsProject.GetModels
 {
     public class GetAttendance
     {
         public int LessonNumber { get; set; }
         public DateTime Date { get; set; }
-        public Guid[] StudentIds { get; set; }
-        public GetStudent Student { get; set; }
+        public Guid StudentId { get; set; }
+        public Guid Id { get; set; }
         public AttendanceStatus AttendanceStatus { get; set; }
-    }
-    public enum AttendanceStatus
-    {
-        Absent,
-        Present,
-        AbsentForRespectfulReason
     }
 }

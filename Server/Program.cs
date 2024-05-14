@@ -4,6 +4,7 @@ using AutoMapper;
 using MathStatisticsProject.Data;
 using MathStatisticsProject.GetModels;
 using MathStatisticsProject.Models;
+using MathStatisticsProject.PostModels;
 using MathStatisticsProject.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -25,10 +26,13 @@ builder.Services.AddAutoMapper(cfg => {
     cfg.CreateMap<Student, GetStudent>();
     cfg.CreateMap<Homework, GetHomework>();
     cfg.CreateMap<Homework, GetStudentHomeworks>();
+    cfg.CreateMap<Attendance, GetAttendance>();
+    cfg.CreateMap<GetAttendance, Attendance>();
+    cfg.CreateMap<PostHomework, Homework>();
 });
 
 builder.Services.AddScoped<HomeworkRepository>();
-
+builder.Services.AddScoped<AttendanceRepository>();
 builder.Services.AddDbContext<Context>();
 // Add repositories
 builder.Services.AddScoped<StudentService>();

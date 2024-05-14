@@ -22,6 +22,6 @@ namespace MathStatisticsProject.Controllers
         {
             var students = _context.Students.Where(s => s.Group == studentGroup.ToString()).ToList();
             return Ok(students);
-        }
+        }//хз
     }
 }

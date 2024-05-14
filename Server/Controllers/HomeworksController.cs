@@ -35,7 +35,7 @@ public class HomeworksController : ControllerBase
         var homeworksWithStudent = filteredHomeworks.Select(x => _mapper.Map<GetStudentHomeworks>(x));
         foreach (var homework in homeworksWithStudent)
         {
-            homework.Student = _mapper.Map<GetStudent>(await new StudentService(_context).GetStudentByIdAsync((Guid)homework.StudentId));
+            homework.Student = _mapper.Map<GetStudent>(await new StudentService(_context).GetStudentByIdAsync(homework.StudentId));
         }
         return Ok(homeworksWithStudent);
     }
@@ -55,15 +55,27 @@ public class HomeworksController : ControllerBase
         return getHomework;
     }
 
+    [HttpPut("{id}")]
+    public async Task<ActionResult> UpdateHomeworkStatus(Guid id, [FromQuery] Status newStatus)
+    {
+        var homework = await _context.Homeworks.FindAsync(id);
+        homework.Status = newStatus;
+        _context.SaveChangesAsync();
+        return Ok();
+    }
+
+
     [HttpPost]
-    public async Task<ActionResult<PostHomework>> PostHomework([FromBody] PostHomework homework)
+    public async Task<ActionResult> PostHomework([FromBody] PostHomework homework)
     {
         var homeworkEntity = _mapper.Map<Homework>(homework);
+        homeworkEntity.Send = DateTime.SpecifyKind(homeworkEntity.Send, DateTimeKind.Utc).ToUniversalTime();
+        if (!await _homeworkRepository.SendHomeWork(homeworkEntity))
+        {
+            await _context.SaveChangesAsync();
+        }
 
-        _context.Homeworks.Add(homeworkEntity);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction("GetHomework", new { id = homeworkEntity.Id }, homework);
+        return Ok();
     }
     // переписать все контроллеры через репозитории
 }
