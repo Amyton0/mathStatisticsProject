@@ -8,7 +8,7 @@ namespace MathStatisticsProject.Data
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Homework> Homeworks { get; set; }
-        /*public DbSet<Attendance> Attendances { get; set; }*/
+        public DbSet<Attendance> Attendances { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

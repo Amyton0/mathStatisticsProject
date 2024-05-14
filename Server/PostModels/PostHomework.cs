@@ -12,5 +12,6 @@ namespace MathStatisticsProject.PostModels
         public Guid StudentId { get; set; }
         public PostMessage Message { get; set; }
         public string Content { get; set; }
+        public double Scores { get; set; }
     }
 }

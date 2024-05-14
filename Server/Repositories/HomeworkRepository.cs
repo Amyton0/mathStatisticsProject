@@ -14,16 +14,6 @@ namespace MathStatisticsProject.Repositories
             this.db = db;
         }
 
-        public async Task<List<Homework>> GetAllHomeworksAsync()
-        {
-            return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
-        }
-
-        public async Task<Homework> GetHomeworkByIdAsync(Guid id)
-        {
-            return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
-        }
-
         public async Task<bool> SendHomeWork(Homework homework)
         {
             await db.Homeworks.AddAsync(homework);
@@ -35,7 +25,7 @@ namespace MathStatisticsProject.Repositories
             return homeworks.Where(hm => FiltrationHomeworks(filter, hm));
         }
 
-        public bool FiltrationHomeworks(Filter filter, Homework homework)
+        private bool FiltrationHomeworks(Filter filter, Homework homework)
         {
             
             if (homework.Number != filter.HomeworkIndexes && filter.HomeworkIndexes != null)
@@ -102,3 +92,13 @@ namespace MathStatisticsProject.Repositories
             await db.Homeworks.AddAsync(homework);
             return await db.SaveChangesAsync() >= 0;
         }*/
+/*public async Task<List<Homework>> GetAllHomeworksAsync()
+{
+    return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
+}
+
+public async Task<Homework> GetHomeworkByIdAsync(Guid id)
+{
+    return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
+}
+*/
