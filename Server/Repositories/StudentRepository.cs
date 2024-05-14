@@ -23,7 +23,7 @@ namespace Application.Services.Students
             return await db.Students.OrderBy(s => s.Id).ToListAsync();
         }
 
-        public async Task<Student> GetStudentByIdAsync(Guid id)
+        public async Task<Student?> GetStudentByIdAsync(Guid id)
         {
             return await db.Students.FirstOrDefaultAsync(x => x.Id == id);
         }
@@ -36,7 +36,7 @@ namespace Application.Services.Students
                 ThirdName = thirdName, 
                 Group = group
             };
-            db.Students.Add(student);
+            await db.Students.AddAsync(student);
             return await db.SaveChangesAsync() >= 0;
         }
         

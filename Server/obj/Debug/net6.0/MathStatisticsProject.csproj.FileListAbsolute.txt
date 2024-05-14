@@ -104,3 +104,5 @@ C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\sc
 C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.csproj.CopyComplete
 C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\MathStatisticsProject.genruntimeconfig.cache
 C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\obj\Debug\net6.0\ref\MathStatisticsProject.dll
+C:\Users\VirteN\Desktop\Visual Code\сайттервер\mathStatisticsProject\Server\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\VirteN\Desktop\Visual Code\сайттервер\mathStatisticsProject\Server\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
