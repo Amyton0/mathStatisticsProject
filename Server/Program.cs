@@ -21,6 +21,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddAutoMapper(cfg => {
     cfg.CreateMap<Student, GetStudent>();
     cfg.CreateMap<Homework, GetHomework>();
+    cfg.CreateMap<Homework, GetStudentHomeworks>();
 });
 
 builder.Services.AddScoped<HomeworkRepository>();

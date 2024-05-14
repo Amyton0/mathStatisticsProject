@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Application.Services.Students;
 using AutoMapper;
 using MathStatisticsProject.Data;
 using MathStatisticsProject.GetModels;
@@ -31,14 +32,13 @@ public class HomeworksController : ControllerBase
     {
         var homeworks = _context.Homeworks.AsQueryable();
         var filteredHomeworks = _homeworkRepository.TakeFilteredHomeworks(filter, homeworks.ToList());
-        return Ok(filteredHomeworks);
+        var homeworksWithStudent = filteredHomeworks.Select(x => _mapper.Map<GetStudentHomeworks>(x));
+        foreach (var homework in homeworksWithStudent)
+        {
+            homework.Student = _mapper.Map<GetStudent>(await new StudentService(_context).GetStudentByIdAsync((Guid)homework.StudentId));
+        }
+        return Ok(homeworksWithStudent);
     }
-
-    // 1. Создаешь модель GetStudentsHomeworks
-    // 2. Наследую от GetHomeworks
-    // 3. Добавляю в модель из п.1 GetStudent
-    // 4. Беру список отфильтрованных домашек и автомаппером маплю в модель из п.1
-    // 5. Пробегаюсь по новому списку и добавляю студента
 
     [HttpGet("{id}")]
     public async Task<ActionResult<GetHomework>> GetHomework(Guid id)
