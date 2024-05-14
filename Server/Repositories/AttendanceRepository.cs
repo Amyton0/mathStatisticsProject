@@ -13,6 +13,12 @@ namespace MathStatisticsProject.Repositories
             this.db = db;
         }
 
+
+        public async Task<List<Attendance>> GetAllAttendance()
+        {
+            return await db.Attendances.ToListAsync();
+        }
+            
         public async Task<Attendance?> GetAttendanceByIdAsync(int lessonNumber, Guid studentId)
         {
             return await db.Attendances.FirstOrDefaultAsync(a => a.LessonNumber == lessonNumber && a.StudentId == studentId);

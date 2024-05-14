@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jCINHjuMwZT6gBLb6haxlYzSv84ZVEw2uFT38pGvzfkNyZ83wWzKlhfuJJ8dIiCK8zxAwhBU3TJEQ7st6uZdtw==",
+  "dgSpecHash": "1X4HcCfwBi+4/Rm+vHPizuzTm5UpOermehTncy/ujwxv3vc/0fA4KuDSMMTZeQzgU6s6O8ExUMvaiGCfGdL/kw==",
   "success": true,
   "projectFilePath": "C:\\Users\\VirteN\\Desktop\\Visual Code\\сайттервер\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
   "expectedPackageFiles": [
@@ -35,6 +35,7 @@
     "C:\\Users\\VirteN\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\VirteN\\.nuget\\packages\\npgsql\\6.0.8\\npgsql.6.0.8.nupkg.sha512",
     "C:\\Users\\VirteN\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\6.0.8\\npgsql.entityframeworkcore.postgresql.6.0.8.nupkg.sha512",
+    "C:\\Users\\VirteN\\.nuget\\packages\\nunit\\4.1.0\\nunit.4.1.0.nupkg.sha512",
     "C:\\Users\\VirteN\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\VirteN\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\VirteN\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
