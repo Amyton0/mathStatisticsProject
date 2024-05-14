@@ -23,21 +23,20 @@ namespace Application.Services.Students
             return await db.Students.OrderBy(s => s.Id).ToListAsync();
         }
 
-        public async Task<Student> GetStudentByIdAsync(Guid id)
+        public async Task<Student?> GetStudentByIdAsync(Guid id)
         {
             return await db.Students.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<bool> AddStudentAsync(string firstName, string secondName, string thirdName, string group)
         {
-            await using var context = new Context();
             var student = new Student { 
                 FirstName = firstName, 
                 SecondName = secondName, 
                 ThirdName = thirdName, 
                 Group = group
             };
-            context.Students.Add(student);
+            await db.Students.AddAsync(student);
             return await db.SaveChangesAsync() >= 0;
         }
         

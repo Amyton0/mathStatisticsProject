@@ -6,5 +6,12 @@
         public DateTime Date { get; set; }
         public Guid[] StudentIds { get; set; }
         public GetStudent Student { get; set; }
+        public AttendanceStatus AttendanceStatus { get; set; }
+    }
+    public enum AttendanceStatus
+    {
+        Absent,
+        Present,
+        AbsentForRespectfulReason
     }
 }

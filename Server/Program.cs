@@ -1,3 +1,4 @@
+using System.Text;
 using Application.Services.Students;
 using AutoMapper;
 using MathStatisticsProject.Data;
@@ -9,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Type = MathStatisticsProject.Models.Type;
+
 
 var builder = WebApplication.CreateBuilder(args);
 

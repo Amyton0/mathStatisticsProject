@@ -14,29 +14,20 @@ namespace MathStatisticsProject.Repositories
             this.db = db;
         }
 
-        public async Task<List<Homework>> GetAllHomeworksAsync()
+        public async Task<bool> SendHomeWork(Homework homework)
         {
-            return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
-        }
-
-        public async Task<Homework> GetHomeworkByIdAsync(Guid id)
-        {
-            return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
-        }
-
-        public  bool SendHomeWork(Homework homework)
-        {
-            using var context = new Context();
-            context.Homeworks.Add(homework);
-            return  db.SaveChanges() >= 0;
+            await db.Homeworks.AddAsync(homework);
+            return  await db.SaveChangesAsync() >= 0;
         }
         
         public IEnumerable<Homework> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
         {
+
             return homeworks.Where(hm => FiltrationHomeworks(filter, hm));
+
         }
 
-        public bool FiltrationHomeworks(Filter filter, Homework homework)
+        private bool FiltrationHomeworks(Filter filter, Homework homework)
         {
             
             if (filter.HomeworkIndexes != null && homework.Number != filter.HomeworkIndexes)
@@ -68,6 +59,25 @@ namespace MathStatisticsProject.Repositories
                 .FirstOrDefault();
             return groupHomework;
         }
+        
+        /*private List<Student> GetStudentsByHomeworkId(Guid homeworkId)
+        {
+            // Получаем список студентов, связанных с заданным идентификатором домашнего задания
+            return db.Homeworks
+                .Where(h => h.Id == homeworkId)
+                .Join(db.Students,
+                    h => h.StudentId,
+                    s => s.Id,
+                    (h, s) => new Student
+                    {
+                        Id = s.Id,
+                        FirstName = s.FirstName,
+                        SecondName = s.SecondName,
+                        ThirdName = s.ThirdName,
+                        Group = s.Group
+                    })
+                .ToList();
+        }*/
         public void Dispose()
         {
             Dispose(true);
@@ -103,3 +113,13 @@ namespace MathStatisticsProject.Repositories
             await db.Homeworks.AddAsync(homework);
             return await db.SaveChangesAsync() >= 0;
         }*/
+/*public async Task<List<Homework>> GetAllHomeworksAsync()
+{
+    return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
+}
+
+public async Task<Homework> GetHomeworkByIdAsync(Guid id)
+{
+    return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
+}
+*/

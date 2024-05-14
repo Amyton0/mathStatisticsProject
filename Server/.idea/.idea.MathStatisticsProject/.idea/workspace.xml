@@ -8,15 +8,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30b50c03-215b-425a-81be-26b6c3e47c3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Repositories/Filter.cs" afterDir="false" />
+    <list default="true" id="30b50c03-215b-425a-81be-26b6c3e47c3f" name="Changes" comment="213">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac/storage_v2/_src_/database/mathState.afIHLA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac/storage_v2/_src_/database/mathState.afIHLA/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Attendance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Attendance.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/Homework.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Homework.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Repositories/HomeworkRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/HomeworkRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/StudentRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/StudentRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.MvcApplicationPartsAssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.MvcApplicationPartsAssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +39,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../Rider/Git Shar-Bot/Share-Bot/Share BOT/Program.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2g8iVztjZEpK1jshGkxxjZlHpRm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -36,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Semon",
+    "git-widget-placeholder": "Semen",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -95,13 +112,25 @@
       <option name="presentableId" value="Default" />
       <updated>1715085636600</updated>
       <workItem from="1715085638054" duration="24939000" />
+      <workItem from="1715692812572" duration="4460000" />
     </task>
+    <task id="LOCAL-00001" summary="123">
+      <created>1715693082829</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715693082829</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="123" />
+    <option name="LAST_COMMIT_MESSAGE" value="123" />
   </component>
 </project>
