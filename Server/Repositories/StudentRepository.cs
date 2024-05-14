@@ -30,14 +30,13 @@ namespace Application.Services.Students
 
         public async Task<bool> AddStudentAsync(string firstName, string secondName, string thirdName, string group)
         {
-            await using var context = new Context();
             var student = new Student { 
                 FirstName = firstName, 
                 SecondName = secondName, 
                 ThirdName = thirdName, 
                 Group = group
             };
-            context.Students.Add(student);
+            db.Students.Add(student);
             return await db.SaveChangesAsync() >= 0;
         }
         

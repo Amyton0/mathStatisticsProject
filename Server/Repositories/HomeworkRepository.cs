@@ -24,14 +24,13 @@ namespace MathStatisticsProject.Repositories
             return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
         }
 
-        public  bool SendHomeWork(Homework homework)
+        public  async Task<bool> SendHomeWork(Homework homework)
         {
-            using var context = new Context();
-            context.Homeworks.Add(homework);
-            return  db.SaveChanges() >= 0;
+            db.Homeworks.Add(homework);
+            return  await db.SaveChangesAsync() >= 0;
         }
         
-        public IEnumerable<Homework> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
+        public async Task<IEnumerable<Homework>> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
         {
             return homeworks.Where(hm => FiltrationHomeworks(filter, hm));
         }
