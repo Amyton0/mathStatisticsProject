@@ -39,6 +39,22 @@ public class StudentsController : ControllerBase
         return getStudent;
     }
 
+    [HttpGet]
+    public IActionResult GetStudentsByGroup([FromQuery] int group)
+    {
+        var students = _context.Students.Where(s => int.Parse(s.Group) == group).ToList();
+
+        if (students.Count == 0)
+        {
+            return NotFound();
+        }
+
+        var getStudents = _mapper.Map<List<GetStudent>>(students);
+
+        return Ok(getStudents);
+    }
+
+
     //CR: нам это не надо пока. Можно оставить, только не забудь, что не надо реализовывать
     [HttpPost]
     public async Task<ActionResult<PostStudent>> PostStudent([FromBody] PostStudent student)
