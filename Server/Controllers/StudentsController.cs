@@ -24,8 +24,6 @@ public class StudentsController : ControllerBase
 
     [HttpGet("{id}")]
     public async Task<ActionResult<GetStudent>> GetStudent(Guid id)
-    
-    
     {
         var student = await _context.Students.FindAsync(id);
 
@@ -37,22 +35,7 @@ public class StudentsController : ControllerBase
         var getStudent = _mapper.Map<GetStudent>(student);
 
         return getStudent;
-    }
-
-    [HttpGet]
-    public IActionResult GetStudentsByGroup([FromQuery] int group)
-    {
-        var students = _context.Students.Where(s => int.Parse(s.Group) == group).ToList();
-
-        if (students.Count == 0)
-        {
-            return NotFound();
-        }
-
-        var getStudents = _mapper.Map<List<GetStudent>>(students);
-
-        return Ok(getStudents);
-    }
+    } // ok
 
 
     //CR: нам это не надо пока. Можно оставить, только не забудь, что не надо реализовывать

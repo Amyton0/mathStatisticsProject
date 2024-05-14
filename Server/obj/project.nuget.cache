@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "n6WSLUFLvGjO6AGOVRW8ysRugL7WivSv+OusE33n1Ac1Ai3A95vkadtGxr3y90mfEizATvj1rOOhg6qeBiuHNg==",
+  "dgSpecHash": "9OYQ7Z6C7+cyASwXFUEuxmD/9FLyA2jcNkd7qayBOeBUjGznUhzeFWEOaf0u0lU4272bhV6Dq+Xk+zkCQC/0nw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dimab\\OneDrive\\Desktop\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimab\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\6.1.1\\automapper.extensions.microsoft.dependencyinjection.6.1.1.nupkg.sha512",
+    "C:\\Users\\dimab\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.12\\microsoft.aspnetcore.authentication.google.6.0.12.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.13\\microsoft.aspnetcore.cryptography.internal.6.0.13.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.aspnetcore.dataprotection\\6.0.13\\microsoft.aspnetcore.dataprotection.6.0.13.nupkg.sha512",
@@ -16,7 +17,8 @@
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.13\\microsoft.entityframeworkcore.6.0.13.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.13\\microsoft.entityframeworkcore.abstractions.6.0.13.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.13\\microsoft.entityframeworkcore.analyzers.6.0.13.nupkg.sha512",
-    "C:\\Users\\dimab\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.12\\microsoft.entityframeworkcore.relational.6.0.12.nupkg.sha512",
+    "C:\\Users\\dimab\\.nuget\\packages\\microsoft.entityframeworkcore.design\\6.0.13\\microsoft.entityframeworkcore.design.6.0.13.nupkg.sha512",
+    "C:\\Users\\dimab\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\6.0.13\\microsoft.entityframeworkcore.relational.6.0.13.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\6.0.0\\microsoft.extensions.caching.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.extensions.caching.memory\\6.0.1\\microsoft.extensions.caching.memory.6.0.1.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

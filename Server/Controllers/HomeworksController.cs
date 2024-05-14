@@ -5,6 +5,7 @@ using MathStatisticsProject.Data;
 using MathStatisticsProject.GetModels;
 using MathStatisticsProject.Models;
 using MathStatisticsProject.PostModels;
+using MathStatisticsProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,50 +17,28 @@ public class HomeworksController : ControllerBase
 {
     private readonly Context _context;
     private readonly IMapper _mapper;
+    private readonly HomeworkRepository _homeworkRepository;
 
-    public HomeworksController(Context context, IMapper mapper)
+    public HomeworksController(Context context, IMapper mapper, HomeworkRepository homeworkRepository)
     {
         _context = context;
         _mapper = mapper;
+        _homeworkRepository = homeworkRepository;
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<GetHomework>>> GetHomeworks([FromQuery] Status status, [FromQuery] int studentGroup, [FromQuery] Models.Type type, [FromQuery] int number)
+    public async Task<ActionResult<IEnumerable<GetHomework>>> GetHomeworks([FromQuery] Filter filter)
     {
-        var homeworksQuery = _context.Homeworks.AsQueryable();
-
-        if (!string.IsNullOrEmpty(status.ToString()))
-        {
-            homeworksQuery = homeworksQuery.Where(h => h.Status == status);
-        }
-
-        if (studentGroup != 0)
-        {
-            homeworksQuery = homeworksQuery.Where(h => h.Student.Group == studentGroup.ToString());
-        }
-
-        if (!string.IsNullOrEmpty(type.ToString()))
-        {
-            homeworksQuery = homeworksQuery.Where(h => h.Type == type);
-        }
-
-        if (number != 0)
-        {
-            homeworksQuery = homeworksQuery.Where(h => h.Number == number);
-        }
-
-        var homeworks = await homeworksQuery.ToListAsync();
-
-        if (homeworks == null)
-        {
-            return NotFound();
-        }
-
-        var getHomeworks = _mapper.Map<List<GetHomework>>(homeworks);
-
-        return getHomeworks;
+        var homeworks = _context.Homeworks.AsQueryable();
+        var filteredHomeworks = _homeworkRepository.TakeFilteredHomeworks(filter, homeworks.ToList());
+        return Ok(filteredHomeworks);
     }
 
+    // 1. Создаешь модель GetStudentsHomeworks
+    // 2. Наследую от GetHomeworks
+    // 3. Добавляю в модель из п.1 GetStudent
+    // 4. Беру список отфильтрованных домашек и автомаппером маплю в модель из п.1
+    // 5. Пробегаюсь по новому списку и добавляю студента
 
     [HttpGet("{id}")]
     public async Task<ActionResult<GetHomework>> GetHomework(Guid id)
@@ -86,4 +65,5 @@ public class HomeworksController : ControllerBase
 
         return CreatedAtAction("GetHomework", new { id = homeworkEntity.Id }, homework);
     }
+    // переписать все контроллеры через репозитории
 }

@@ -12,7 +12,7 @@ namespace MathStatisticsProject.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Host=localhost;Username=postgres;Password=project2024;Database=mathState";
+            var connectionString = "Host=localhost;Username=postgres;Password=postgres;Database=postgres;Port=5432";
             optionsBuilder.UseNpgsql(connectionString);
         }
     }

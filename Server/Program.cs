@@ -1,6 +1,8 @@
 using Application.Services.Students;
 using AutoMapper;
 using MathStatisticsProject.Data;
+using MathStatisticsProject.GetModels;
+using MathStatisticsProject.Models;
 using MathStatisticsProject.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +18,17 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Your API", Version = "v1" });
 });
-builder.Services.AddAutoMapper();
+builder.Services.AddAutoMapper(cfg => {
+    cfg.CreateMap<Student, GetStudent>();
+    cfg.CreateMap<Homework, GetHomework>();
+});
+
+builder.Services.AddScoped<HomeworkRepository>();
+
 builder.Services.AddDbContext<Context>();
 // Add repositories
 builder.Services.AddScoped<StudentService>();
+
 
 var app = builder.Build();
 app.UseSwagger();

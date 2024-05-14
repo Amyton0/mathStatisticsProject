@@ -39,17 +39,17 @@ namespace MathStatisticsProject.Repositories
         public bool FiltrationHomeworks(Filter filter, Homework homework)
         {
             
-            if (homework.Number != filter.HomeworkIndexes && filter.HomeworkIndexes != null)
+            if (filter.HomeworkIndexes != null && homework.Number != filter.HomeworkIndexes)
             {
                 return false;
             }
             
-            if (filter.Groups.Any() && !filter.Groups.Contains(TakeGroupHomework(homework)))
+            if (filter.Groups != null && filter.Groups.Any() && !filter.Groups.Contains(TakeGroupHomework(homework)))
             {
                 return false;
             }
 
-            if (filter.statusHomeworks.Any() && !filter.statusHomeworks.Contains(homework.Status))
+            if (filter.statusHomeworks != null && filter.statusHomeworks.Any() && !filter.statusHomeworks.Contains((Status)homework.Status))
             {
                 return false;
             }
