@@ -22,7 +22,9 @@ namespace MathStatisticsProject.Repositories
         
         public IEnumerable<Homework> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
         {
+
             return homeworks.Where(hm => FiltrationHomeworks(filter, hm));
+
         }
 
         private bool FiltrationHomeworks(Filter filter, Homework homework)
@@ -57,6 +59,25 @@ namespace MathStatisticsProject.Repositories
                 .FirstOrDefault();
             return groupHomework;
         }
+        
+        /*private List<Student> GetStudentsByHomeworkId(Guid homeworkId)
+        {
+            // Получаем список студентов, связанных с заданным идентификатором домашнего задания
+            return db.Homeworks
+                .Where(h => h.Id == homeworkId)
+                .Join(db.Students,
+                    h => h.StudentId,
+                    s => s.Id,
+                    (h, s) => new Student
+                    {
+                        Id = s.Id,
+                        FirstName = s.FirstName,
+                        SecondName = s.SecondName,
+                        ThirdName = s.ThirdName,
+                        Group = s.Group
+                    })
+                .ToList();
+        }*/
         public void Dispose()
         {
             Dispose(true);
