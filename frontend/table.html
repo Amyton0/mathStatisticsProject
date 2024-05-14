@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="attendance_styles.css">
+    <link rel="stylesheet" href="table_styles.css">
     <link rel="stylesheet" href="header_and_footer.css">
     <title>StatVizorium</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,14 +25,15 @@
         </header>
     </div>
 
-    <select class="group" onchange="onGroupChange(event)">
-        <option selected disabled>Группа</option>
-        <option>ФТ-201</option>
-        <option>ФТ-202</option>
-        <option>ФТ-203</option>
-        <option>ФТ-204</option>
-    </select>
-
+    <div class="select_block">
+        <select class="group" onchange="onGroupChange(event)">
+            <option selected disabled>Группа</option>
+            <option>ФТ-201</option>
+            <option>ФТ-202</option>
+            <option>ФТ-203</option>
+            <option>ФТ-204</option>
+        </select>
+    </div>
     <div class="table_block"></div>
 
     <div class="footer_wrap">
@@ -43,6 +44,6 @@
         </footer>
     </div>
 
-      <script src="attendance.js"></script>
+      <script src="table.js"></script>
 </body>
 </html>
