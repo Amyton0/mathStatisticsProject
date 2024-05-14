@@ -13,7 +13,6 @@ namespace MathStatisticsProject.Repositories
             this.db = db;
         }
 
-
         public async Task<List<Attendance>> GetAllAttendance()
         {
             return await db.Attendances.ToListAsync();
