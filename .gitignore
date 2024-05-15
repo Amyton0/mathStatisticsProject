@@ -28,3 +28,8 @@ Server/.vs/MathStatisticsProject/FileContentIndex/287c3788-d9bb-4ee4-b459-a03326
 Server/.vs/MathStatisticsProject/FileContentIndex/98bcf894-b8b4-4424-9bb8-70c7f38ad9b7.vsidx
 Server/.vs/MathStatisticsProject/FileContentIndex/98bcf894-b8b4-4424-9bb8-70c7f38ad9b7.vsidx
 Server/.vs/MathStatisticsProject/FileContentIndex/98bcf894-b8b4-4424-9bb8-70c7f38ad9b7.vsidx
+*.dll
+Server/bin/Debug/net6.0/MathStatisticsProject.dll
+Server/bin/Debug/net6.0/MathStatisticsProject.exe
+*.dll
+*.dll
