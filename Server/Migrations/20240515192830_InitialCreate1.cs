@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MathStatisticsProject.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialCreate1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,7 +60,8 @@ namespace MathStatisticsProject.Migrations
                     LessonNumber = table.Column<int>(type: "integer", nullable: false),
                     Date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     StudentId = table.Column<Guid>(type: "uuid", nullable: false),
-                    AttendanceStatus = table.Column<int>(type: "integer", nullable: false)
+                    AttendanceStatus = table.Column<int>(type: "integer", nullable: false),
+                    LessonId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,7 +82,7 @@ namespace MathStatisticsProject.Migrations
                     Number = table.Column<int>(type: "integer", nullable: false),
                     Send = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     StudentId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Content = table.Column<byte[]>(type: "bytea", nullable: false),
+                    Content = table.Column<string>(type: "text", nullable: false),
                     Message = table.Column<string>(type: "text", nullable: false),
                     Status = table.Column<int>(type: "integer", nullable: false),
                     Type = table.Column<int>(type: "integer", nullable: false),

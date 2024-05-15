@@ -18,10 +18,10 @@ namespace MathStatisticsProject.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetTable([FromQuery] int studentGroup)
-        {
-            var students = _context.Students.Where(s => s.Group == studentGroup.ToString()).ToList();
-            return Ok(students);
-        }//хз
+        //public IActionResult GetTable([FromQuery] DateTime leftDate, [FromQuery] DateTime rightDate)
+        //{
+        //    var students = _context.Students.Where(s => s.Group == studentGroup.ToString()).ToList();
+        //    return Ok(students);
+        //}//хз
     }
 }

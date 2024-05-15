@@ -27,15 +27,15 @@ namespace MathStatisticsProject.Controllers
             _attendanceRepository = attendanceRepository;
         }
         [HttpGet]
-        public async Task<ActionResult<GetAttendance>> GetAttendance([FromQuery]int lessonNumber, [FromQuery]Guid studentId)
+        public async Task<ActionResult<GetAttendance>> GetAttendance([FromQuery] int lessonNumber, [FromQuery] Guid studentId)
         {
             var attendance = await _attendanceRepository.GetAttendanceByIdAsync(lessonNumber, studentId);
             var getAttendance = _mapper.Map<GetAttendance>(attendance);
             return Ok(getAttendance);
         } //ok
 
-        [HttpPost]
-        public async Task<ActionResult<PostStudent>> PostAttendance([FromBody] Guid[] studentIds, [FromQuery] int lessonNumber)
+        [HttpPost("{lessonId}")]
+        public async Task<ActionResult<PostStudent>> PostAttendance([FromBody] Guid[] studentIds, Guid lessonId)
         {
             //var studentEntities = _mapper.Map<Student[]>(students);
             //var attendanceList = studentEntities.Select(s => new Attendance
@@ -48,7 +48,7 @@ namespace MathStatisticsProject.Controllers
             //await _context.SaveChangesAsync();
 
             //return Ok(students);
-            bool result = await _attendanceRepository.ChangeAttendancesAsync(studentIds, lessonNumber);
+            bool result = await _attendanceRepository.ChangeAttendancesAsync(studentIds, lessonId);
 
             if (result)
             {

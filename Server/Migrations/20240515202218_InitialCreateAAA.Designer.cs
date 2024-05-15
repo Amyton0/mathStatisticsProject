@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathStatisticsProject.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240514141831_InitialCreateSuperPro")]
-    partial class InitialCreateSuperPro
+    [Migration("20240515202218_InitialCreateAAA")]
+    partial class InitialCreateAAA
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,45 @@ namespace MathStatisticsProject.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("MathStatisticsProject.Models.Attendance", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("AttendanceStatus")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("LessonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("LessonNumber")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Attendances");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("a5cc0060-30b0-4ad7-b1da-908edb065dd0"),
+                            AttendanceStatus = 0,
+                            Date = new DateTime(2024, 5, 16, 1, 22, 18, 698, DateTimeKind.Local).AddTicks(9372),
+                            LessonId = new Guid("1de4dd70-aeaa-4dee-807e-f7f8532755b8"),
+                            LessonNumber = 2,
+                            StudentId = new Guid("5de4dd70-aeaa-4dee-807e-f7f8532756b8")
+                        });
+                });
 
             modelBuilder.Entity("MathStatisticsProject.Models.Homework", b =>
                 {
@@ -34,11 +73,18 @@ namespace MathStatisticsProject.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("MessageId")
+                    b.Property<Guid>("LessonId")
                         .HasColumnType("uuid");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("text");
 
                     b.Property<int>("Number")
                         .HasColumnType("integer");
+
+                    b.Property<double>("Points")
+                        .HasColumnType("double precision");
 
                     b.Property<DateTime>("Send")
                         .HasColumnType("timestamp with time zone");
@@ -54,36 +100,29 @@ namespace MathStatisticsProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MessageId");
-
                     b.HasIndex("StudentId");
 
                     b.ToTable("Homeworks");
                 });
 
-            modelBuilder.Entity("MathStatisticsProject.Models.Message", b =>
+            modelBuilder.Entity("MathStatisticsProject.Models.Lesson", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<byte[]>("Content")
-                        .IsRequired()
-                        .HasColumnType("bytea");
+                    b.Property<int>("Number")
+                        .HasColumnType("integer");
 
-                    b.Property<Guid>("Receiver")
+                    b.Property<double>("Scores")
+                        .HasColumnType("double precision");
+
+                    b.Property<Guid>("StudentId")
                         .HasColumnType("uuid");
-
-                    b.Property<Guid>("Sender")
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("WriteMessage")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Message");
+                    b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("MathStatisticsProject.Models.Student", b =>
@@ -110,24 +149,50 @@ namespace MathStatisticsProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("students");
+                    b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("MathStatisticsProject.Models.Homework", b =>
+            modelBuilder.Entity("MathStatisticsProject.Models.Teacher", b =>
                 {
-                    b.HasOne("MathStatisticsProject.Models.Message", "Message")
-                        .WithMany()
-                        .HasForeignKey("MessageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
 
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("SecondName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("ThirdName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("MathStatisticsProject.Models.Attendance", b =>
+                {
                     b.HasOne("MathStatisticsProject.Models.Student", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Message");
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("MathStatisticsProject.Models.Homework", b =>
+                {
+                    b.HasOne("MathStatisticsProject.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Student");
                 });

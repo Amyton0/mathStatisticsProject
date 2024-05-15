@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathStatisticsProject.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240515135935_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240515192830_InitialCreate1")]
+    partial class InitialCreate1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,9 @@ namespace MathStatisticsProject.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
+                    b.Property<Guid>("LessonId")
+                        .HasColumnType("uuid");
+
                     b.Property<int>("LessonNumber")
                         .HasColumnType("integer");
 
@@ -55,9 +58,9 @@ namespace MathStatisticsProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<byte[]>("Content")
+                    b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("bytea");
+                        .HasColumnType("text");
 
                     b.Property<Guid>("LessonId")
                         .HasColumnType("uuid");

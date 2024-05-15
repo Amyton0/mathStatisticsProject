@@ -37,10 +37,10 @@ namespace MathStatisticsProject.Repositories
             return await db.SaveChangesAsync() >= 0;
         }
 
-        public async Task<bool> ChangeAttendancesAsync(Guid[] studentsId, int lessonNumber)
+        public async Task<bool> ChangeAttendancesAsync(Guid[] studentsId, Guid lessonId)
         {
             var attendances = db.Attendances
-                .Where(a => studentsId.Contains(a.StudentId) && a.LessonNumber == lessonNumber);
+                .Where(a => studentsId.Contains(a.StudentId) && a.LessonId == lessonId);
             foreach (var attendance in attendances)
             {
                 attendance.AttendanceStatus = AttendanceStatus.Present;
