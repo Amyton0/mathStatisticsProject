@@ -3,7 +3,7 @@ using MathStatisticsProject.Models;
 
 namespace MathStatisticsProject.PostModels
 {
-    public class PostHomework : Homework
+    public class PostHomework
     {
         public Guid Id { get; set; }
         public Models.Type Type { get; set; }

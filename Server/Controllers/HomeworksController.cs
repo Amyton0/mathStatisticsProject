@@ -55,15 +55,15 @@ public class HomeworksController : ControllerBase
         return getHomework;
     }//ok
 
-    [HttpPut]
-    public async Task<ActionResult<PostHomework>> UpdateHomework([FromBody]PostHomework homework)
+    [HttpPut("{id}")]
+    public async Task<ActionResult<PostHomework>> UpdateHomework(Guid id, [FromBody]PostHomework homework)
     {
-        if (homework.Status == Status.Checked)
-            return Forbid("Домашка уже проверена");
-        await _homeworkRepository.ChangePointsForHomework(homework.Id, homework.Points);
-        await _homeworkRepository.ChangeStatusForHomework(homework.Id, homework.Status);
-        return Ok();
-    }//не ок
+        //if (homework.Status == Status.Checked)
+        //    return Conflict("Домашка уже проверена");
+        await _homeworkRepository.ChangePointsForHomework(id, homework.Points);
+        await _homeworkRepository.ChangeStatusForHomework(id, homework.Status);
+        return NoContent();
+    }//ok
 
 
     [HttpPost]
