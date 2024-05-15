@@ -22,10 +22,7 @@ public class LessonRepository
             .ForEachAsync(l => l.Scores = scores[l.Id]);
         return await db.SaveChangesAsync() >= 0;
     }
-
     
-
-
     public void Dispose()
     {
         Dispose(true);
