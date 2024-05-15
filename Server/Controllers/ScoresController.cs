@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using MathStatisticsProject.Data;
 using MathStatisticsProject.Models;
+using MathStatisticsProject.PostModels;
 using MathStatisticsProject.GetModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using MathStatisticsProject.Repositories;
 
 namespace MathStatisticsProject.Controllers
 {
@@ -19,20 +21,25 @@ namespace MathStatisticsProject.Controllers
             _context = context;
             _mapper = mapper;
         }
+        
+        [HttpPost("{id}")]
+        public async Task<ActionResult<PostScore>> PostScore(Guid id, [FromBody]List<PostScore> postScores)
+        {
+            var listScores = new List<Score>();
+            foreach (var postScore in postScores)
+            {
+                var score = new Score
+                {
+                    StudentId = postScore.StudentId,
+                    LessonId = id,
+                    Value = postScore.Value
+                };
+                listScores.Add(score);
+            }
 
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<GetScore>> GetScore(Guid id)
-        //{
-        //    var score = _context.Homeworks.Where(h => h.Id == id).Select(x =);
-
-        //    if (scoreEntity == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var getScoreModel = _mapper.Map<GetScore>(scoreEntity);
-
-        //    return getScoreModel;
-        //} похуй
+            var lessonRepository = new LessonRepository(_context);
+            await lessonRepository.AddScoresForLesson(listScores);
+            return CreatedAtAction(nameof(PostScore), new { id = id, postScores = postScores }, postScores);
+        }
     }
 }
