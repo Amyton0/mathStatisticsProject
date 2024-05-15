@@ -59,7 +59,16 @@ namespace MathStatisticsProject.Repositories
                 .FirstOrDefault();
             return groupHomework;
         }
+
+        public async Task<bool> ChangePointsForHomework(Guid lessonId, double points)
+        {
+            await db.Homeworks
+                .Where(hm => hm.LessonId == lessonId)
+                .ForEachAsync(hm => hm.Points = points);
+            return await db.SaveChangesAsync() >= 0;
+        }
         
+
         /*private List<Student> GetStudentsByHomeworkId(Guid homeworkId)
         {
             // Получаем список студентов, связанных с заданным идентификатором домашнего задания
