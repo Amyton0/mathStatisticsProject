@@ -115,3 +115,4 @@ C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\bin\Debug\net6.0\Hu
 C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\bin\Debug\net6.0\nunit.framework.dll
 C:\Users\dimab\OneDrive\Desktop\mathStatisticsProject\Server\bin\Debug\net6.0\nunit.framework.legacy.dll
+C:\Users\VirteN\Desktop\Visual Code\сайттервер\mathStatisticsProject\Server\bin\Debug\net6.0\Google.Apis.Core.dll

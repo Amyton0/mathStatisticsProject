@@ -3,7 +3,7 @@ using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using MathStatisticsProject.Controllers;
-using Type = MathStatisticsProject.Models.Type;
+using Type = MathStatisticsProject.Models;
 
 namespace MathStatisticsProject.Repositories;
 
