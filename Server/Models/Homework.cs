@@ -18,12 +18,12 @@ namespace MathStatisticsProject.Models
         public string Content { get; set; }
         public string Message { get; set; }
         public Status Status { get; set; }
-        public Type Type { get; set; }
+        public Complexity Complexity { get; set; }
         public double Points { get; set; }
         public Guid LessonId { get; set; }
     }
 
-    public enum Type
+    public enum Complexity
     {
         [StringValue("DZ")]
         DZ,

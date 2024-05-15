@@ -13,7 +13,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using Type = MathStatisticsProject.Models.Type;
 
 
 var builder = WebApplication.CreateBuilder(args);
