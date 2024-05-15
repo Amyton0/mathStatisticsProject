@@ -10,6 +10,7 @@ namespace MathStatisticsProject.Data
         public DbSet<Homework> Homeworks { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
