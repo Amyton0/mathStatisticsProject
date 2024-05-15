@@ -56,9 +56,11 @@ public class HomeworksController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateHomeworkStatus(Guid id, [FromQuery] Status newStatus)
+    public async Task<ActionResult> UpdateHomeworkStatus(Guid id, [FromBody] Status newStatus)
     {
         var homework = await _context.Homeworks.FindAsync(id);
+        if (homework.Status == Status.Checked)
+            return Forbid("Домашка уже проверена");
         homework.Status = newStatus;
         _context.SaveChangesAsync();
         return Ok();
@@ -72,7 +74,12 @@ public class HomeworksController : ControllerBase
         homeworkEntity.Send = DateTime.SpecifyKind(homeworkEntity.Send, DateTimeKind.Utc).ToUniversalTime();
         if (!await _homeworkRepository.SendHomeWork(homeworkEntity))
         {
-            await _context.SaveChangesAsync();
+            if (homeworkEntity.Status == Status.Sended)
+            {
+                await _context.SaveChangesAsync();
+            }
+            else
+                return Forbid("Домашку может создать только студент");
         }
 
         return Ok();
