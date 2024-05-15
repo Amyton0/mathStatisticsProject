@@ -20,8 +20,8 @@ namespace MathStatisticsProject.Controllers
         [HttpGet]
         public IActionResult GetTable([FromQuery] int studentGroup)
         {
-            var students = _context.Students.Where(s => int.Parse(s.Group) == studentGroup).ToList();
+            var students = _context.Students.Where(s => s.Group == studentGroup.ToString()).ToList();
             return Ok(students);
-        }
+        }//хз
     }
 }

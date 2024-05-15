@@ -8,11 +8,13 @@ namespace MathStatisticsProject.Data
     {
         public DbSet<Student> Students { get; set; }
         public DbSet<Homework> Homeworks { get; set; }
-        /*public DbSet<Attendance> Attendances { get; set; }*/
+        public DbSet<Attendance> Attendances { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Host=localhost;Username=postgres;Password=project2024;Database=mathState";
+            var connectionString = "Host=localhost;Username=postgres;Password=postgres;Database=postgres;Port=5432";
             optionsBuilder.UseNpgsql(connectionString);
         }
     }

@@ -20,19 +20,19 @@ namespace MathStatisticsProject.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<GetScore>> GetScore(Guid id)
-        {
-            var scoreEntity = _context.Students.Where(s => s.Id == id);
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<GetScore>> GetScore(Guid id)
+        //{
+        //    var score = _context.Homeworks.Where(h => h.Id == id).Select(x =);
 
-            if (scoreEntity == null)
-            {
-                return NotFound();
-            }
+        //    if (scoreEntity == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var getScoreModel = _mapper.Map<GetScore>(scoreEntity);
+        //    var getScoreModel = _mapper.Map<GetScore>(scoreEntity);
 
-            return getScoreModel;
-        }
+        //    return getScoreModel;
+        //} похуй
     }
 }

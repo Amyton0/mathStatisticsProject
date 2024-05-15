@@ -24,8 +24,6 @@ public class StudentsController : ControllerBase
 
     [HttpGet("{id}")]
     public async Task<ActionResult<GetStudent>> GetStudent(Guid id)
-    
-    
     {
         var student = await _context.Students.FindAsync(id);
 
@@ -37,7 +35,8 @@ public class StudentsController : ControllerBase
         var getStudent = _mapper.Map<GetStudent>(student);
 
         return getStudent;
-    }
+    } // ok
+
 
     //CR: нам это не надо пока. Можно оставить, только не забудь, что не надо реализовывать
     [HttpPost]

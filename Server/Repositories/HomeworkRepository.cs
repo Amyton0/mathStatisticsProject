@@ -2,6 +2,7 @@
 using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Type = MathStatisticsProject.Models.Type;
 
 namespace MathStatisticsProject.Repositories
 {
@@ -14,46 +15,37 @@ namespace MathStatisticsProject.Repositories
             this.db = db;
         }
 
-        public async Task<List<Homework>> GetAllHomeworksAsync()
+        public async Task<bool> SendHomeWork(Homework homework)
         {
-            return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
-        }
-
-        public async Task<Homework> GetHomeworkByIdAsync(Guid id)
-        {
-            return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
-        }
-
-        public  bool SendHomeWork(Homework homework)
-        {
-            using var context = new Context();
-            context.Homeworks.Add(homework);
-            return  db.SaveChanges() >= 0;
+            await db.Homeworks.AddAsync(homework);
+            return  await db.SaveChangesAsync() >= 0;
         }
         
         public IEnumerable<Homework> TakeFilteredHomeworks(Filter filter, List<Homework> homeworks)
         {
+
             return homeworks.Where(hm => FiltrationHomeworks(filter, hm));
+
         }
 
-        public bool FiltrationHomeworks(Filter filter, Homework homework)
+        private bool FiltrationHomeworks(Filter filter, Homework homework)
         {
             
-            if (homework.Number != filter.HomeworkIndexes && filter.HomeworkIndexes != null)
+            if (filter.HomeworkIndexes != null && homework.Number != filter.HomeworkIndexes)
             {
                 return false;
             }
             
-            if (filter.Groups.Any() && !filter.Groups.Contains(TakeGroupHomework(homework)))
+            if (filter.Groups != null && filter.Groups.Any() && !filter.Groups.Contains(TakeGroupHomework(homework)))
             {
                 return false;
             }
 
-            if (filter.statusHomeworks.Any() && !filter.statusHomeworks.Contains(homework.Status))
+            if (filter.statusHomeworks != null && filter.statusHomeworks.Any() && !filter.statusHomeworks.Contains((Status)homework.Status))
             {
                 return false;
             }
-            
+
             return true;
         }
 
@@ -68,6 +60,42 @@ namespace MathStatisticsProject.Repositories
                 .FirstOrDefault();
             return groupHomework;
         }
+
+        public async Task<bool> ChangePointsForHomework(Guid idHomework, double points)
+        {
+            await db.Homeworks
+                .Where(hm => hm.Id == idHomework)
+                .ForEachAsync(hm => hm.Points = points);
+            return await db.SaveChangesAsync() >= 0;
+        }
+
+        public async Task<bool> ChangeStatusForHomework(Guid idHomework, Status newStatus)
+        {
+            await db.Homeworks
+                .Where(hm => hm.Id == idHomework)
+                .ForEachAsync(hm => hm.Status = newStatus);
+            return await db.SaveChangesAsync() >= 0;
+        }
+        
+
+        /*private List<Student> GetStudentsByHomeworkId(Guid homeworkId)
+        {
+            // Получаем список студентов, связанных с заданным идентификатором домашнего задания
+            return db.Homeworks
+                .Where(h => h.Id == homeworkId)
+                .Join(db.Students,
+                    h => h.StudentId,
+                    s => s.Id,
+                    (h, s) => new Student
+                    {
+                        Id = s.Id,
+                        FirstName = s.FirstName,
+                        SecondName = s.SecondName,
+                        ThirdName = s.ThirdName,
+                        Group = s.Group
+                    })
+                .ToList();
+        }*/
         public void Dispose()
         {
             Dispose(true);
@@ -103,3 +131,13 @@ namespace MathStatisticsProject.Repositories
             await db.Homeworks.AddAsync(homework);
             return await db.SaveChangesAsync() >= 0;
         }*/
+/*public async Task<List<Homework>> GetAllHomeworksAsync()
+{
+    return await db.Homeworks.OrderBy(h => h.Id).ToListAsync();
+}
+
+public async Task<Homework> GetHomeworkByIdAsync(Guid id)
+{
+    return await db.Homeworks.FirstOrDefaultAsync(h => h.Id == id);
+}
+*/

@@ -1,11 +1,10 @@
-﻿/*
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MathStatisticsProject.Models;
 using MathStatisticsProject.Data;
 
 namespace MathStatisticsProject.Repositories
 {
-    public sealed class AttendanceRepository : IDisposable
+    public sealed class AttendanceRepository
     {
         private readonly Context db;
 
@@ -14,25 +13,23 @@ namespace MathStatisticsProject.Repositories
             this.db = db;
         }
 
-        public async Task<Attendance> GetAttendanceByIdAsync(int lessonNumber, int studentId)
+        public async Task<List<Attendance>> GetAllAttendance()
+        {
+            return await db.Attendances.ToListAsync();
+        }
+            
+        public async Task<Attendance?> GetAttendanceByIdAsync(int lessonNumber, Guid studentId)
         {
             return await db.Attendances.FirstOrDefaultAsync(a => a.LessonNumber == lessonNumber && a.StudentId == studentId);
         }
 
-        public async Task<bool> AddAttendanceAsync(int lessonNumber, DateTime date, int studentId)
+        public async Task<bool> AddAttendanceAsync(Attendance attendance)
         {
-            var attendance = new Attendance
-            {
-                LessonNumber = lessonNumber,
-                Date = date,
-                StudentId = studentId
-            };
-
             await db.Attendances.AddAsync(attendance);
             return await db.SaveChangesAsync() >= 0;
         }
 
-        public async Task<bool> DeleteAttendanceAsync(int studentId, int lessonNumber)
+        public async Task<bool> DeleteAttendanceAsync(Guid studentId, int lessonNumber)
         {
             var attendance = new Attendance { StudentId = studentId, LessonNumber = lessonNumber };
             db.Attendances.Attach(attendance);
@@ -40,23 +37,34 @@ namespace MathStatisticsProject.Repositories
             return await db.SaveChangesAsync() >= 0;
         }
 
-        //CR: хочу обоснование dispose. При гуглении обращай внимание на версию EF
-        public void Dispose()
+        public async Task<bool> ChangeAttendancesAsync(Guid[] studentsId, int lessonNumber)
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (disposing)
+            var attendances = db.Attendances
+                .Where(a => studentsId.Contains(a.StudentId) && a.LessonNumber == lessonNumber);
+            foreach (var attendance in attendances)
             {
-                if (db != null)
-                {
-                    db.Dispose();
-                }
+                attendance.AttendanceStatus = AttendanceStatus.Present;
             }
+            return await db.SaveChangesAsync() >= 0;
         }
+        
+
+        //CR: хочу обоснование dispose. При гуглении обращай внимание на версию EF
+        //public void Dispose()
+        //{
+        //    Dispose(true);
+        //    GC.SuppressFinalize(this);
+        //}
+
+        //private void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        if (db != null)
+        //        {
+        //            db.Dispose();
+        //        }
+        //    }
+        //}
     }
 }
-*/
