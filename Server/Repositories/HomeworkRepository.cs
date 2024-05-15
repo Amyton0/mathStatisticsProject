@@ -45,6 +45,13 @@ namespace MathStatisticsProject.Repositories
                 return false;
             }
 
+            if (filter.typeHomeworks != null
+                && filter.typeHomeworks.Any()
+                && !filter.typeHomeworks.Contains(homework.Complexity))
+            {
+                return false;
+            }
+
             return true;
         }
 
