@@ -8317,7 +8317,6 @@ function onGroupChange(event) {
         for (let j = 0; j < students.headers.length; j++) {
             let cell = headers.insertCell();
             cell.textContent = students.headers[j];
-            console.log(students.headers[j])
         }
     }
 
@@ -8331,6 +8330,8 @@ function onGroupChange(event) {
             isAttendance.type = 'checkbox';
             if (students[group][name][date].attendance) isAttendance.checked = true;
             isAttendance.setAttribute('onchange', `changeAttendance(this, '${name}', '${group}', ${date})`);
+            isAttendance.classList.add(date);
+            isAttendance.name = name;
             attendanceCell.classList.add('center_align');
             attendanceCell.appendChild(isAttendance);
 
@@ -8350,7 +8351,40 @@ function onGroupChange(event) {
         }
     }
 
+    let saving = table.insertRow();
+    saving.insertCell();
+
+    for (let i = 0; i < students.dates.length; i++) {
+        let cell = saving.insertCell();
+        cell.classList.add('center_align');
+        let date = students.dates[i];
+        let savingButton = document.createElement('button');
+
+        savingButton.innerText = 'Сохранить';
+
+        savingButton.addEventListener('click', () => {
+            attendances = [];
+
+            let checkboxes = document.getElementsByClassName(date);
+
+            for (let j = 0; j < checkboxes.length; j++) {
+                if (checkboxes[j].checked) attendances.push(checkboxes[j].name);
+            }
+
+            console.log(attendances)
+
+            saveAttendances(date, attendances);
+        });
+
+        cell.appendChild(savingButton);
+        cell.setAttribute('colspan', 3)
+    }
+
     block.appendChild(table);
+}
+
+function saveAttendances(date, students) {
+
 }
 
 function changeAttendance(element, name, group, date) {
