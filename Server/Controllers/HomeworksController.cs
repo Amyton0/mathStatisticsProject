@@ -38,7 +38,7 @@ public class HomeworksController : ControllerBase
             homework.Student = _mapper.Map<GetStudent>(await new StudentService(_context).GetStudentByIdAsync(homework.StudentId));
         }
         return Ok(homeworksWithStudent);
-    }
+    }//ok
 
     [HttpGet("{id}")]
     public async Task<ActionResult<GetHomework>> GetHomework(Guid id)
@@ -53,7 +53,7 @@ public class HomeworksController : ControllerBase
         var getHomework = _mapper.Map<GetHomework>(homework);
 
         return getHomework;
-    }
+    }//ok
 
     [HttpPut]
     public async Task<ActionResult<PostHomework>> UpdateHomework([FromBody]PostHomework homework)
@@ -63,7 +63,7 @@ public class HomeworksController : ControllerBase
         await _homeworkRepository.ChangePointsForHomework(homework.Id, homework.Points);
         await _homeworkRepository.ChangeStatusForHomework(homework.Id, homework.Status);
         return Ok();
-    }
+    }//не ок
 
 
     [HttpPost]
@@ -82,6 +82,6 @@ public class HomeworksController : ControllerBase
         }
 
         return Ok();
-    }
+    }//ok
     // переписать все контроллеры через репозитории
 }

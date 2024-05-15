@@ -35,20 +35,29 @@ namespace MathStatisticsProject.Controllers
         } //ok
 
         [HttpPost]
-        public async Task<ActionResult<PostStudent>> PostAttendance([FromBody] PostStudent[] students)
+        public async Task<ActionResult<PostStudent>> PostAttendance([FromBody] Guid[] studentIds, [FromQuery] int lessonNumber)
         {
-            var studentEntities = _mapper.Map<Student[]>(students);
-            var attendanceList = studentEntities.Select(s => new Attendance
+            //var studentEntities = _mapper.Map<Student[]>(students);
+            //var attendanceList = studentEntities.Select(s => new Attendance
+            //{
+            //    StudentId = s.Id,
+            //    Date = DateTime.Now,
+            //});
+
+            //_context.Attendances.AddRange(attendanceList);
+            //await _context.SaveChangesAsync();
+
+            //return Ok(students);
+            bool result = await _attendanceRepository.ChangeAttendancesAsync(studentIds, lessonNumber);
+
+            if (result)
             {
-                StudentId = s.Id,
-                Date = DateTime.Now,
-            });
-
-            _context.Attendances.AddRange(attendanceList);
-            await _context.SaveChangesAsync();
-
-            return Ok(students);
-
-        }//не пон
+                return Ok("Attendances changed successfully.");
+            }
+            else
+            {
+                return BadRequest("Failed to change attendances.");
+            }
+        }//не ok
     }
 }

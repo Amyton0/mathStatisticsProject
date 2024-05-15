@@ -35,7 +35,7 @@ public class TeachersController : ControllerBase
         var getTeacher = _mapper.Map<GetTeacher>(teacher);
 
         return getTeacher;
-    }
+    }//не ок
 
     //CR: нам это не надо пока. Можно оставить, только не забудь, что не надо реализовывать
     [HttpPost]
