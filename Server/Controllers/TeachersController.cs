@@ -5,6 +5,7 @@ using MathStatisticsProject.Data;
 using MathStatisticsProject.GetModels;
 using MathStatisticsProject.Models;
 using MathStatisticsProject.PostModels;
+using MathStatisticsProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathStatisticsProject.Controllers;
@@ -25,7 +26,8 @@ public class TeachersController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<GetTeacher>> GetTeacher(Guid id)
     {
-        var teacher = await _context.Teachers.FindAsync(id);
+        var teacherRepository = new TeacherRepository(new Context());
+        var teacher = await GetTeacher(id);
 
         if (teacher == null)
         {
