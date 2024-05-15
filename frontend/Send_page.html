@@ -21,7 +21,12 @@
                 </ul>
             </nav>
             <div class="authorization">
-                <a href="#">Войти</a>
+                <div class="drop-down_auth">
+                    <a id ="header_username" href="authorisation.html"></a>
+                    <div class="drop-down_content" id = "drop-down_content">
+                        <a href="" onclick="logout()">Выйти</a>
+                    </div>
+                </div>
             </div>
         </header>
     </div>
@@ -29,12 +34,12 @@
     <form class="content_wrap">
         <div class="sending_info">
             <div class="homework_info">
-                <div class="number">
+                <div class="sending_number">
                     <label for="Number">Номер д/з</label>
                     <input id="Number" required type="number" min="1">
                 </div>
                 <hr>
-                <div class="tomb">
+                <div class="sending_tomb">
                     <input id="Tomb" class="custom_checkbox" type="checkbox">
                     <label for="Tomb">Гроб</label>
                 </div>
@@ -44,7 +49,7 @@
                     <span class="input-file-btn">Выберите файл</span>           
               </label>
             </div>
-            <div class="comment">
+            <div class="sending_comment">
                 <textarea placeholder="Сообщение преподавателю..."></textarea>
             </div>
         </div>
@@ -60,5 +65,6 @@
             </a>
         </footer>
     </div>
+    <script src="authorizingHeader.js"></script>
 </body>
 </html>
