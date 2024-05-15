@@ -2,6 +2,7 @@
 using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Type = MathStatisticsProject.Models.Type;
 
 namespace MathStatisticsProject.Repositories
 {
@@ -65,6 +66,14 @@ namespace MathStatisticsProject.Repositories
             await db.Homeworks
                 .Where(hm => hm.LessonId == lessonId)
                 .ForEachAsync(hm => hm.Points = points);
+            return await db.SaveChangesAsync() >= 0;
+        }
+
+        public async Task<bool> ChangeStatusForHomework(Guid idHomework, Status newStatus)
+        {
+            await db.Homeworks
+                .Where(hm => hm.Id == idHomework)
+                .ForEachAsync(hm => hm.Status = newStatus);
             return await db.SaveChangesAsync() >= 0;
         }
         
