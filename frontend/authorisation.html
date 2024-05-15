@@ -12,15 +12,8 @@
     <div class="header_wrap">
         <header class="header">
             <a href="#">
-                <img src="эмблема 1.png" alt="" width="1066px" height="146px">
+                <img src="шапка 1.svg" alt="">
             </a>
-            <nav>
-                <ul class="menu">
-                    <li><a href="#">Отправка</a></li>
-                    <li><a href="#">Проверка</a></li>
-                    <li><a href="#">Войти</a></li>
-                </ul>
-            </nav>
         </header>
     </div>
     <div class="authorisation_block">
@@ -28,20 +21,51 @@
             Авторизация
         </div>
         <div class="form_block">
-            <form>
+            <form id="authorisation_form">
                 <label for="login">Логин</label>
                 <input type="text" id="login" name="login" required >
                 <label for="password">Пароль</label>
                 <input type="password" id="password" name="password" required >
                 <button class="form_auth_button" type="submit" name="form_auth_submit">Войти</button>
             </form>
+
+            <script>
+                document.getElementById("authorisation_form").addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    let username = document.getElementById("login").value;
+                    let password = document.getElementById("password").value;
+                    let userId = 0;
+
+                    fetch('users.json').then(response => response.json()).then(data => {
+                    let user = data.find(user => user.login === username && user.password === password);
+                    
+                
+                    if(user) {
+                        
+                        for (let i = 0; i < data.length; i++) {
+                        if (data[i].login === username) {
+                            userId = data[i].id;
+                            }
+                        }
+                        localStorage.setItem("userId", userId);
+                        localStorage.setItem("login", username);
+
+                        window.history.back();
+                    } else {
+                        alert("Invalid username or password. Please try again.");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+                });
+            </script>
         </div>
     </div>
 
     <div class="footer_wrap">
         <footer class="footer">
             <a href="#">
-                <img src="Vector.png" alt="" width="250px" height="250px">
+                <img src="фиит 4.svg">
             </a>
         </footer>
     </div>

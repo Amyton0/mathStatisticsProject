@@ -26,16 +26,16 @@ namespace MathStatisticsProject.Controllers
             _mapper = mapper;
             _attendanceRepository = attendanceRepository;
         }
-        [HttpGet]
+        /*[HttpGet]
         public async Task<ActionResult<GetAttendance>> GetAttendance([FromQuery]int lessonNumber, [FromQuery]Guid studentId)
         {
             var attendance = await _attendanceRepository.GetAttendanceByIdAsync(lessonNumber, studentId);
             var getAttendance = _mapper.Map<GetAttendance>(attendance);
             return Ok(getAttendance);
-        } //ok
+        } //ok*/
 
         [HttpPost]
-        public async Task<ActionResult<PostStudent>> PostAttendance([FromBody] Guid[] studentIds, [FromQuery] int lessonNumber)
+        public async Task<ActionResult<PostStudent>> PostAttendance([FromBody] Guid[] studentIds, [FromQuery] Guid lessonNumber)
         {
             //var studentEntities = _mapper.Map<Student[]>(students);
             //var attendanceList = studentEntities.Select(s => new Attendance
