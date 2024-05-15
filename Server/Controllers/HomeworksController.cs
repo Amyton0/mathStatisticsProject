@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Application.Services.Students;
 using AutoMapper;
 using MathStatisticsProject.Data;
 using MathStatisticsProject.GetModels;
 using MathStatisticsProject.Models;
 using MathStatisticsProject.PostModels;
+using MathStatisticsProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,26 +18,27 @@ public class HomeworksController : ControllerBase
 {
     private readonly Context _context;
     private readonly IMapper _mapper;
+    private readonly HomeworkRepository _homeworkRepository;
 
-    public HomeworksController(Context context, IMapper mapper)
+    public HomeworksController(Context context, IMapper mapper, HomeworkRepository homeworkRepository)
     {
         _context = context;
         _mapper = mapper;
+        _homeworkRepository = homeworkRepository;
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<GetHomework>>> GetHomeworks()
+    public async Task<ActionResult<IEnumerable<GetHomework>>> GetHomeworks([FromQuery] Filter filter)
     {
-        var homeworks = await _context.Homeworks.ToListAsync();
-        if (homeworks == null)
+        var homeworks = _context.Homeworks.AsQueryable();
+        var filteredHomeworks = _homeworkRepository.TakeFilteredHomeworks(filter, homeworks.ToList());
+        var homeworksWithStudent = filteredHomeworks.Select(x => _mapper.Map<GetStudentHomeworks>(x));
+        foreach (var homework in homeworksWithStudent)
         {
-            return NotFound();
+            homework.Student = _mapper.Map<GetStudent>(await new StudentService(_context).GetStudentByIdAsync(homework.StudentId));
         }
-
-        var getHomeworks = _mapper.Map<List<GetHomework>>(homeworks);
-
-        return getHomeworks;
-    }
+        return Ok(homeworksWithStudent);
+    }//ok
 
     [HttpGet("{id}")]
     public async Task<ActionResult<GetHomework>> GetHomework(Guid id)
@@ -50,16 +53,35 @@ public class HomeworksController : ControllerBase
         var getHomework = _mapper.Map<GetHomework>(homework);
 
         return getHomework;
-    }
+    }//ok
+
+    [HttpPut]
+    public async Task<ActionResult<PostHomework>> UpdateHomework([FromBody]PostHomework homework)
+    {
+        if (homework.Status == Status.Checked)
+            return Forbid("Домашка уже проверена");
+        await _homeworkRepository.ChangePointsForHomework(homework.Id, homework.Points);
+        await _homeworkRepository.ChangeStatusForHomework(homework.Id, homework.Status);
+        return Ok();
+    }//не ок
+
 
     [HttpPost]
-    public async Task<ActionResult<PostHomework>> PostHomework([FromBody] PostHomework homework)
+    public async Task<ActionResult> PostHomework([FromBody] PostHomework homework)
     {
         var homeworkEntity = _mapper.Map<Homework>(homework);
+        homeworkEntity.Send = DateTime.SpecifyKind(homeworkEntity.Send, DateTimeKind.Utc).ToUniversalTime();
+        if (!await _homeworkRepository.SendHomeWork(homeworkEntity))
+        {
+            if (homeworkEntity.Status == Status.Sended)
+            {
+                await _context.SaveChangesAsync();
+            }
+            else
+                return Forbid("Домашку может создать только студент");
+        }
 
-        _context.Homeworks.Add(homeworkEntity);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction("GetHomework", new { id = homeworkEntity.Id }, homework);
-    }
+        return Ok();
+    }//ok
+    // переписать все контроллеры через репозитории
 }

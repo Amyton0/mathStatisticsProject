@@ -3,6 +3,7 @@ using System;
 using MathStatisticsProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathStatisticsProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240514202754_InitialCreateMega")]
+    partial class InitialCreateMega
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,9 +59,6 @@ namespace MathStatisticsProject.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("LessonId")
-                        .HasColumnType("uuid");
-
                     b.Property<string>("Message")
                         .IsRequired()
                         .HasColumnType("text");
@@ -67,7 +66,7 @@ namespace MathStatisticsProject.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("integer");
 
-                    b.Property<double>("Points")
+                    b.Property<double>("Scores")
                         .HasColumnType("double precision");
 
                     b.Property<DateTime>("Send")
@@ -87,26 +86,6 @@ namespace MathStatisticsProject.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("Homeworks");
-                });
-
-            modelBuilder.Entity("MathStatisticsProject.Models.Lesson", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("Number")
-                        .HasColumnType("integer");
-
-                    b.Property<double>("Scores")
-                        .HasColumnType("double precision");
-
-                    b.Property<Guid>("StudentId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("MathStatisticsProject.Models.Student", b =>
@@ -133,30 +112,7 @@ namespace MathStatisticsProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
-                });
-
-            modelBuilder.Entity("MathStatisticsProject.Models.Teacher", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("SecondName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("ThirdName")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Teachers");
+                    b.ToTable("students");
                 });
 
             modelBuilder.Entity("MathStatisticsProject.Models.Attendance", b =>

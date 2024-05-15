@@ -10,7 +10,6 @@ namespace MathStatisticsProject.Models
         public string ThirdName { get; set; }
         public string Group { get; set; }
         
-        [Key]
         public Guid Id { get; set; }
         
     }
