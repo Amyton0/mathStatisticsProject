@@ -55,13 +55,12 @@ public class HomeworksController : ControllerBase
         return getHomework;
     }
 
-    [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateHomeworkStatus(Guid id, [FromBody] Status newStatus)
+    [HttpPut]
+    public async Task<ActionResult> UpdateHomework([FromBody]PostHomework homework)
     {
-        var homework = await _context.Homeworks.FindAsync(id);
         if (homework.Status == Status.Checked)
             return Forbid("Домашка уже проверена");
-        homework.Status = newStatus;
+        //homework.Status = newStatus;
         _context.SaveChangesAsync();
         return Ok();
     }

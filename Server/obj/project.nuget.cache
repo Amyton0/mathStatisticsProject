@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "/ERQoWAKoPUkjzdjiIXad+IlRXv62ipoN7zEW1JXZ2eZzDY12pmPnmUEohGZgTpQT2w8A6+sdvdobOXseDUoMw==",
+  "dgSpecHash": "c8sHds1v0vmiqtM8K+Vu3UbBkSWcO9SqJAUHvS2QHTvx/aeN6BWuhxb4xQ0hkTHEzXOYFKVsDIrB4tjs43spPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\dimab\\OneDrive\\Desktop\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dimab\\.nuget\\packages\\automapper\\8.1.1\\automapper.8.1.1.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\6.1.1\\automapper.extensions.microsoft.dependencyinjection.6.1.1.nupkg.sha512",
+    "C:\\Users\\dimab\\.nuget\\packages\\google.apis.core\\1.68.0\\google.apis.core.1.68.0.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.12\\microsoft.aspnetcore.authentication.google.6.0.12.nupkg.sha512",
     "C:\\Users\\dimab\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.13\\microsoft.aspnetcore.cryptography.internal.6.0.13.nupkg.sha512",

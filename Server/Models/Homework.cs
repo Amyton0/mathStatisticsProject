@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Google.Apis.Util;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
@@ -21,67 +22,21 @@ namespace MathStatisticsProject.Models
         public double Scores { get; set; }
     }
 
-    [System.Text.Json.Serialization.JsonConverter(typeof(CustomStringToEnumConverter<Type>))]
     public enum Type
     {
-        [EnumMember(Value = "0")]
+        [StringValue("DZ")]
         DZ,
-        [EnumMember(Value = "1")]
+        [StringValue("Grob")]
         Grob
     }
 
-    [System.Text.Json.Serialization.JsonConverter(typeof(CustomStringToEnumConverter<Status>))]
     public enum Status
     {
-        [EnumMember(Value = "0")]
+        [StringValue("Sended")]
         Sended,
-        [EnumMember(Value = "1")]
+        [StringValue("Doreshka")]
         Doreshka,
-        [EnumMember(Value = "2")]
+        [StringValue("Checked")]
         Checked,
-    }
-
-    public class CustomStringToEnumConverter<T> : StringEnumConverter
-    {
-        public object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-        {
-            if (string.IsNullOrEmpty(reader.Value?.ToString()))
-            {
-                return null;
-            }
-            try
-            {
-                return EnumExtensions.GetValueFromEnumMember<T>(reader.Value.ToString());
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-    }
-
-    public static class EnumExtensions
-    {
-        public static T GetValueFromEnumMember<T>(string value)
-        {
-            var type = typeof(T);
-            if (!type.IsEnum) throw new InvalidOperationException();
-            foreach (var field in type.GetFields())
-            {
-                var attribute = Attribute.GetCustomAttribute(field,
-                    typeof(EnumMemberAttribute)) as EnumMemberAttribute;
-                if (attribute != null)
-                {
-                    if (attribute.Value == value)
-                        return (T)field.GetValue(null);
-                }
-                else
-                {
-                    if (field.Name == value)
-                        return (T)field.GetValue(null);
-                }
-            }
-            throw new ArgumentException($"unknow value: {value}");
-        }
     }
 }
