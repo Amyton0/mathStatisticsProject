@@ -39,7 +39,7 @@ public class TeachersController : ControllerBase
 
     //CR: нам это не надо пока. Можно оставить, только не забудь, что не надо реализовывать
     [HttpPost]
-    public async Task<ActionResult<PostStudent>> PostStudent([FromBody] PostStudent student)
+    public async Task<ActionResult<PostTeacher>> PostTeacher([FromBody] PostTeacher teacher)
     {
         throw new NotImplementedException();
     }
