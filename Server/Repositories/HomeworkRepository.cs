@@ -2,6 +2,7 @@
 using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Type = MathStatisticsProject.Models.Type;
 
 namespace MathStatisticsProject.Repositories
 {
@@ -59,7 +60,24 @@ namespace MathStatisticsProject.Repositories
                 .FirstOrDefault();
             return groupHomework;
         }
+
+        public async Task<bool> ChangePointsForHomework(Guid lessonId, double points)
+        {
+            await db.Homeworks
+                .Where(hm => hm.LessonId == lessonId)
+                .ForEachAsync(hm => hm.Points = points);
+            return await db.SaveChangesAsync() >= 0;
+        }
+
+        public async Task<bool> ChangeStatusForHomework(Guid idHomework, Status newStatus)
+        {
+            await db.Homeworks
+                .Where(hm => hm.Id == idHomework)
+                .ForEachAsync(hm => hm.Status = newStatus);
+            return await db.SaveChangesAsync() >= 0;
+        }
         
+
         /*private List<Student> GetStudentsByHomeworkId(Guid homeworkId)
         {
             // Получаем список студентов, связанных с заданным идентификатором домашнего задания

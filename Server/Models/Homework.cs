@@ -19,7 +19,8 @@ namespace MathStatisticsProject.Models
         public string Message { get; set; }
         public Status Status { get; set; }
         public Type Type { get; set; }
-        public double Scores { get; set; }
+        public double Points { get; set; }
+        public Guid LessonId { get; set; }
     }
 
     public enum Type

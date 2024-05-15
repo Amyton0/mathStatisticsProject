@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MathStatisticsProject.Models
 {
-    [Table("students")]
     public class Student
     {
         public string FirstName { get; set; }
