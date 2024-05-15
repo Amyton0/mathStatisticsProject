@@ -56,12 +56,12 @@ public class HomeworksController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<ActionResult> UpdateHomework([FromBody]PostHomework homework)
+    public async Task<ActionResult<PostHomework>> UpdateHomework([FromBody]PostHomework homework)
     {
         if (homework.Status == Status.Checked)
             return Forbid("Домашка уже проверена");
-        //homework.Status = newStatus;
-        _context.SaveChangesAsync();
+        await _homeworkRepository.ChangePointsForHomework(homework.Id, homework.Points);
+        await _homeworkRepository.ChangeStatusForHomework(homework.Id, homework.Status);
         return Ok();
     }
 

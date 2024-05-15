@@ -61,10 +61,10 @@ namespace MathStatisticsProject.Repositories
             return groupHomework;
         }
 
-        public async Task<bool> ChangePointsForHomework(Guid lessonId, double points)
+        public async Task<bool> ChangePointsForHomework(Guid idHomework, double points)
         {
             await db.Homeworks
-                .Where(hm => hm.LessonId == lessonId)
+                .Where(hm => hm.Id == idHomework)
                 .ForEachAsync(hm => hm.Points = points);
             return await db.SaveChangesAsync() >= 0;
         }

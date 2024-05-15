@@ -13,6 +13,7 @@ namespace MathStatisticsProject.GetModels
         public Guid StudentId { get; set; }
         public string Message { get; set; }
         public string Content { get; set; }
-        public double Scores { get; set; }
+        public double Points { get; set; }
+        public Guid LessonId { get; set; }
     }
 }
