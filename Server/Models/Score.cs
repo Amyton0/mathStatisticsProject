@@ -2,8 +2,9 @@
 {
     public class Score
     {
+        public Student Student { get; set; }
         public Guid StudentId { get; set; }
-        public int LessonId { get; set; }
-        public double Value { get; set; }
+        public Guid LessonId { get; set; }
+        public double Value { get; set; } 
     }
 }

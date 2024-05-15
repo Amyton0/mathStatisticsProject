@@ -18,10 +18,10 @@ namespace MathStatisticsProject.Repositories
             return await db.Attendances.ToListAsync();
         }
             
-        public async Task<Attendance?> GetAttendanceByIdAsync(int lessonNumber, Guid studentId)
+        /*public async Task<Attendance?> GetAttendanceByIdAsync(int lessonNumber, Guid studentId)
         {
             return await db.Attendances.FirstOrDefaultAsync(a => a.LessonNumber == lessonNumber && a.StudentId == studentId);
-        }
+        }*/
 
         public async Task<bool> AddAttendanceAsync(Attendance attendance)
         {
@@ -29,18 +29,18 @@ namespace MathStatisticsProject.Repositories
             return await db.SaveChangesAsync() >= 0;
         }
 
-        public async Task<bool> DeleteAttendanceAsync(Guid studentId, int lessonNumber)
+        /*public async Task<bool> DeleteAttendanceAsync(Guid studentId, int lessonNumber)
         {
             var attendance = new Attendance { StudentId = studentId, LessonNumber = lessonNumber };
             db.Attendances.Attach(attendance);
             db.Attendances.Remove(attendance);
             return await db.SaveChangesAsync() >= 0;
-        }
+        }*/
 
-        public async Task<bool> ChangeAttendancesAsync(Guid[] studentsId, int lessonNumber)
+        public async Task<bool> ChangeAttendancesAsync(Guid[] studentsId, Guid lessonId)
         {
             var attendances = db.Attendances
-                .Where(a => studentsId.Contains(a.StudentId) && a.LessonNumber == lessonNumber);
+                .Where(a => studentsId.Contains(a.StudentId) && a.LessonId == lessonId);
             foreach (var attendance in attendances)
             {
                 attendance.AttendanceStatus = AttendanceStatus.Present;
