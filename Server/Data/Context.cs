@@ -11,6 +11,7 @@ namespace MathStatisticsProject.Data
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Score> Scores { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

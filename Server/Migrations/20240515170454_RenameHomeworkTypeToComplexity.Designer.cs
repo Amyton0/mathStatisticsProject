@@ -3,6 +3,7 @@ using System;
 using MathStatisticsProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathStatisticsProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20240515170454_RenameHomeworkTypeToComplexity")]
+    partial class RenameHomeworkTypeToComplexity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,9 +36,6 @@ namespace MathStatisticsProject.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<Guid>("LessonId")
-                        .HasColumnType("uuid");
-
                     b.Property<int>("LessonNumber")
                         .HasColumnType("integer");
 
@@ -48,17 +47,6 @@ namespace MathStatisticsProject.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("Attendances");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a5cc0060-30b0-4ad7-b1da-908edb065dd0"),
-                            AttendanceStatus = 0,
-                            Date = new DateTime(2024, 5, 16, 1, 22, 18, 698, DateTimeKind.Local).AddTicks(9372),
-                            LessonId = new Guid("1de4dd70-aeaa-4dee-807e-f7f8532755b8"),
-                            LessonNumber = 2,
-                            StudentId = new Guid("5de4dd70-aeaa-4dee-807e-f7f8532756b8")
-                        });
                 });
 
             modelBuilder.Entity("MathStatisticsProject.Models.Homework", b =>

@@ -2,7 +2,6 @@
 using MathStatisticsProject.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using Type = MathStatisticsProject.Models.Type;
 
 namespace MathStatisticsProject.Repositories
 {
@@ -42,6 +41,13 @@ namespace MathStatisticsProject.Repositories
             }
 
             if (filter.statusHomeworks != null && filter.statusHomeworks.Any() && !filter.statusHomeworks.Contains((Status)homework.Status))
+            {
+                return false;
+            }
+
+            if (filter.typeHomeworks != null
+                && filter.typeHomeworks.Any()
+                && !filter.typeHomeworks.Contains(homework.Complexity))
             {
                 return false;
             }
