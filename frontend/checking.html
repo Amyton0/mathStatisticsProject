@@ -14,13 +14,15 @@
             <a href="#">
                 <img src="шапка 1.svg" alt="">
             </a>
-            <nav>
+            <nav class="nav">
                 <ul class="menu">
-                    <li><a href="#">Отправка</a></li>
-                    <li><a href="#">Проверка</a></li>
-                    <li><a href="#">Войти</a></li>
+                    <li><a href="checking.html">Баллы</a></li>
+                    <li><a href="solutions.html">Проверка</a></li>
                 </ul>
             </nav>
+            <div class="authorization">
+                <a href="authorisation.html">Войти</a>
+            </div>
         </header>
     </div>
     <div class="content_wrap">
@@ -38,7 +40,7 @@
                                 <legend>
                                     Тип д/з
                                 </legend>
-                                <ul>
+                                <ul class="drop-down_menu">
                                     <li>
                                         <label for="usual">Обычное</label>
                                         <input type="checkbox" id="usual" name="usual" value="Обычное" onchange="onTypeChange(event)"/>
@@ -72,7 +74,7 @@
                                 <legend>
                                     Группа
                                 </legend>
-                                <ul>
+                                <ul class="drop-down_menu">
                                     <li>
                                         <label for="FT-201">ФТ-201</label>
                                         <input type="checkbox" id="FT-201" name="FT-201" value="ФТ-201" onchange="onGroupChange(event)"/>

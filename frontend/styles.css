@@ -22,7 +22,7 @@
   height: 103px;
   padding: 2px 15px;
   margin: 0 auto;
-  background: linear-gradient(to right, #201A4A, #4F1353)
+  background: linear-gradient(to right, #201A4A, #4F1353);
 }
 
 .header a {
@@ -37,6 +37,10 @@
 
 .authorization {
   margin-right: 48px;
+}
+
+.drop-down_content > a {
+  font-size: 2rem;
 }
 
 .menu {
@@ -309,23 +313,23 @@ fieldset legend {
   border: 0 !important;
 }
 
-ul {
+.drop-down_menu {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-ul li {
+.drop-down_menu li {
   border-radius: 3px;
   margin: 0;
   padding: 4px 2px;
 }
 
-ul li:hover {
+.drop-down_menu li:hover {
   background: #eee;
 }
 
-ul li label {
+.drop-down_menu li label {
   display: inline-block;
   width: 8rem;
 }
@@ -389,8 +393,8 @@ ul li label {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: 515px;
-  height: 279px;
+  min-width: 515px;
+  min-height: 279px;
   text-align: center;
   background-color: #1AB3D5;
   border-radius: 24px;
@@ -399,13 +403,13 @@ ul li label {
   color: #fff;
 }
 
-.homework_info .number {
+.homework_info > .sending_number {
   display: flex;
   text-align: center;
   justify-content: space-evenly;
 }
 
-.homework_info .number input {
+.homework_info > .sending_number input {
   width: 100px;
   height: 48px;
   align-self: center;
@@ -428,7 +432,7 @@ input[type="number"]:focus {
   -moz-appearance: textfield;
 }
 
-.homework_info .tomb {
+.homework_info > .sending_tomb {
   display: flex;
   text-align: center;
   justify-content: space-evenly;
@@ -444,7 +448,7 @@ input[type="number"]:focus {
   display: none;
 }
 
-.tomb > label {
+.sending_tomb > label {
   position: relative;
   padding-right: 30px;
   display: flex;
@@ -453,7 +457,7 @@ input[type="number"]:focus {
   user-select: none;
 }
 
-.tomb > label::after {
+.sending_tomb > label::after {
   content: '';
   margin-left: 40px;
   width: 2.5rem;
@@ -516,13 +520,13 @@ input[type="number"]:focus {
   background-color: #eee;
 }
 
-.comment {
+.sending_comment {
   width: 515px;
   height: 279px;
   margin-left: 33px;
 }
 
-.comment textarea {
+.sending_comment > textarea {
   width: 515px;
   height: 279px;
   background-color: #1AB3D5;
@@ -533,7 +537,7 @@ input[type="number"]:focus {
   outline: none;
 }
 
-.comment textarea::placeholder {
+.sending_comment > textarea::placeholder {
   color: #fff;
 }
 
@@ -609,7 +613,8 @@ button {
   padding-left: auto;
   padding-right: auto;
   border-radius: 15px;
-  
+}
+
   /*footer*/
 
 .footer_wrap {
