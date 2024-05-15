@@ -9,28 +9,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30b50c03-215b-425a-81be-26b6c3e47c3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/FilterForTable.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/ScoresController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/ScoresController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Attendance.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Attendance.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Lesson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Lesson.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Score.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PostModels/PostScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PostModels/PostScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/AttendanceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/AttendanceRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Repositories/LessonRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Repositories/LessonRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,29 +38,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Semen&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\VirteN\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\VirteN\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\VirteN\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\VirteN\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\VirteN\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\VirteN\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.MathStatisticsProject">
     <configuration name="MathStatisticsProject" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/MathStatisticsProject.csproj" />
@@ -116,7 +103,7 @@
       <updated>1715085636600</updated>
       <workItem from="1715085638054" duration="24939000" />
       <workItem from="1715692812572" duration="27009000" />
-      <workItem from="1715781674607" duration="12632000" />
+      <workItem from="1715781674607" duration="12951000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1715693082829</created>
