@@ -45,6 +45,7 @@ builder.Services.AddScoped<AttendanceRepository>();
 builder.Services.AddDbContext<Context>();
 // Add repositories
 builder.Services.AddScoped<StudentService>();
+builder.Services.AddCors();
 
 
 var app = builder.Build();
@@ -64,7 +65,6 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -74,5 +74,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.Run();

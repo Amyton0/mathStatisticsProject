@@ -1,4 +1,12 @@
-const API_URL = 'http://localhost:5105/api'
+const API_URL = 'http://158.160.172.44:5000/api'
+const options = {
+    mode: "no-cors",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+        "Access-Control-Allow-Origin": "*"
+    }
+}
 
 async function getHomeworkJsonAsync(id) {
     try {
@@ -27,7 +35,7 @@ export async function getHomeworksJsonAsync(groups=null, index=null, types=null,
       }
       types = newTypes;
     }
-    if (!statuses) status = ['Checked', 'Sended'];
+    if (!status) status = ['Checked', 'Sended'];
     else
     {
       if (isChecked) status = ['Checked'];
@@ -39,13 +47,13 @@ export async function getHomeworksJsonAsync(groups=null, index=null, types=null,
               HomeworkIndexes: indexes,
               typeHomeworks: types,
               statusHomeworks: status
-            }));
+            }), options);
     else response = await fetch(`${API_URL}/Homeworks?` + new URLSearchParams({
               Groups: groups,
               typeHomeworks: types,
               statusHomeworks: status
-            })); 
-            
+            }), options);
+
       if (response.ok) {
           return response.json();
       }
@@ -121,11 +129,11 @@ async function getStudentJsonAsync(id) {
 }
 
 async function postStudentJsonAsync(student) {
-    
+
 }
 
 async function getTableJsonAsync(relativeUrl) {
-    
+
 }
 
 async function postOneAttendanceJsonAsync(attendance) {
