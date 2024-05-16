@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5105/api'
+const API_URL = 'http://158.160.172.44/api'
 
 async function getHomeworkJsonAsync(id) {
     try {
@@ -16,6 +16,7 @@ export async function postHomeworkJsonAsync(homework) {
     await fetch(`${API_URL}/Homeworks`, {
         method: 'POST',
         headers: {
+          "Access-Control-Allow-Origin": "*",
           'Content-Type': 'application/json;charset=utf-8'
         },
         body: JSON.stringify(homework)
