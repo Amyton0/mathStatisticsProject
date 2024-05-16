@@ -1,14 +1,15 @@
-const API_URL = 'http://158.160.172.44:5000/api'
+const API_URL = 'http://158.160.172.44:80/api'
 const options = {
-    mode: "no-cors",
+    mode: "cors",
     cache: "no-cache",
     credentials: "same-origin",
     headers: {
-        "Access-Control-Allow-Origin": "*"
+        "Access-Control-Allow-Origin": "*",
+        'Content-Type': 'application/json;charset=utf-8'
     }
 }
 
-async function getHomeworkJsonAsync(id) {
+export async function getHomeworkJsonAsync(id) {
     try {
         const response = await fetch(`${API_URL}/Homeworks/${id}`);
         if (response.ok) {
@@ -20,9 +21,9 @@ async function getHomeworkJsonAsync(id) {
     }
 }
 
-export async function getHomeworksJsonAsync(groups=null, index=null, types=null, isChecked=null) {
+export async function  getHomeworksJsonAsync(groups=null, index, types=null, isChecked=null) {
   try {
-    let response, status;
+    let status;
     if (!groups) groups = ['ФТ-201', 'ФТ-202', 'ФТ-203', 'ФТ-204'];
     if (!types) types = ['DZ', 'Grob'];
     else
@@ -41,21 +42,25 @@ export async function getHomeworksJsonAsync(groups=null, index=null, types=null,
       if (isChecked) status = ['Checked'];
       else status = ['Sended'];
     }
-    if (Number.isInteger(index))
-      response = await fetch(`${API_URL}/Homeworks?` + new URLSearchParams({
-              Groups: groups,
-              HomeworkIndexes: indexes,
-              typeHomeworks: types,
-              statusHomeworks: status
-            }), options);
-    else response = await fetch(`${API_URL}/Homeworks?` + new URLSearchParams({
-              Groups: groups,
-              typeHomeworks: types,
-              statusHomeworks: status
-            }), options);
+
+    const params = new URLSearchParams();
+    for (const e of groups) {
+        params.append('groups', e);
+    }
+    for (const e of types) {
+          params.append('typeHomeworks', e);
+    }
+    for (const e of status) {
+          params.append('statusHomeworks', e);
+    }
+    if (index !== -1) {
+          params.append('homeworkIndexes', index);
+    }
+
+    const response = await fetch(`${API_URL}/Homeworks?` + params, options);
 
       if (response.ok) {
-          return response.json();
+          return await response.json();
       }
       throw new Error(`Bad response status: ${response.status}`)
   } catch (error) {
@@ -63,7 +68,7 @@ export async function getHomeworksJsonAsync(groups=null, index=null, types=null,
   }
 }
 
-async function putHomeworkJsonAsync(homework) {
+export async function putHomeworkJsonAsync(homework) {
   await fetch(`${API_URL}/Homeworks/${homework.id}`, {
     method: 'PUT',
     headers: {
@@ -73,7 +78,7 @@ async function putHomeworkJsonAsync(homework) {
   });
 }
 
-async function postHomeworkJsonAsync(homework) {
+export async function postHomeworkJsonAsync(homework) {
     await fetch(`${API_URL}/Homeworks`, {
         method: 'POST',
         headers: {
@@ -83,7 +88,7 @@ async function postHomeworkJsonAsync(homework) {
       });
 }
 
-async function postAttendanceJsonAsync(studentId, ids) {
+export async function postAttendanceJsonAsync(studentId, ids) {
   await fetch(`${API_URL}/Attendances/${studentId}`, {
     method: 'POST',
     headers: {
@@ -116,7 +121,7 @@ export async function postScoresJsonAsync(students) {
     }
 }
 
-async function getStudentJsonAsync(id) {
+export async function getStudentJsonAsync(id) {
   try {
     const response = await fetch(`${API_URL}/Students/${id}`);
     if (response.ok) {
@@ -128,26 +133,15 @@ async function getStudentJsonAsync(id) {
 }
 }
 
-async function postStudentJsonAsync(student) {
+export async function postStudentJsonAsync(student) {
 
 }
 
-async function getTableJsonAsync(left, right) {
-  try {
-    const response = await fetch(`${API_URL}/Table?` + new URLSearchParams({
-      leftDate: left,
-      rightDate: right,
-    }))
-    if (response.ok) {
-        return response.json();
-    }
-    throw new Error(`Bad response status: ${response.status}`)
-} catch (error) {
-    console.log(error);
-}
+export async function getTableJsonAsync(relativeUrl) {
+
 }
 
-async function postOneAttendanceJsonAsync(attendance) {
+export async function postOneAttendanceJsonAsync(attendance) {
     await fetch(`${API_URL}/Attendances`, {
         method: 'POST',
         headers: {
