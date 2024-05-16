@@ -1,3 +1,6 @@
+//import { postScoresJsonAsync } from './client.js';
+//import { postAttendancesJsonAsync } from './client.js';
+
 students = {
     headers: ['Был', 'Пара', 'ДЗ'],
     dates: ['22.02', '29.02', '07.03', '14.03', '21.03', '28.03', '04.04', '11.04', '18.04', '25.04', '02.05', '16.05', '23.05', '30.05'],
@@ -8339,6 +8342,7 @@ function onGroupChange(event) {
             let inputPoints = document.createElement('input');
             inputPoints.type = 'number';
             inputPoints.placeholder = '';
+            inputPoints.name = name;
             inputPoints.value = students[group][name][date].points;
             inputPoints.setAttribute('oninput', `changePoints(this, '${name}', '${group}', ${date})`);
             inputPoints.removeAttribute('placeholder');
@@ -8371,9 +8375,22 @@ function onGroupChange(event) {
                 if (checkboxes[j].checked) attendances.push(checkboxes[j].name);
             }
 
-            console.log(attendances)
+            //saveAttendances(attendances);
 
-            saveAttendances(date, attendances);
+            scores = [];
+
+            let inputs = document.getElementsByClassName(date);
+
+            for (let j = 0; j < inputs.length; j++) {
+                if (Number.isInteger(inputs[j].value)) scores.push(new {
+                    name: inputs[j].name,
+                    score: inputs[j].value
+                });
+            }
+
+            console.log(scores)
+
+            //saveScores(scores);
         });
 
         cell.appendChild(savingButton);
@@ -8383,8 +8400,12 @@ function onGroupChange(event) {
     block.appendChild(table);
 }
 
-function saveAttendances(date, students) {
+function saveAttendances(students) {
+    postAttendancesJsonAsync(students)
+}
 
+function saveScores(students) {
+    postScoresJsonAsync(students)
 }
 
 function changeAttendance(element, name, group, date) {
