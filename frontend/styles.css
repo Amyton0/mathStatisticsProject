@@ -413,7 +413,7 @@ fieldset legend {
   min-width: 515px;
   min-height: 279px;
   text-align: center;
-  background-color: #1AB3D5;
+  background-color: #2670B4;
   border-radius: 24px;
   margin-right: 33px;
   font-size: 3rem;
@@ -546,7 +546,7 @@ input[type="number"]:focus {
 .sending_comment > textarea {
   width: 515px;
   height: 279px;
-  background-color: #1AB3D5;
+  background-color: #2670B4;
   color: #fff;
   border: transparent;
   font-size: 2rem;
@@ -567,7 +567,7 @@ input[type="number"]:focus {
 .send_button {
   width: 645px;
   height: 103px;
-  background-color: #1AB3D5;
+  background-color: #2670B4;
   border-radius: 24px;
   border-color: transparent;
   margin-top: 58px;
