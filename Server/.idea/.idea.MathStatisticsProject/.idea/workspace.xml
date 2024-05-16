@@ -9,42 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30b50c03-215b-425a-81be-26b6c3e47c3f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/dataSources/a5236699-2f50-4205-aab5-74465bff69ac.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/HomeworksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/HomeworksController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Data/Context.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MathStatisticsProject.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MathStatisticsProject.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240514141831_InitialCreateSuperPro.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240514141831_InitialCreateSuperPro.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240514174312_InitialCreatePro.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240514174312_InitialCreatePro.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240514202754_InitialCreateMega.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240514202754_InitialCreateMega.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515130106_InitialCreate1.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515130106_InitialCreate1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515135935_InitialCreate.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515135935_InitialCreate.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515140437_InitialCreate2.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515140437_InitialCreate2.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515170454_RenameHomeworkTypeToComplexity.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515170454_RenameHomeworkTypeToComplexity.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/ContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Homework.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Homework.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Score.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Score.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PostModels/PostHomework.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PostModels/PostHomework.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/apphost.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/ref/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/refint/MathStatisticsProject.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +98,7 @@
       <workItem from="1715692812572" duration="27009000" />
       <workItem from="1715781674607" duration="12951000" />
       <workItem from="1715806887528" duration="7658000" />
-      <workItem from="1715814721580" duration="2469000" />
+      <workItem from="1715814721580" duration="3854000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1715693082829</created>
