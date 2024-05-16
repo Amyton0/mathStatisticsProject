@@ -8345,6 +8345,7 @@ function onGroupChange(event) {
             inputPoints.name = name;
             inputPoints.value = students[group][name][date].points;
             inputPoints.setAttribute('oninput', `changePoints(this, '${name}', '${group}', ${date})`);
+            inputPoints.classList.add(date);
             inputPoints.removeAttribute('placeholder');
             pointsCell.classList.add('center_align');
             pointsCell.appendChild(inputPoints);
@@ -8368,27 +8369,23 @@ function onGroupChange(event) {
 
         savingButton.addEventListener('click', () => {
             attendances = [];
-
-            let checkboxes = document.getElementsByClassName(date);
-
-            for (let j = 0; j < checkboxes.length; j++) {
-                if (checkboxes[j].checked) attendances.push(checkboxes[j].name);
-            }
-
-            //saveAttendances(attendances);
-
             scores = [];
 
-            let inputs = document.getElementsByClassName(date);
+            let elements = document.getElementsByClassName(date);
 
-            for (let j = 0; j < inputs.length; j++) {
-                if (Number.isInteger(inputs[j].value)) scores.push(new {
-                    name: inputs[j].name,
-                    score: inputs[j].value
+            for (let j = 0; j < elements.length; j++) {
+                if (elements[j].type === 'checkbox' && elements[j].checked) attendances.push(elements[j].name);
+                if (elements[j].type === 'number' && !isNaN(elements[j].value)) scores.push({
+                    name: elements[j].name,
+                    score: Number(elements[j].value)
                 });
             }
 
+            console.log(attendances)
+
             console.log(scores)
+
+            //saveAttendances(attendances);
 
             //saveScores(scores);
         });
