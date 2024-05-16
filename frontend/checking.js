@@ -1,6 +1,4 @@
-import {getHomeworksJsonAsync} from './client.js';
-
-let filteredHomeworks = [];
+import {getHomeworksJsonAsync, getStudentJsonAsync} from './client.js';
 
 let chooseNumber = document.getElementsByClassName('number')[0];
 let chooseGroup = document.getElementsByClassName('group')[0];
@@ -17,38 +15,36 @@ let isChecked = null;
 
 send.addEventListener('click', sendMessage)
 
-function onTypeChange(event) {
+async function onTypeChange(event) {
     if (currentTypes == null) currentTypes = [];
     if (event.target.checked) currentTypes.push(event.target.value);
     else currentTypes = currentTypes.filter((type) => type !== event.target.value);
-    console.log(currentTypes)
-    filterHWs();
+    await filterHWs();
 }
 
-function onGroupChange(event) {
+async function onGroupChange(event) {
     if (currentGroups == null) currentGroups = [];
     if (event.target.checked) currentGroups.push(event.target.value);
     else currentGroups = currentGroups.filter((group) => group !== event.target.value);
-    filterHWs();
+    await filterHWs();
 }
 
 async function onNumberChange(event) {
     currentNumber = event.target.value;
     await filterHWs();
-    console.log("ASDFdsafsdf");
 }
 
-function onStatusChange(event) {
+async function onStatusChange(event) {
     const selectedValue = event.target.value;
     if (selectedValue === 'Проверено') isChecked = true;
     else if (selectedValue === 'Не проверено') isChecked = false;
     else isChecked = null;
-    filterHWs();
+    await filterHWs();
 }
 
 async function filterHWs() {
-    filteredHomeworks = await getHomeworksJsonAsync(currentGroups, currentNumber, currentTypes, isChecked);
-    
+    const filteredHomeworks = await getHomeworksJsonAsync(currentGroups, currentNumber, currentTypes, isChecked);
+
     let homeworksEl = document.getElementsByClassName("homeworks")[0];
 
     while (homeworksEl.firstChild) {
@@ -59,17 +55,17 @@ async function filterHWs() {
         const element = filteredHomeworks[i];
 
         var homework = document.createElement('div');
-  
+
         homework.classList.add('homework');
 
-        let student = getStudentJsonAsync(element.studentId);
+        let student = filteredHomeworks[i].student;//await getStudentJsonAsync(element.studentId);
         let name = [student.firstName, student.secondName, student.thirdName].join(' ');
 
         let text = `${name} - ${student.group}|ДЗ - ${element.number}`
 
         if (element.status === 'Checked') text += ' ☑';
         //if (element.type == 'Дорешка') text += ' ↪'
-  
+
         homework.innerText = text;
 
         homeworksEl.appendChild(homework);
@@ -86,15 +82,15 @@ async function filterHWs() {
 
             downloadButton.addEventListener('click', () => {
                 var link = document.createElement('a');
-                
-                link.setAttribute('href', element.content); 
-                link.setAttribute('download', element.content.split('/').at(-1)); 
+
+                link.setAttribute('href', element.content);
+                link.setAttribute('download', element.content.split('/').at(-1));
                 link.setAttribute('target', '_blank');
                 link.style.display = 'none';
-                    
+
                 document.body.appendChild(link);
                 link.click();
-                    
+
                 document.body.removeChild(link);
             });
 
@@ -102,7 +98,7 @@ async function filterHWs() {
 
             if (buttonBlock.firstChild) {
                 buttonBlock.removeChild(buttonBlock.firstChild);
-            } 
+            }
 
             buttonBlock.appendChild(downloadButton);
         })
