@@ -1,7 +1,7 @@
 //import { postScoresJsonAsync } from './client.js';
-//import { postAttendancesJsonAsync } from './client.js';
+import { postAttendancesJsonAsync } from './client.js';
 
-students = {
+let students = {
     headers: ['Был', 'Пара', 'ДЗ'],
     dates: ['22.02', '29.02', '07.03', '14.03', '21.03', '28.03', '04.04', '11.04', '18.04', '25.04', '02.05', '16.05', '23.05', '30.05'],
     'ФТ-201': {
@@ -8293,6 +8293,7 @@ students = {
         },
     }
 }
+document.querySelector('.group').addEventListener('change', onGroupChange);
 
 function onGroupChange(event) {
     let group = event.target.value;
@@ -8367,9 +8368,9 @@ function onGroupChange(event) {
 
         savingButton.innerText = 'Сохранить';
 
-        savingButton.addEventListener('click', () => {
-            attendances = [];
-            scores = [];
+        savingButton.addEventListener('click', async () => {
+            let attendances = [];
+            let scores = [];
 
             let elements = document.getElementsByClassName(date);
 
@@ -8381,13 +8382,13 @@ function onGroupChange(event) {
                 });
             }
 
-            console.log(attendances)
+            console.log(attendances);
 
-            console.log(scores)
+            console.log(scores);
 
             //saveAttendances(attendances);
 
-            //saveScores(scores);
+            await postScoresJsonAsync(scores);
         });
 
         cell.appendChild(savingButton);
@@ -8401,9 +8402,7 @@ function saveAttendances(students) {
     postAttendancesJsonAsync(students)
 }
 
-function saveScores(students) {
-    postScoresJsonAsync(students)
-}
+
 
 function changeAttendance(element, name, group, date) {
     students[group][name][date].attendance = element.checked;
