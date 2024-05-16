@@ -1,4 +1,4 @@
-import getHomeworksJsonAsync from './client.js';
+import {getHomeworksJsonAsync} from './client.js';
 
 let filteredHomeworks = [];
 
@@ -32,9 +32,10 @@ function onGroupChange(event) {
     filterHWs();
 }
 
-function onNumberChange(event) {
+async function onNumberChange(event) {
     currentNumber = event.target.value;
-    filterHWs();
+    await filterHWs();
+    console.log("ASDFdsafsdf");
 }
 
 function onStatusChange(event) {
@@ -45,8 +46,8 @@ function onStatusChange(event) {
     filterHWs();
 }
 
-function filterHWs() {
-    filteredHomeworks = getHomeworksJsonAsync(currentGroups, currentNumber, currentTypes, isChecked);
+async function filterHWs() {
+    filteredHomeworks = await getHomeworksJsonAsync(currentGroups, currentNumber, currentTypes, isChecked);
     
     let homeworksEl = document.getElementsByClassName("homeworks")[0];
 

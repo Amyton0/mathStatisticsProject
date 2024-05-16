@@ -12,7 +12,7 @@ async function getHomeworkJsonAsync(id) {
     }
 }
 
-async function getHomeworksJsonAsync(groups=null, index=null, types=null, isChecked=null) {
+export async function getHomeworksJsonAsync(groups=null, index=null, types=null, isChecked=null) {
   try {
     let response, status;
     if (!groups) groups = ['ФТ-201', 'ФТ-202', 'ФТ-203', 'ФТ-204'];
@@ -128,7 +128,7 @@ async function getTableJsonAsync(relativeUrl) {
     
 }
 
-async function postAttendanceJsonAsync(attendance) {
+async function postOneAttendanceJsonAsync(attendance) {
     await fetch(`${API_URL}/Attendances`, {
         method: 'POST',
         headers: {

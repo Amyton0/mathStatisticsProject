@@ -5,11 +5,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MathStatisticsProject.Migrations
 {
-<<<<<<<< HEAD:Server/Migrations/20240515212226_InitialCreate1.cs
-    public partial class InitialCreate1 : Migration
-========
+
     public partial class InitialCreate34335 : Migration
->>>>>>>> Semen:Server/Migrations/20240515215552_InitialCreate34335.cs
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
