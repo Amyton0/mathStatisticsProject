@@ -83,6 +83,8 @@ namespace MathStatisticsProject.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LessonId");
+
                     b.HasIndex("StudentId");
 
                     b.ToTable("Homeworks");
@@ -198,9 +200,28 @@ namespace MathStatisticsProject.Migrations
 
             modelBuilder.Entity("MathStatisticsProject.Models.Homework", b =>
                 {
+                    b.HasOne("MathStatisticsProject.Models.Lesson", "Lesson")
+                        .WithMany()
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MathStatisticsProject.Models.Student", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lesson");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("MathStatisticsProject.Models.Score", b =>
+                {
+                    b.HasOne("MathStatisticsProject.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId1")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
