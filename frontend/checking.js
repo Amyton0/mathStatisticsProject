@@ -2,10 +2,31 @@ import {getHomeworksJsonAsync, getStudentJsonAsync} from './client.js';
 
 let chooseNumber = document.getElementsByClassName('number')[0];
 let chooseGroup = document.getElementsByClassName('group')[0];
+let chooseStatus = document.getElementsByClassName('status')[0];
+
+//help me
+let ft201Input = document.getElementById('FT-201');
+let ft202Input = document.getElementById('FT-202');
+let ft203Input = document.getElementById('FT-203');
+let ft204Input = document.getElementById('FT-204');
+
+ft201Input.onchange = onGroupChange;
+ft202Input.onchange = onGroupChange;
+ft203Input.onchange = onGroupChange;
+ft204Input.onchange = onGroupChange;
+
+let typeUsual = document.getElementById('usual');
+//let typeExtra = document.getElementById('extra');
+let typeCoffin = document.getElementById('coffin');
+
+typeUsual.onchange = onTypeChange;
+//typeExtra.onchange = onTypeChange;
+typeCoffin.onchange = onTypeChange;
 
 let send = document.getElementsByClassName('send')[0];
 
 chooseNumber.oninput = onNumberChange;
+chooseStatus.onchange = onStatusChange;
 
 let currentTypes = null;
 let currentGroups = null;
@@ -36,6 +57,7 @@ async function onNumberChange(event) {
 
 async function onStatusChange(event) {
     const selectedValue = event.target.value;
+
     if (selectedValue === 'Проверено') isChecked = true;
     else if (selectedValue === 'Не проверено') isChecked = false;
     else isChecked = null;

@@ -39,10 +39,10 @@
 
                     fetch('users.json').then(response => response.json()).then(data => {
                     let user = data.find(user => user.login === username && user.password === password);
-                    
-                
+
+
                     if(user) {
-                        
+
                         for (let i = 0; i < data.length; i++) {
                         if (data[i].login === username) {
                             userId = data[i].id;
@@ -50,8 +50,8 @@
                         }
                         localStorage.setItem("userId", userId);
                         localStorage.setItem("login", username);
-                        
-                        window.location.href = 'http://127.0.0.1:5500/frontend/Send_page.html';
+
+                        window.location.href = '/Send_page.html';
                     } else {
                         alert("Invalid username or password. Please try again.");
                     }

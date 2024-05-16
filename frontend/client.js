@@ -31,12 +31,12 @@ export async function  getHomeworksJsonAsync(groups=null, index, types=null, isC
       let newTypes = [];
       for (let index = 0; index < types.length; index++) {
         const element = types[index];
-        if (element === 'ДЗ') newTypes.push('DZ');
+        if (element === 'Обычное') newTypes.push('DZ');
         else newTypes.push('Grob');
       }
       types = newTypes;
     }
-    if (!status) status = ['Checked', 'Sended'];
+    if (isChecked === null || isChecked === undefined) status = ['Checked', 'Sended'];
     else
     {
       if (isChecked) status = ['Checked'];
@@ -53,7 +53,7 @@ export async function  getHomeworksJsonAsync(groups=null, index, types=null, isC
     for (const e of status) {
           params.append('statusHomeworks', e);
     }
-    if (index !== -1) {
+    if (index && index !== -1) {
           params.append('homeworkIndexes', index);
     }
 
@@ -69,41 +69,29 @@ export async function  getHomeworksJsonAsync(groups=null, index, types=null, isC
 }
 
 export async function putHomeworkJsonAsync(homework) {
-  await fetch(`${API_URL}/Homeworks/${homework.id}`, {
+  await fetch(`${API_URL}/Homeworks/${homework.id}`, {...options,
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8'
-    },
     body: JSON.stringify(homework)
   });
 }
 
 export async function postHomeworkJsonAsync(homework) {
-    await fetch(`${API_URL}/Homeworks`, {
+    await fetch(`${API_URL}/Homeworks`, {...options,
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
         body: JSON.stringify(homework)
       });
 }
 
 export async function postAttendanceJsonAsync(studentId, ids) {
-  await fetch(`${API_URL}/Attendances/${studentId}`, {
+  await fetch(`${API_URL}/Attendances/${studentId}`, {...options,
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8'
-    },
     body: JSON.stringify(ids)
   });
 }
 
 export async function postAttendancesJsonAsync(studentsIds) {
-  await fetch(`${API_URL}/Attendances`, {
+  await fetch(`${API_URL}/Attendances`, {...options,
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8'
-    },
     body: JSON.stringify(studentsIds)
   });
 }
@@ -111,11 +99,8 @@ export async function postAttendancesJsonAsync(studentsIds) {
 export async function postScoresJsonAsync(students) {
     for (let index = 0; index < students.length; index++) {
       const student = students[index];
-      await fetch(`${API_URL}/Scores/${student.id}`, {
+      await fetch(`${API_URL}/Scores/${student.id}`, {...options,
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
         body: JSON.stringify(student.score)
       });
     }
@@ -123,7 +108,7 @@ export async function postScoresJsonAsync(students) {
 
 export async function getStudentJsonAsync(id) {
   try {
-    const response = await fetch(`${API_URL}/Students/${id}`);
+    const response = await fetch(`${API_URL}/Students/${id}`, options);
     if (response.ok) {
         return response.json();
     }
@@ -142,11 +127,8 @@ export async function getTableJsonAsync(relativeUrl) {
 }
 
 export async function postOneAttendanceJsonAsync(attendance) {
-    await fetch(`${API_URL}/Attendances`, {
+    await fetch(`${API_URL}/Attendances`, {...options,
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
         body: JSON.stringify(attendance)
       });
 }
