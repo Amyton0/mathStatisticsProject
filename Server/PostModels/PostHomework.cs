@@ -14,6 +14,5 @@ namespace MathStatisticsProject.PostModels
         public string Message { get; set; }
         public string Content { get; set; }
         public double Points { get; set; }
-        public Guid LessonId { get; set; }
     }
 }

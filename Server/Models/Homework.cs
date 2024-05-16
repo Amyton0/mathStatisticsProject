@@ -15,6 +15,7 @@ namespace MathStatisticsProject.Models
         public DateTime Send { get; set; }
         public Guid StudentId { get; set; }
         public Student Student { get; set; }
+        public Lesson Lesson { get; set; }
         public string Content { get; set; }
         public string Message { get; set; }
         public Status Status { get; set; }
