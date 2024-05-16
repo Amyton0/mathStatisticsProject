@@ -93,7 +93,7 @@ async function postAttendanceJsonAsync(studentId, ids) {
   });
 }
 
-async function postAttendancesJsonAsync(studentsIds) {
+export async function postAttendancesJsonAsync(studentsIds) {
   await fetch(`${API_URL}/Attendances`, {
     method: 'POST',
     headers: {
