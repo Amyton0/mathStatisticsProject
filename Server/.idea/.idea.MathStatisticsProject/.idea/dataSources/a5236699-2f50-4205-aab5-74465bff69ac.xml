@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="postgres@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.48">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>dmy</DateStyle>
       <IntrospectionStateNumber>2224</IntrospectionStateNumber>
@@ -4337,9 +4337,9 @@ false Zulu
     <foreign-key id="282" parent="267" name="Homeworks_studentId_fkey">
       <ColNames>StudentId</ColNames>
       <ObjectId>16865</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefColPositions>6</RefColPositions>
       <StateNumber>2196</StateNumber>
+      <RefKeyColPositions>6</RefKeyColPositions>
+      <RefKeyColNames>Id</RefKeyColNames>
       <RefTableId>16834</RefTableId>
       <RefTableName>students</RefTableName>
       <RefTableKind>table</RefTableKind>
@@ -4347,9 +4347,9 @@ false Zulu
     <foreign-key id="283" parent="267" name="fk_studentid">
       <ColNames>StudentId</ColNames>
       <ObjectId>16870</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefColPositions>6</RefColPositions>
       <StateNumber>2177</StateNumber>
+      <RefKeyColPositions>6</RefKeyColPositions>
+      <RefKeyColNames>Id</RefKeyColNames>
       <RefTableId>16834</RefTableId>
       <RefTableName>students</RefTableName>
       <RefTableKind>table</RefTableKind>
@@ -4400,9 +4400,9 @@ false Zulu
     <foreign-key id="290" parent="268" name="fk_studentid">
       <ColNames>StudentId</ColNames>
       <ObjectId>16896</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefColPositions>6</RefColPositions>
       <StateNumber>2222</StateNumber>
+      <RefKeyColPositions>6</RefKeyColPositions>
+      <RefKeyColNames>Id</RefKeyColNames>
       <RefTableId>16834</RefTableId>
       <RefTableName>students</RefTableName>
       <RefTableKind>table</RefTableKind>
@@ -4504,9 +4504,9 @@ false Zulu
     <foreign-key id="304" parent="270" name="fk_studentid">
       <ColNames>StudentId</ColNames>
       <ObjectId>16875</ObjectId>
-      <RefColNames>Id</RefColNames>
-      <RefColPositions>6</RefColPositions>
       <StateNumber>2179</StateNumber>
+      <RefKeyColPositions>6</RefKeyColPositions>
+      <RefKeyColNames>Id</RefKeyColNames>
       <RefTableId>16834</RefTableId>
       <RefTableName>students</RefTableName>
       <RefTableKind>table</RefTableKind>

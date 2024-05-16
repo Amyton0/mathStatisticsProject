@@ -12,7 +12,7 @@ async function getHomeworkJsonAsync(id) {
     }
 }
 
-async function postHomeworkJsonAsync(homework) {
+export async function postHomeworkJsonAsync(homework) {
     await fetch(`${API_URL}/Homeworks`, {
         method: 'POST',
         headers: {

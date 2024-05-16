@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\VirteN\\Desktop\\Visual Code\\сайттервер\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj": {}
+    "C:\\Users\\Harmony\\Documents\\GitHub\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\VirteN\\Desktop\\Visual Code\\сайттервер\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj": {
+    "C:\\Users\\Harmony\\Documents\\GitHub\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\VirteN\\Desktop\\Visual Code\\сайттервер\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
+        "projectUniqueName": "C:\\Users\\Harmony\\Documents\\GitHub\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
         "projectName": "MathStatisticsProject",
-        "projectPath": "C:\\Users\\VirteN\\Desktop\\Visual Code\\сайттервер\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
-        "packagesPath": "C:\\Users\\VirteN\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\VirteN\\Desktop\\Visual Code\\сайттервер\\mathStatisticsProject\\Server\\obj\\",
+        "projectPath": "C:\\Users\\Harmony\\Documents\\GitHub\\mathStatisticsProject\\Server\\MathStatisticsProject.csproj",
+        "packagesPath": "C:\\Users\\Harmony\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Harmony\\Documents\\GitHub\\mathStatisticsProject\\Server\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\VirteN\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Harmony\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -144,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\Harmony\\.dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
