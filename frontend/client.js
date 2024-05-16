@@ -133,7 +133,7 @@ async function postStudentJsonAsync(student) {
 }
 
 async function getTableJsonAsync(relativeUrl) {
-
+  
 }
 
 async function postOneAttendanceJsonAsync(attendance) {
