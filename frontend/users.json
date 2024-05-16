@@ -1,5 +1,6 @@
 [
-    { "id": 1, "login": "user1", "password": "password1" },
-    { "id": 2, "login": "user2", "password": "password2" },
-    { "id": 3, "login": "veryverylonglogin", "password": "password3"}
+    { "id": "6de4dd70-aeaa-4dee-807e-f7f8532756b8", "login": "Вася Пупкин 1", "password": "password" },
+    { "id": "18b38dd3-5095-4aba-95b8-67d65930a204", "login": "Вася Пупкин 2", "password": "password" },
+    { "id": "8d841c70-3990-40a3-b895-c13de27298f5", "login": "Сильвестер Сталоне Машина", "password": "password" },
+    { "id": "3c0bc991-50c4-44d2-a82a-df5124ebf115", "login": "Джейсон Цитатный Мастер", "password": "password" }
 ]
