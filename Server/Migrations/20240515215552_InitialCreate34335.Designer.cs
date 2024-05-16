@@ -12,6 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathStatisticsProject.Migrations
 {
     [DbContext(typeof(Context))]
+
     [Migration("20240515215552_InitialCreate34335")]
     partial class InitialCreate34335
     {
@@ -215,6 +216,17 @@ namespace MathStatisticsProject.Migrations
                         .IsRequired();
 
                     b.Navigation("Lesson");
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("MathStatisticsProject.Models.Score", b =>
+                {
+                    b.HasOne("MathStatisticsProject.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Student");
                 });

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="table_styles.css">
+    <link rel="stylesheet" href="header_and_footer.css">
+    <title>StatVizorium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header_wrap">
+        <header class="header">
+            <a href="#">
+                <img src="шапка 1.svg" alt="">
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Отправка</a></li>
+                    <li><a href="#">Проверка</a></li>
+                    <li><a href="#">Войти</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="select_block">
+        <select class="group" onchange="onGroupChange(event)">
+            <option selected disabled>Группа</option>
+            <option>ФТ-201</option>
+            <option>ФТ-202</option>
+            <option>ФТ-203</option>
+            <option>ФТ-204</option>
+        </select>
+    </div>
+    <div class="table_block"></div>
+
+    <div class="footer_wrap">
+        <footer class="footer">
+            <a href="#">
+                <img src="Vector.png" alt="" width="250px" height="250px">
+            </a>
+        </footer>
+    </div>
+
+      <script src="table.js"></script>
+</body>
+</html>

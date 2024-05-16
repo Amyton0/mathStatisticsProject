@@ -7,7 +7,7 @@ public class Filter
 {
     public List<string>? Groups { get; set; }
     public int? HomeworkIndexes { get; set; }
-    public List<Type>? typeHomeworks { get; set; }
+    public List<Complexity>? typeHomeworks { get; set; }
     public List<Status>? statusHomeworks { get; set; }
 }
 

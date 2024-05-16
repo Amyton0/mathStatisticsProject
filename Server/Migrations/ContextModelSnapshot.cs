@@ -227,6 +227,17 @@ namespace MathStatisticsProject.Migrations
 
                     b.Navigation("Student");
                 });
+
+            modelBuilder.Entity("MathStatisticsProject.Models.Score", b =>
+                {
+                    b.HasOne("MathStatisticsProject.Models.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId1")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
+                });
 #pragma warning restore 612, 618
         }
     }
