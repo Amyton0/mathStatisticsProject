@@ -9,61 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="30b50c03-215b-425a-81be-26b6c3e47c3f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MathStatisticsProject/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515212226_InitialCreate1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20240515212226_InitialCreate1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Migrations/20240515215552_InitialCreate34335.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Migrations/20240515215552_InitialCreate34335.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/AutoMapper.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Google.Apis.Core.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Humanizer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/bin/Debug/net6.0/MathStatisticsProject.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/bin/Debug/net6.0/MathStatisticsProject.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/bin/Debug/net6.0/MathStatisticsProject.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/MathStatisticsProject.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/bin/Debug/net6.0/MathStatisticsProject.runtimeconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.AspNetCore.Authentication.Google.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.AspNetCore.Cryptography.Internal.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.AspNetCore.DataProtection.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.AspNetCore.DataProtection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.AspNetCore.JsonPatch.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Design.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.Relational.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.EntityFrameworkCore.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.Extensions.Caching.Memory.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.Extensions.DependencyInjection.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.Extensions.Logging.Abstractions.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Microsoft.OpenApi.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Newtonsoft.Json.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Npgsql.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Swashbuckle.AspNetCore.Swagger.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/System.Security.Cryptography.Pkcs.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/System.Security.Cryptography.Xml.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/bin/Debug/net6.0/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/bin/Debug/net6.0/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/nunit.framework.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/nunit.framework.legacy.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/net6.0/runtimes/win/lib/net6.0/System.Security.Cryptography.Pkcs.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240515212226_InitialCreate1.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Migrations/20240515212226_InitialCreate1.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfo.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/net6.0/MathStatisticsProject.sourcelink.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/obj/MathStatisticsProject.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/checking.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/checking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/checking.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/checking.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/client.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +106,7 @@
       <workItem from="1715781674607" duration="12951000" />
       <workItem from="1715806887528" duration="7658000" />
       <workItem from="1715814721580" duration="5633000" />
+      <workItem from="1715823500067" duration="296000" />
     </task>
     <task id="LOCAL-00001" summary="123">
       <created>1715693082829</created>
