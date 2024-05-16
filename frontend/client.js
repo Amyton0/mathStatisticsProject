@@ -132,8 +132,19 @@ async function postStudentJsonAsync(student) {
 
 }
 
-async function getTableJsonAsync(relativeUrl) {
-
+async function getTableJsonAsync(left, right) {
+  try {
+    const response = await fetch(`${API_URL}/Table?` + new URLSearchParams({
+      leftDate: left,
+      rightDate: right,
+    }))
+    if (response.ok) {
+        return response.json();
+    }
+    throw new Error(`Bad response status: ${response.status}`)
+} catch (error) {
+    console.log(error);
+}
 }
 
 async function postOneAttendanceJsonAsync(attendance) {
