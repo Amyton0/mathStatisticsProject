@@ -1,5 +1,5 @@
-//import { postScoresJsonAsync } from './client.js';
-import { postAttendancesJsonAsync } from './client.js';
+import {postScoresJsonAsync, postAttendancesJsonAsync, getStudentJsonAsync, getTableJsonAsync} from './client.js';
+
 
 let lessons = getTableJsonAsync();
 let students = {
@@ -177,7 +177,7 @@ function onGroupChange(event) {
 
             console.log(scores);
 
-            //saveAttendances(attendances);
+            await postAttendancesJsonAsync(attendances)
 
             await postScoresJsonAsync(scores);
         });
@@ -187,25 +187,4 @@ function onGroupChange(event) {
     }
 
     block.appendChild(table);
-}
-
-function saveAttendances(students) {
-    postAttendancesJsonAsync(students)
-}
-
-
-
-function changeAttendance(element, name, group, date) {
-    students[group][name][date].attendance = element.checked;
-    console.log(students[group][name])
-}
-
-function changePoints(element, name, group, date) {
-    students[group][name][date].points = Number(element.value);
-    console.log(students[group][name])
-}
-
-function changeHWPoints(element, name, group, date) {
-    students[group][name][date].homeworkPoints = Number(element.value);
-    console.log(students[group][name])
 }
