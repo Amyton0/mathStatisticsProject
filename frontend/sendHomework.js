@@ -79,4 +79,3 @@ function SendToServer() {
 document.getElementById("sendingForm").addEventListener('submit', function(event){
     event.preventDefault();
 })
-

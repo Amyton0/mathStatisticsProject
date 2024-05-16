@@ -77,16 +77,16 @@ body {
   min-width: 1060px;
 }
 
-/* .content_block {
+.content_block_solutions {
   width: 1100px;
   height: 400px;
   color: #FFFFFF;
   margin-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
-} */
+}
 
-.content_block {
+.content_block_checking {
   width: 1100px;
   height: 400px;
   background-color: #2670B4;
