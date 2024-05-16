@@ -1,3 +1,5 @@
+import {getHomeworksJsonAsync} from './client.js';
+
 let student = 'Терещенко Семён'
 
 let filteredHomeworks = [];
@@ -52,7 +54,7 @@ function filterHWs() {
 
         homework.addEventListener('click', () => {
             if (element.isChecked) {
-                document.getElementsByClassName("checked_header")[0].innerText = 'Проверяющий - ' + ;
+                document.getElementsByClassName("checked_header")[0].innerText = 'Проверяющий - ' + 'vasa';
                 document.getElementsByClassName("message")[0].innerText = element.message;
                 document.getElementsByClassName("solution_points_block")[0].innerText = 'Сумма баллов = ' + element.points;
                 currentHomework = filteredHomeworks.indexOf(element);

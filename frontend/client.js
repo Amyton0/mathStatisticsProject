@@ -27,7 +27,7 @@ export async function getHomeworksJsonAsync(groups=null, index=null, types=null,
       }
       types = newTypes;
     }
-    if (!statuses) status = ['Checked', 'Sended'];
+    if (!status) status = ['Checked', 'Sended'];
     else
     {
       if (isChecked) status = ['Checked'];
