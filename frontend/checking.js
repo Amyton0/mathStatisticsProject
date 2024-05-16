@@ -1,33 +1,4 @@
-let homeworks = [
-    {
-        name: 'Терещенко Семён',
-        isChecked: false,
-        type: 'Дорешка',
-        group: 'ФТ-204',
-        filePath: '../hws/HomeworkSemen.pdf',
-        filename: 'HomeworkSemen.pdf',
-        studentMessage: 'пУпуцпупупупуцфпуфпцппфцупупыфпвыщпораврдпваорпдлоа',
-        number: 1,
-        comment: null,
-        points: 0,
-        whoChecked: null
-    }, 
-    {
-        name: 'Бабинцев Дмитрий',
-        isChecked: true,
-        type: 'Обычное',
-        group: 'ФТ-204',
-        filePath: '../hws/HomeworkDmitry.pdf',
-        filename: 'HomeworkDmitry.pdf',
-        studentMessage: 'аааа ыыыыы аалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяв',
-        number: 2,
-        comment: null,
-        points: 0,
-        whoChecked: null
-    }
-]
-
-let filteredHomeworks = homeworks.slice(0);
+import {getHomeworksJsonAsync, getStudentJsonAsync} from './client.js';
 
 let chooseNumber = document.getElementsByClassName('number')[0];
 let chooseGroup = document.getElementsByClassName('group')[0];
@@ -44,53 +15,36 @@ let isChecked = null;
 
 send.addEventListener('click', sendMessage)
 
-function onTypeChange(event) {
+async function onTypeChange(event) {
     if (currentTypes == null) currentTypes = [];
     if (event.target.checked) currentTypes.push(event.target.value);
     else currentTypes = currentTypes.filter((type) => type !== event.target.value);
-    console.log(currentTypes)
-    filterHWs();
+    await filterHWs();
 }
 
-function onGroupChange(event) {
+async function onGroupChange(event) {
     if (currentGroups == null) currentGroups = [];
     if (event.target.checked) currentGroups.push(event.target.value);
     else currentGroups = currentGroups.filter((group) => group !== event.target.value);
-    filterHWs();
+    await filterHWs();
 }
 
-function onNumberChange(event) {
+async function onNumberChange(event) {
     currentNumber = event.target.value;
-    filterHWs();
+    await filterHWs();
 }
 
-function onStatusChange(event) {
+async function onStatusChange(event) {
     const selectedValue = event.target.value;
     if (selectedValue === 'Проверено') isChecked = true;
     else if (selectedValue === 'Не проверено') isChecked = false;
     else isChecked = null;
-    filterHWs();
+    await filterHWs();
 }
 
-function filterHWs() {
-    filteredHomeworks = [];
-    for (let index = 0; index < homeworks.length; index++) {
-        const element = homeworks[index];
-        if (currentNumber != '') {
-            if (element.number != Number(currentNumber)) continue;
-        }
-        if (currentGroups != null) {
-            if (!currentGroups.includes(element.group)) continue;
-        }
-        if (currentTypes != null) {
-            if (!currentTypes.includes(element.type)) continue;
-        }
-        if (isChecked != null) {
-            if (element.isChecked != isChecked) continue;
-        }
-        filteredHomeworks.push(element)
-    }
-    
+async function filterHWs() {
+    const filteredHomeworks = await getHomeworksJsonAsync(currentGroups, currentNumber, currentTypes, isChecked);
+
     let homeworksEl = document.getElementsByClassName("homeworks")[0];
 
     while (homeworksEl.firstChild) {
@@ -101,20 +55,23 @@ function filterHWs() {
         const element = filteredHomeworks[i];
 
         var homework = document.createElement('div');
-  
+
         homework.classList.add('homework');
 
-        let text = `${element.name} - ${element.group}|ДЗ - ${element.number}`
+        let student = filteredHomeworks[i].student;//await getStudentJsonAsync(element.studentId);
+        let name = [student.firstName, student.secondName, student.thirdName].join(' ');
 
-        if (element.isChecked) text += ' ☑';
-        if (element.type == 'Дорешка') text += ' ↪'
-  
+        let text = `${name} - ${student.group}|ДЗ - ${element.number}`
+
+        if (element.status === 'Checked') text += ' ☑';
+        //if (element.type == 'Дорешка') text += ' ↪'
+
         homework.innerText = text;
 
         homeworksEl.appendChild(homework);
 
         homework.addEventListener('click', () => {
-            document.getElementsByClassName("message")[0].innerText = element.studentMessage;
+            document.getElementsByClassName("message")[0].innerText = element.message;
             currentHomework = filteredHomeworks.indexOf(element);
 
             let downloadButton = document.createElement('input');
@@ -125,15 +82,15 @@ function filterHWs() {
 
             downloadButton.addEventListener('click', () => {
                 var link = document.createElement('a');
-                
-                link.setAttribute('href', element.filePath); 
-                link.setAttribute('download', element.filename); 
+
+                link.setAttribute('href', element.content);
+                link.setAttribute('download', element.content.split('/').at(-1));
                 link.setAttribute('target', '_blank');
                 link.style.display = 'none';
-                    
+
                 document.body.appendChild(link);
                 link.click();
-                    
+
                 document.body.removeChild(link);
             });
 
@@ -141,7 +98,7 @@ function filterHWs() {
 
             if (buttonBlock.firstChild) {
                 buttonBlock.removeChild(buttonBlock.firstChild);
-            } 
+            }
 
             buttonBlock.appendChild(downloadButton);
         })
@@ -153,10 +110,10 @@ function sendMessage() {
     let messageEl = document.getElementsByClassName("comment")[0];
 
     if (pointsEl.value) {
-        homeworks[currentHomework].comment = messageEl.value;
+        homework[currentHomework].message = messageEl.value;
         homeworks[currentHomework].points = Number(pointsEl.value);
-        homeworks[currentHomework].isChecked = true;
-
+        homeworks[currentHomework].status = 'Checked';
+        putHomeworkJsonAsync(homeworks[currentHomework])
         pointsEl.value = null;
         messageEl.value = null;
 

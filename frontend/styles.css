@@ -62,8 +62,6 @@
 
 body {
   padding-top: 220px;
-  /*display: flex;*/
-  /*flex-direction: column;*/
   background-color: #110F2C;
 }
 
@@ -554,6 +552,7 @@ input[type="number"]:focus {
   font-size: 2rem;
   border-radius: 24px;
   outline: none;
+  resize: none;
 }
 
 .sending_comment > textarea::placeholder {
@@ -634,6 +633,8 @@ button {
   border-radius: 15px;
 }
 
+
+  
   /*footer*/
 
 .footer_wrap {
@@ -643,3 +644,4 @@ button {
   margin: 62px auto;
   flex-grow: 0;
 }
+

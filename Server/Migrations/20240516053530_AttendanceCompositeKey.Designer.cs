@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathStatisticsProject.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20240515212226_InitialCreate1")]
-    partial class InitialCreate1
+    [Migration("20240516053530_AttendanceCompositeKey")]
+    partial class AttendanceCompositeKey
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,22 +26,16 @@ namespace MathStatisticsProject.Migrations
 
             modelBuilder.Entity("MathStatisticsProject.Models.Attendance", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int>("AttendanceStatus")
-                        .HasColumnType("integer");
-
                     b.Property<Guid>("LessonId")
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("StudentId")
                         .HasColumnType("uuid");
 
-                    b.HasKey("Id");
+                    b.Property<int>("AttendanceStatus")
+                        .HasColumnType("integer");
 
-                    b.HasIndex("LessonId");
+                    b.HasKey("LessonId", "StudentId");
 
                     b.HasIndex("StudentId");
 
@@ -85,6 +79,8 @@ namespace MathStatisticsProject.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("LessonId");
+
                     b.HasIndex("StudentId");
 
                     b.ToTable("Homeworks");
@@ -109,22 +105,18 @@ namespace MathStatisticsProject.Migrations
 
             modelBuilder.Entity("MathStatisticsProject.Models.Score", b =>
                 {
-                    b.Property<Guid>("StudentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
                     b.Property<Guid>("LessonId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("StudentId1")
+                    b.Property<Guid>("StudentId")
                         .HasColumnType("uuid");
 
                     b.Property<double>("Value")
                         .HasColumnType("double precision");
 
-                    b.HasKey("StudentId");
+                    b.HasKey("LessonId", "StudentId");
 
-                    b.HasIndex("StudentId1");
+                    b.HasIndex("StudentId");
 
                     b.ToTable("Scores");
                 });
@@ -200,11 +192,19 @@ namespace MathStatisticsProject.Migrations
 
             modelBuilder.Entity("MathStatisticsProject.Models.Homework", b =>
                 {
+                    b.HasOne("MathStatisticsProject.Models.Lesson", "Lesson")
+                        .WithMany()
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("MathStatisticsProject.Models.Student", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Lesson");
 
                     b.Navigation("Student");
                 });
@@ -213,7 +213,7 @@ namespace MathStatisticsProject.Migrations
                 {
                     b.HasOne("MathStatisticsProject.Models.Student", "Student")
                         .WithMany()
-                        .HasForeignKey("StudentId1")
+                        .HasForeignKey("StudentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

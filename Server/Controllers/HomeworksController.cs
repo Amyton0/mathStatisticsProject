@@ -10,6 +10,7 @@ using MathStatisticsProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace MathStatisticsProject.Controllers;
 
 [ApiController]
@@ -70,6 +71,17 @@ public class HomeworksController : ControllerBase
     public async Task<ActionResult> PostHomework([FromBody] PostHomework homework)
     {
         var homeworkEntity = _mapper.Map<Homework>(homework);
+        var lesson = _context.Lessons
+            .Where(l => l.Number == homeworkEntity.Number)
+            .OrderBy(dt => dt.Date - homeworkEntity.Send)
+            .FirstOrDefault();
+        
+        if (lesson == null)
+        {
+            return NotFound();
+        }
+
+        homeworkEntity.LessonId = lesson.Id;
         homeworkEntity.Send = DateTime.SpecifyKind(homeworkEntity.Send, DateTimeKind.Utc).ToUniversalTime();
         if (!await _homeworkRepository.SendHomeWork(homeworkEntity))
         {

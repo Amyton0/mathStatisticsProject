@@ -5,7 +5,6 @@ namespace MathStatisticsProject.PostModels
 {
     public class PostHomework
     {
-        public Guid Id { get; set; }
         public Models.Complexity Complexity { get; set; }
         public int Number { get; set; }
         public DateTime Send { get; set; }
@@ -14,6 +13,5 @@ namespace MathStatisticsProject.PostModels
         public string Message { get; set; }
         public string Content { get; set; }
         public double Points { get; set; }
-        public Guid LessonId { get; set; }
     }
 }

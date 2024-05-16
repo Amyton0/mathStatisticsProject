@@ -1,7 +1,6 @@
 using System.Text;
 using Application.Services.Students;
 using AutoMapper;
-using Google;
 using MathStatisticsProject.Data;
 using MathStatisticsProject.GetModels;
 using MathStatisticsProject.Models;
@@ -46,6 +45,7 @@ builder.Services.AddScoped<AttendanceRepository>();
 builder.Services.AddDbContext<Context>();
 // Add repositories
 builder.Services.AddScoped<StudentService>();
+builder.Services.AddCors();
 
 
 var app = builder.Build();
@@ -64,7 +64,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -74,5 +74,5 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.Run();

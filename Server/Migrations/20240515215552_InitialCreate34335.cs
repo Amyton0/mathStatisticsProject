@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MathStatisticsProject.Migrations
 {
-    public partial class InitialCreate1 : Migration
+    public partial class InitialCreate34335 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -96,6 +96,12 @@ namespace MathStatisticsProject.Migrations
                 {
                     table.PrimaryKey("PK_Homeworks", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_Homeworks_Lessons_LessonId",
+                        column: x => x.LessonId,
+                        principalTable: "Lessons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_Homeworks_Students_StudentId",
                         column: x => x.StudentId,
                         principalTable: "Students",
@@ -132,6 +138,11 @@ namespace MathStatisticsProject.Migrations
                 name: "IX_Attendances_StudentId",
                 table: "Attendances",
                 column: "StudentId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Homeworks_LessonId",
+                table: "Homeworks",
+                column: "LessonId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Homeworks_StudentId",
