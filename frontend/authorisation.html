@@ -50,8 +50,8 @@
                         }
                         localStorage.setItem("userId", userId);
                         localStorage.setItem("login", username);
-
-                        window.history.back();
+                        
+                        window.location.href = 'http://127.0.0.1:5500/frontend/Send_page.html';
                     } else {
                         alert("Invalid username or password. Please try again.");
                     }
