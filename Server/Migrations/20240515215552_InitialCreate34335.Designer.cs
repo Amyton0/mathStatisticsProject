@@ -12,13 +12,9 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace MathStatisticsProject.Migrations
 {
     [DbContext(typeof(Context))]
-<<<<<<<< HEAD:Server/Migrations/20240515212226_InitialCreate1.Designer.cs
-    [Migration("20240515212226_InitialCreate1")]
-    partial class InitialCreate1
-========
+
     [Migration("20240515215552_InitialCreate34335")]
     partial class InitialCreate34335
->>>>>>>> Semen:Server/Migrations/20240515215552_InitialCreate34335.Designer.cs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

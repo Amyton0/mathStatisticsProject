@@ -1,33 +1,6 @@
-let homeworks = [
-    {
-        name: 'Терещенко Семён',
-        isChecked: false,
-        type: 'Дорешка',
-        group: 'ФТ-204',
-        filePath: '../hws/HomeworkSemen.pdf',
-        filename: 'HomeworkSemen.pdf',
-        studentMessage: 'пУпуцпупупупуцфпуфпцппфцупупыфпвыщпораврдпваорпдлоа',
-        number: 1,
-        comment: null,
-        points: 0,
-        whoChecked: null
-    }, 
-    {
-        name: 'Бабинцев Дмитрий',
-        isChecked: true,
-        type: 'Обычное',
-        group: 'ФТ-204',
-        filePath: '../hws/HomeworkDmitry.pdf',
-        filename: 'HomeworkDmitry.pdf',
-        studentMessage: 'аааа ыыыыы аалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяваалдповдлавдлмвдламтавдлмтвадмдавмтавтмамлавтмвдамтадвмвадлмвамтавдмтавдлмтамтвлмтыдлваоылаоылоаылаоылваолстывлыдвстылдтслывслвдысьдысждфваовдофдыаовлдаовдаджвосждвфсджвджьдвсдвяжлмалтсатмлажвмтлаоымтваовмтаыовмтажымаоытможмтяпбочптмопвбтобвииииилвтжядвдлптивтдипвлитяв',
-        number: 2,
-        comment: null,
-        points: 0,
-        whoChecked: null
-    }
-]
+import {getHomeworksJsonAsync} from './client.js';
 
-let filteredHomeworks = homeworks.slice(0);
+let filteredHomeworks = [];
 
 let chooseNumber = document.getElementsByClassName('number')[0];
 let chooseGroup = document.getElementsByClassName('group')[0];
@@ -59,9 +32,10 @@ function onGroupChange(event) {
     filterHWs();
 }
 
-function onNumberChange(event) {
+async function onNumberChange(event) {
     currentNumber = event.target.value;
-    filterHWs();
+    await filterHWs();
+    console.log("ASDFdsafsdf");
 }
 
 function onStatusChange(event) {
@@ -72,24 +46,8 @@ function onStatusChange(event) {
     filterHWs();
 }
 
-function filterHWs() {
-    filteredHomeworks = [];
-    for (let index = 0; index < homeworks.length; index++) {
-        const element = homeworks[index];
-        if (currentNumber != '') {
-            if (element.number != Number(currentNumber)) continue;
-        }
-        if (currentGroups != null) {
-            if (!currentGroups.includes(element.group)) continue;
-        }
-        if (currentTypes != null) {
-            if (!currentTypes.includes(element.type)) continue;
-        }
-        if (isChecked != null) {
-            if (element.isChecked != isChecked) continue;
-        }
-        filteredHomeworks.push(element)
-    }
+async function filterHWs() {
+    filteredHomeworks = await getHomeworksJsonAsync(currentGroups, currentNumber, currentTypes, isChecked);
     
     let homeworksEl = document.getElementsByClassName("homeworks")[0];
 
@@ -104,17 +62,20 @@ function filterHWs() {
   
         homework.classList.add('homework');
 
-        let text = `${element.name} - ${element.group}|ДЗ - ${element.number}`
+        let student = getStudentJsonAsync(element.studentId);
+        let name = [student.firstName, student.secondName, student.thirdName].join(' ');
 
-        if (element.isChecked) text += ' ☑';
-        if (element.type == 'Дорешка') text += ' ↪'
+        let text = `${name} - ${student.group}|ДЗ - ${element.number}`
+
+        if (element.status === 'Checked') text += ' ☑';
+        //if (element.type == 'Дорешка') text += ' ↪'
   
         homework.innerText = text;
 
         homeworksEl.appendChild(homework);
 
         homework.addEventListener('click', () => {
-            document.getElementsByClassName("message")[0].innerText = element.studentMessage;
+            document.getElementsByClassName("message")[0].innerText = element.message;
             currentHomework = filteredHomeworks.indexOf(element);
 
             let downloadButton = document.createElement('input');
@@ -126,8 +87,8 @@ function filterHWs() {
             downloadButton.addEventListener('click', () => {
                 var link = document.createElement('a');
                 
-                link.setAttribute('href', element.filePath); 
-                link.setAttribute('download', element.filename); 
+                link.setAttribute('href', element.content); 
+                link.setAttribute('download', element.content.split('/').at(-1)); 
                 link.setAttribute('target', '_blank');
                 link.style.display = 'none';
                     
@@ -153,10 +114,10 @@ function sendMessage() {
     let messageEl = document.getElementsByClassName("comment")[0];
 
     if (pointsEl.value) {
-        homeworks[currentHomework].comment = messageEl.value;
+        homework[currentHomework].message = messageEl.value;
         homeworks[currentHomework].points = Number(pointsEl.value);
-        homeworks[currentHomework].isChecked = true;
-
+        homeworks[currentHomework].status = 'Checked';
+        putHomeworkJsonAsync(homeworks[currentHomework])
         pointsEl.value = null;
         messageEl.value = null;
 
